@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Poppins,Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["400", "700", "900"],
   subsets: ["latin"],
 });
 
 const inter = Inter({
-  subsets: ["latin"],
   variable: "--font-inter",
-});
+  weight: ["400", "700", ],
+  subsets: ["latin"],
+})
 
 export const metadata: Metadata = {
   title: "Beranda - SMPN 2 Katapang",
@@ -30,11 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
-      >
-        <Navbar/> 
-        {children}
+      <body className={` ${poppins.className} antialiased`}>
+        <Navbar />
+        <div className="mt-10 font-poppins">{children}</div>
       </body>
     </html>
   );
