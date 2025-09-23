@@ -4,8 +4,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "./ui/carousel";
 import CountUp from "./CountUp";
 
@@ -34,7 +32,7 @@ export default function CarouselHero() {
         {/* <CarouselPrevious />
       <CarouselNext /> */}
         <div className="absolute z-30 flex flex-col justify-center items-center lg:w-35 lg:h-35 md:w-25 md:h-25 sm:w-26 sm:h-26  w-20 h-20 mr-5 bg-white border-3 border-[#67866B] lg:top-20 sm:top-4 top-0 -right-5 rotate-15 rounded-2xl ">
-          <h1 className="text-[#4D6450] font-bold text-xl lg:text-2xl">
+          <h1 className="text-[#4D6450] font-bold text-xl lg:text-3xl">
             <CountUp
               from={0}
               to={1.419}
@@ -48,7 +46,7 @@ export default function CarouselHero() {
         </div>
         <div className="absolute z-30 lg:w-35 lg:h-35 md:w-25 md:h-25 w-20 sm:w-26 sm:h-26 flex flex-col justify-center items-center h-20 mr-5 bg-white border-3 border-[#67866B] lg:top-64 sm:top-40 top-30 -right-6 -rotate-15 rounded-2xl ">
           {" "}
-          <h1 className="text-[#4D6450] font-bold text-xl lg:text-2xl">
+          <h1 className="text-[#4D6450] font-bold text-xl lg:text-3xl">
             <CountUp
               from={0}
               to={56}
@@ -62,7 +60,7 @@ export default function CarouselHero() {
         </div>
         <div className="absolute z-30 lg:w-35 lg:h-35 md:w-25 md:h-25 sm:w-26 sm:h-26 w-20 h-20 mr-5 flex flex-col justify-center items-center bg-white border-3 border-[#67866B] lg:top-107 sm:top-80 top-60 -right-7 rotate-10 rounded-2xl ">
           {" "}
-          <h1 className="text-[#4D6450] font-bold text-xl lg:text-2xl">
+          <h1 className="text-[#4D6450] font-bold text-xl lg:text-3xl">
             <CountUp
               from={0}
               to={50}

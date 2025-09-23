@@ -1,9 +1,9 @@
 import Image from "next/image";
-import CarouselHero from "./CarouselHero";
+import CarouselHero from "../CarouselHero";
 
 export default function HeroSection() {
   return (
-    <main className="relative w-full min-h-screen bg-image overflow-hidden">
+    <section className="relative w-full min-h-screen bg-image overflow-hidden">
       <div className="absolute -top-78 -left-60 z-10 w-[1000px] h-[700px] -rotate-16 lg:w-[2000px] lg:h-[2000px] md:w-[2000px] md:h-[1500px] md:rotate-10 lg:rotate-0 md:-top-240 md:-left-210">
         <Image
           src="/kotak1.png"
@@ -34,6 +34,6 @@ export default function HeroSection() {
           <CarouselHero />
         </div>
       </section>
-    </main>
+    </section>
   );
 }
