@@ -10,7 +10,7 @@ export default function BodyVisiMisi() {
     },
     {
       id: 2,
-      body: " Membangun hubungan harmonis dengan orang tua, masyarakat, serta mitra kerja sama eksternal.",
+      body: "Membangun hubungan harmonis dengan orang tua, masyarakat, serta mitra kerja sama eksternal.",
     },
     {
       id: 3,
@@ -18,48 +18,61 @@ export default function BodyVisiMisi() {
     },
     {
       id: 4,
-      body: " Menjalin kerja sama dengan berbagai instansi untuk memperluas jejaring dan peluang kolaborasi.",
+      body: "Menjalin kerja sama dengan berbagai instansi untuk memperluas jejaring dan peluang kolaborasi.",
     },
     {
       id: 5,
-      body: "  Menjadi garda depan dalam publikasi kegiatan dan pencapaian sekolah.",
+      body: "Menjadi garda depan dalam publikasi kegiatan dan pencapaian sekolah.",
     },
   ];
-  return (
-    <div className="relative z-10 min-h-screen px-5 lg:px-50 pt-25">
-      <div className="">
-        <div className="absolute z-20 ">
-          <Image src={"/Card.png"} alt="Card" width={600} height={600} />
-        </div>
-        <div className="absolute z-20 flex flex-col justify-center items-center p-10 max-w-150">
-          <Image
-            src={"/visilogo.png"}
-            alt="Visi logo"
-            width={200}
-            height={200}
-          />
-          <p className="max-w-2xl text-4xl flex justify-center items-center text-center mt-4 text-[#EDEDED]">
-            {VISI}
-          </p>
-        </div>
-      </div>
 
-      <div className="ml-200 mt-35">
-        <div className="absolute z-20 ">
-          <Image src={"/Card.png"} alt="Card" width={600} height={600} />
+  return (
+    <div className="min-h-screen w-full flex items-center justify-center p-5 bg-gray-100">
+      <div className="relative w-full max-w-7xl lg:h-[600px]">
+        <div className="relative w-full max-w-lg mx-auto flex flex-col rounded-xl overflow-hidden shadow-lg lg:absolute lg:top-0 lg:left-0 min-h-[380px]">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={"/Card.png"}
+              alt="Card Background"
+              layout="fill"
+              objectFit="cover"
+              quality={80}
+            />
+          </div>
+          <div className="relative z-10 flex flex-col flex-grow justify-center items-center p-8 text-center text-[#EDEDED]">
+            <Image
+              src={"/visilogo.png"}
+              alt="Visi Logo"
+              width={120}
+              height={120}
+              className="w-24 md:w-32"
+            />
+            <p className="text-lg md:text-2xl mt-4">{VISI}</p>
+          </div>
         </div>
-        <div className="absolute z-20 flex flex-col justify-center items-center p-10 max-w-150 ">
-          <Image
-            src={"/misilogo.png"}
-            alt="Visi logo"
-            width={200}
-            height={200}
-            className="shadow-5xl "
-          />
-          <div className="sm:rounded-lg overflow-hidden mt-5">
-            <ul className="max-w-2xl text-xl list-disc list-inside space-y-3 text-[#EDEDED]">
+        <div className="relative w-full max-w-120 mx-auto mt-8 flex flex-col rounded-xl overflow-hidden shadow-lg lg:mt-0 lg:absolute lg:bottom-0 lg:right-0 min-h-[380px]">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={"/Card.png"}
+              alt="Card Background"
+              layout="fill"
+              objectFit="cover"
+              quality={80}
+            />
+          </div>
+          <div className="relative z-10 flex flex-col flex-grow justify-center p-8 text-[#EDEDED]">
+            <div className="flex justify-center mb-4">
+              <Image
+                src={"/misilogo.png"}
+                alt="Misi Logo"
+                width={120}
+                height={120}
+                className="w-24 md:w-32"
+              />
+            </div>
+            <ul className="text-base md:text-lg list-disc list-inside space-y-2 text-left">
               {MISI.map((item) => (
-                <li key={item.id}>{item.body};</li>
+                <li key={item.id}>{item.body}</li>
               ))}
             </ul>
           </div>
