@@ -1,16 +1,14 @@
 import Image from "next/image";
-
-// Prop `decoration` saat ini belum digunakan, tapi strukturnya sudah benar.
-export default function Title(props: { decoration: string }) {
+export default function TitleSambutan() {
   
   return (
-    <div className="relative flex justify-center items-center mt-20 w-full ">
-      <div className="absolute z-0 left-60">
+    <div className="relative flex justify-center -top-10 items-center w-full p-5">
+      <div className="absolute z-0 left-120 hidden lg:block">
         <Image
           src={"/circle.png"}
           alt="Latar belakang lingkaran"
-          width={400}
-          height={400}
+          width={200}
+          height={200}
         />
       </div>
 
