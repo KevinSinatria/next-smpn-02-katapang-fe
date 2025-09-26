@@ -1,14 +1,21 @@
 import Image from "next/image";
+import CurvedLoop from "./CurvedLoop";
 export default function TitleSambutan() {
-  
   return (
     <div className="relative flex justify-center -top-10 items-center w-full p-5">
-      <div className="absolute z-0 left-120 hidden lg:block">
-        <Image
-          src={"/circle.png"}
-          alt="Latar belakang lingkaran"
-          width={200}
-          height={200}
+      <div className="absolute z-0 left-10 w-400  hidden lg:block -mt-60 -ml-10">
+        <CurvedLoop
+          // marqueeText="Ramah ✦ Energik ✦ Sopan ✦ Inovatif ✦ Kreatif ✦"
+          // speed={3}
+          // curveAmount={500}
+          // direction="left"
+          // interactive={true}
+          // className="custom-text-style text-orange-400"
+
+          marqueeText="Ramah ✦ Energik ✦ Sopan ✦ Inovatif ✦ Kreatif ✦"
+          speed={3}
+          curveAmount={600}
+          interactive={false}
         />
       </div>
 
@@ -16,12 +23,11 @@ export default function TitleSambutan() {
         <Image
           src={"/sambutankepalasekolah.png"}
           alt="Sambutan Kepala Sekolah"
-          width={500} 
-          height={100} 
+          width={500}
+          height={100}
           className="rounded-lg"
         />
       </div>
-
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import SplitText from "./SplitText";
+
 
 export default function BodyVisiMisi() {
   const VISI =
@@ -30,7 +32,7 @@ export default function BodyVisiMisi() {
     <div className="min-h-screen w-full flex items-center justify-center p-5 bg-image">
       <div className="relative w-full max-w-7xl lg:h-[600px]">
         <div className="relative w-full max-w-lg mx-auto flex flex-col rounded-xl overflow-hidden shadow-lg lg:absolute lg:top-0 lg:left-0 min-h-[380px]">
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-10">
             <Image
               src={"/Card.png"}
               alt="Card Background"
@@ -47,11 +49,24 @@ export default function BodyVisiMisi() {
               height={120}
               className="w-24 md:w-32"
             />
-            <p className="text-lg md:text-2xl mt-4">{VISI}</p>
+            <div className="text-lg md:text-2xl mt-4">
+              <SplitText
+                text={VISI}
+                delay={10}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="start"
+              />
+            </div>
           </div>
         </div>
         <div className="relative w-full max-w-120 mx-auto mt-8 flex flex-col rounded-xl overflow-hidden shadow-lg lg:mt-0 lg:absolute lg:bottom-0 lg:right-0 min-h-[380px]">
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-10">
             <Image
               src={"/Card.png"}
               alt="Card Background"
@@ -72,7 +87,20 @@ export default function BodyVisiMisi() {
             </div>
             <ul className="text-base md:text-lg list-disc list-inside space-y-2 text-left">
               {MISI.map((item) => (
-                <li key={item.id}>{item.body}</li>
+                <div key={item.id}>
+                  <SplitText
+                    text={item.body}
+                    delay={item.id * 10 }
+                    duration={0.6}
+                    ease="power3.out"
+                    splitType="chars"
+                    from={{ opacity: 0, y: 40 }}
+                    to={{ opacity: 1, y: 0 }}
+                    threshold={0.1}
+                    rootMargin="-100px"
+                    textAlign="start"
+                  />
+                </div>
               ))}
             </ul>
           </div>

@@ -1,5 +1,6 @@
 import HeroSection from "@/components/_components/HeroSection";
 import KepalaSekollah from "@/components/_components/KepalaSekolah";
+import StaffSekolahSection from "@/components/_components/StaffSekolah";
 import VisiMisiSection from "@/components/_components/VisiMisiSection";
 import Title from "@/components/TitleSambutan";
 
@@ -9,6 +10,7 @@ export default function Home() {
       <HeroSection />
       <VisiMisiSection />
       <KepalaSekollah/>
+      <StaffSekolahSection/>
     </main>
   );
 }
