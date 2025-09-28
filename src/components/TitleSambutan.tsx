@@ -11,7 +11,6 @@ export default function TitleSambutan() {
           // direction="left"
           // interactive={true}
           // className="custom-text-style text-orange-400"
-
           marqueeText="Ramah ✦ Energik ✦ Sopan ✦ Inovatif ✦ Kreatif ✦"
           speed={3}
           curveAmount={600}
