@@ -1,3 +1,4 @@
+import ArtikelSection from "@/components/_components/ArtikelSection";
 import GaleriSection from "@/components/_components/GaleriSection";
 import HeroSection from "@/components/_components/HeroSection";
 import KepalaSekollah from "@/components/_components/KepalaSekolah";
@@ -13,6 +14,7 @@ export default function Home() {
       <KepalaSekollah/>
       <StaffSekolahSection/>
       <GaleriSection/>
+      <ArtikelSection/>
     </main>
   );
 }
