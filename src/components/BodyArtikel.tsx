@@ -1,6 +1,6 @@
-import { Move, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import Image from "next/image";
-import CardArtikelBeranda from "./CardArtikelBeranda";
+import ListCardArtikel from "./ListCardArtikel";
 
 const categoriArtikel = [
   {
@@ -52,24 +52,7 @@ export default function BodyArtikel() {
           ))}
         </div>
       </div>
-      <div className="w-full  p-15 grid grid-cols-2 gap-5">
-        <CardArtikelBeranda
-          title="Aku Seorang Kapiten Mempunyai Pedang Panjang"
-          tanggal={new Date("2019-08-24T14:15:22Z")}
-          image="/galeriBeranda/gambar1.png"
-        />
-        <CardArtikelBeranda
-          title="Aku Seorang Kapiten Mempunyai Pedang Panjang"
-          tanggal={new Date("2019-08-24T14:15:22Z")}
-          image="/galeriBeranda/gambar2.png"
-        />
-        <CardArtikelBeranda
-          title="Aku Seorang Kapiten Mempunyai Pedang Panjang"
-          tanggal={new Date("2019-08-24T14:15:22Z")}
-          image="/galeriBeranda/gambar3.png"
-        />
-        Waqqir Ganteng Banget anjayy Mabarr
-      </div>
+      <ListCardArtikel />
     </div>
   );
 }
