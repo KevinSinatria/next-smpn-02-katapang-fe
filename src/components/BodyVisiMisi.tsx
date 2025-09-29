@@ -31,7 +31,7 @@ export default function BodyVisiMisi() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-5 bg-image">
       <div className="relative w-full max-w-7xl lg:h-[600px]">
-        <div className="relative w-full max-w-lg mx-auto flex flex-col rounded-xl overflow-hidden shadow-lg lg:absolute lg:top-0 lg:left-0 min-h-[380px]">
+        <div className="relative w-full max-w-xl mx-auto flex flex-col rounded-xl overflow-hidden shadow-lg lg:absolute lg:top-0 lg:left-0 min-h-[380px]">
           <div className="absolute inset-0 z-10">
             <Image
               src={"/Card.png"}
@@ -65,7 +65,7 @@ export default function BodyVisiMisi() {
             </div>
           </div>
         </div>
-        <div className="relative w-full max-w-120 mx-auto mt-8 flex flex-col rounded-xl overflow-hidden shadow-lg lg:mt-0 lg:absolute lg:bottom-0 lg:right-0 min-h-[380px]">
+        <div className="relative w-full max-w-xl mx-auto mt-8 flex flex-col rounded-xl overflow-hidden shadow-lg lg:mt-0 lg:absolute lg:bottom-0 lg:right-0 min-h-[380px]">
           <div className="absolute inset-0 z-10">
             <Image
               src={"/Card.png"}

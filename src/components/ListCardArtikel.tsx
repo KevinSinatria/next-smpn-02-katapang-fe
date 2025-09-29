@@ -34,7 +34,7 @@ export default function ListCardArtikel() {
         <CardArtikelBeranda
           title="Ayo Liat Lebih Lanjut Artikel Artikel Kami dengan klik disini"
           tanggal={new Date("2019-08-24T14:15:22Z")}
-          image="/galeriBeranda/gambar1.png"
+          image="/logo_smp2.png"
         />
       </Link>
     </div>
