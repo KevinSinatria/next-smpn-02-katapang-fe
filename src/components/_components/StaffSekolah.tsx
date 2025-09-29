@@ -3,7 +3,7 @@ import BodyStaffSekolah from "../BodyStaffSekolah";
 
 export default function StaffSekolahSection(){
   return(
-    <section className="relative w-full min-h-screen h-280 bg-image">
+    <section className="relative w-full h-[450px] bg-image">
         <TitleStaffSekolah/>
       <BodyStaffSekolah/>
     </section>

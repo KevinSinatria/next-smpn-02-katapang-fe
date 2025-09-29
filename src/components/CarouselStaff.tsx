@@ -12,34 +12,39 @@ import {
 
 const DataGuru = [
   {
+    image: "/kevin.png",
+    name: "Kevin Sinatria Budiman S.Pd",
+    jabatan: "Guru Matematika", 
+  },
+  {
+    image: "/nazmi.png",
+    name: "Nazmi Ramadhani S.Pd",
+    jabatan: "Wakasek Kesiswaan",
+  },
+  {
+    image: "/daffa.png",
+    name: "Daffa Al-Sabri S.Pd",
+    jabatan: "Guru PJOK",
+  },
+  {
+    image: "/rian.png",
+    name: "M. Rian Fauzan S.Pd",
+    jabatan: "Wakasek Kurikulum",
+  },
+  {
+    image: "/waqqir.png",
+    name: "Waqqir Humaid Al Qais S.Pd",
+    jabatan: "Wakasek sarana prasarana",
+  },
+  {
     image: "/rijal.png",
-    name: "Rijal",
+    name: "Rijal Kurniawan s.Pd",
     jabatan: "Guru Sejarah",
   },
   {
-    image: "/kevin.png",
-    name: "Kevin",
-    jabatan: "Guru Matematika", // Koreksi: "Bahasa Matematika" sepertinya typo
-  },
-  {
-    image: "/nazmi.png",
-    name: "Nazmi",
-    jabatan: "Wakasek Kesiswaan",
-  },
-  {
-    image: "/rijal.png", // Ganti dengan data yang berbeda agar lebih bervariasi
-    name: "Rijal 2",
-    jabatan: "Guru Sejarah",
-  },
-  {
-    image: "/kevin.png",
-    name: "Kevin 2",
-    jabatan: "Guru Matematika",
-  },
-  {
-    image: "/nazmi.png",
-    name: "Nazmi 2",
-    jabatan: "Wakasek Kesiswaan",
+    image: "/eqy.png",
+    name: "Eqy Azka Maulana S.Pd",
+    jabatan: "Guru PJOK",
   },
 ]
 
@@ -54,25 +59,20 @@ export function CarouselStaff() {
       <CarouselContent className="-ml-4 py-10">
         {DataGuru.map((item, index) => (
           <CarouselItem key={index} className="pl-4 md:basis-1/3 lg:basis-1/5">
-            {/* 1. Kontainer utama dibuat relative untuk menjadi acuan posisi elemen di dalamnya */}
-            <div className="group relative h-[350px] w-full cursor-pointer">
-              
-              {/* 2. Kartu untuk gambar. Diberi z-index lebih tinggi (z-10) dan efek transisi */}
-              <Card className="absolute inset-0 z-10 h-full w-full transform transition-all duration-500 ease-in-out group-hover:-translate-y-20 border-2 border-gray-300">
+            <div className="group relative h-[370px] w-full cursor-pointer">
+              <Card className="absolute inset-0 z-10 h-full w-full transform transition-all duration-500 ease-in-out group-hover:-translate-y-15 border-0">
                 <CardContent className="flex h-full items-center justify-center p-0">
-                  {/* Pastikan path gambar benar dan ada di folder /public */}
                   <Image
                     src={item.image}
                     alt={`Foto ${item.name}`}
                     width={300}
                     height={300}
-                    className="h-full w-full object-cover"
+                    className="w-full h-full object-cover rounded-lg text-2xl text-black font-bold bg-white "
                   />
                 </CardContent>
               </Card>
 
-              {/* 3. Teks yang berada di belakang. Diberi z-index lebih rendah (z-0) */}
-              <div className="absolute inset-0 z-0 flex h-full w-full flex-col items-center justify-end rounded-lg bg-gray-100 pb-4">
+              <div className="absolute inset-0 z-0 flex h-full w-full flex-col items-center justify-end rounded-lg text-center pb-8 ">
                 <h3 className="text-xl font-bold text-gray-800">{item.name}</h3>
                 <p className="text-sm text-gray-600">{item.jabatan}</p>
               </div>
