@@ -1,7 +1,6 @@
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
 import ListCardArtikel from "./ListCardArtikel";
-import { link } from "fs";
 import Link from "next/link";
 
 const categoriArtikel = [
@@ -32,7 +31,7 @@ export default function BodyArtikel() {
   return (
     <div className="w-full p-10 flex ">
       <div className="max-w-xl p-5 ">
-        <div className="w-full ">
+        <div className="w-full max-w-lg">
           <Image
             src="/kategoriartikel.png"
             alt="Kotak Dekorasi"
@@ -48,7 +47,7 @@ export default function BodyArtikel() {
               key={index}
               className="group my-5 flex cursor-pointer items-center transition-transform duration-300 ease-in-out hover:-translate-y-1"
             >
-              <h1 className="text-4xl text-[#5E8964] font-semibold transition-colors duration-300 group-hover:text-[#F96701]">
+              <h1 className="text-2xl text-[#5E8964] font-semibold transition-colors duration-300 group-hover:text-[#F96701]">
                 {item.category}
               </h1>
               <span className="ml-4 text-3xl text-[#F96701] opacity-0 transition-opacity duration-300 group-hover:opacity-100">

@@ -41,11 +41,6 @@ const DataGuru = [
     name: "Rijal Kurniawan s.Pd",
     jabatan: "Guru Sejarah",
   },
-  {
-    image: "/eqy.png",
-    name: "Eqy Azka Maulana S.Pd",
-    jabatan: "Guru PJOK",
-  },
 ]
 
 export function CarouselStaff() {

@@ -38,7 +38,6 @@ export default function BodyVisiMisi() {
               alt="Card Background"
               layout="fill"
               objectFit="cover"
-              quality={80}
             />
           </div>
           <div className="relative z-10 flex flex-col flex-grow justify-center items-center p-8 text-center text-[#EDEDED]">

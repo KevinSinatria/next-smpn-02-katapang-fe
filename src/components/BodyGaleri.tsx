@@ -74,8 +74,8 @@ const galleryImages = [
 
 export default function BodyGaleri() {
   return (
-    <section className="w-full px-4 py-12 md:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className="w-full px-20 py-12 md:px-50">
+      <div className="mx-auto max-w-8xl">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {galleryImages.map((image, index) => (
             <div

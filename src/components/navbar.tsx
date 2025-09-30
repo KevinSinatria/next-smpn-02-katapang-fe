@@ -23,7 +23,6 @@ export default function Navbar() {
     {
       name: "Kesiswaan",
       link: "/kesiswaan",
-      // ... (data lainnya tetap sama)
     },
     { name: "Sarana Prasarana", link: "/sapras" },
     { name: "Hubungan Masyarakat", link: "/humas" },
