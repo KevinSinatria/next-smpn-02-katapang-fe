@@ -51,10 +51,10 @@ export default function Footer() {
       />
 
       <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-49">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-49 gap-5">
           <div className="flex flex-col">
 
-            <div className="flex items-center w-100 gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-4">
               <Image
                 src="/logo_smp2.png"
                 alt="Logo SMPN 2 Katapang"
@@ -88,7 +88,7 @@ export default function Footer() {
 
           <div >
             <p className="font-bold ">Hubungi Kami</p>
-            <ul className="space-y-3 w-100">
+            <ul className="space-y-3 ">
               {contacts.map((contact) => (
                 <li key={contact.text} className="flex items-start gap-3">
                   <span className="mt-1 flex-shrink-0">{contact.icon}</span>
@@ -107,12 +107,12 @@ export default function Footer() {
         <p className="text-sm text-center text-gray-300">
           Developed by{" "}
           <Link
-            href="https://nexsbe.biz.id/"
+            href="https://nexvibe.biz.id/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-white hover:underline"
           >
-            © {currentYear} Nexsbe
+            © {currentYear} Nexvibe
           </Link>
         </p>
       </div>

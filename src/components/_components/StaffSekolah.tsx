@@ -1,5 +1,5 @@
-import TitleStaffSekolah from "../TitleStaffSekolah";
-import BodyStaffSekolah from "../BodyStaffSekolah";
+import TitleStaffSekolah from "../StaffSekolah/TitleStaffSekolah";
+import BodyStaffSekolah from "../StaffSekolah/BodyStaffSekolah";
 
 export default function StaffSekolahSection(){
   return(

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import BodyVisiMisi from "../BodyVisiMisi";
+import BodyVisiMisi from "../VisiMisi/BodyVisiMisi";
 
 export default function VisiMisiSection() {
   return (
-    <section className="relative w-full min-h-screen h-280 bg-image">
+    <section className="relative w-full min-h-screen h-260 bg-image">
       <div className="absolute w-[2200px] -left-90 md:-left-30 h-screen rotate-6 z-10 ">
         <Image
           src="/visimisi.png"

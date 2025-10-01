@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SplitText from "./SplitText";
+import Kalender from "./Kalender";
 
 export default function BodyAgenda() {
   return (
@@ -13,8 +14,8 @@ export default function BodyAgenda() {
           />
     
           <div className="absolute inset-0 " />
-          <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white p-4">
-            <h1>aku adalah seorang kapiten mempunyai pedang panjang</h1>
+          <div className="relative z-10 flex h-full p-10">
+            <Kalender />
           </div>
         </div>
   )

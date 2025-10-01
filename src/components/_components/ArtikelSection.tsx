@@ -1,4 +1,4 @@
-import BodyArtikel from "../BodyArtikel";
+import BodyArtikel from "../Artikel/BodyArtikel";
 
 export default function ArtikelSection() {
   return(

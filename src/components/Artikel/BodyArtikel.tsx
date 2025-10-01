@@ -1,7 +1,7 @@
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
-import ListCardArtikel from "./ListCardArtikel";
 import Link from "next/link";
+import ListCardArtikel from "./ListCardArtikel";
 
 const categoriArtikel = [
   {
@@ -29,7 +29,7 @@ const categoriArtikel = [
 
 export default function BodyArtikel() {
   return (
-    <div className="w-full p-10 flex ">
+    <div className="w-full p-10 flex flex-col lg:flex-row">
       <div className="max-w-xl p-5 ">
         <div className="w-full max-w-lg">
           <Image

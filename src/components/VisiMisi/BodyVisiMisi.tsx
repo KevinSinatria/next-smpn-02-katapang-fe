@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SplitText from "./SplitText";
+import SplitText from "../SplitText";
 
 
 export default function BodyVisiMisi() {

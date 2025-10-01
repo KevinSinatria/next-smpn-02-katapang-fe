@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CardArtikelBeranda from "./CardArtikelBeranda";
+
 const ArtikelBeranda = [
   {
     title: "Aku Seorang Kapiten Mempunyai Pedang Panjang",
@@ -20,14 +21,17 @@ const ArtikelBeranda = [
 
 export default function ListCardArtikel() {
   return (
-    <div className="w-full  p-15 grid grid-cols-2 gap-5">
+    // Perubahan ada di `className` div di bawah ini
+    <div className="w-full p-4 sm:p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
       {ArtikelBeranda.map((item, index) => (
-        <CardArtikelBeranda
-          key={index}
-          title={item.title}
-          tanggal={item.tanggal}
-          image={item.image}
-        />
+        <Link href="/artikel" key={index}>
+          <CardArtikelBeranda
+            key={index}
+            title={item.title}
+            tanggal={item.tanggal}
+            image={item.image}
+          />
+        </Link>
       ))}
 
       <Link href="/artikel">

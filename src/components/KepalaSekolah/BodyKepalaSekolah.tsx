@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SplitText from "./SplitText";
+import SplitText from "../SplitText";
 
 const dataKepalaSekolah = {
   nama: "Ibu Ai Kurniasih, S.Pd., M.M.Pd",
@@ -27,7 +27,7 @@ export default function BodyKepalaSekolah() {
       </div>
 
       <div className="container mx-auto px-4 lg:relative lg:w-full lg:h-226 flex flex-col lg:flex-row gap-8 items-center">
-        <div className="w-full max-w-3xl lg:absolute lg:top-0 lg:left-0 lg:w-[1200px] lg:h-226 lg:rotate-2 flex justify-center items-center">
+        <div className="w-full max-w-3xl lg:absolute lg:top-0 lg:left-0 lg:w-[1200px] lg:h-226 lg:rotate-2 flex justify-center items-center ">
           <Image
             src={dataKepalaSekolah.fotoUrl}
             alt={`Foto ${dataKepalaSekolah.nama}`}
@@ -37,8 +37,8 @@ export default function BodyKepalaSekolah() {
           />
         </div>
 
-        <div className="w-full lg:absolute lg:top-0 lg:-right-10 md:-right-5 right-0 lg:w-[1000px] lg:h-226 lg:rotate-2 flex justify-center items-center lg:p-36">
-          <div className="bg-white w-full text-base lg:text-2xl font-medium rounded-2xl border-4 lg:border-10 -mt-10 sm:-mt-0 border-[#FA6602] text-black flex flex-col p-5 space-y-4">
+        <div className="w-full lg:absolute max-w-2xl lg:top-0 lg:-right-10 md:-right-5 right-0 lg:w-[1000px] lg:h-226 lg:rotate-2 flex justify-center items-center">
+          <div className="bg-white w-full  text-base lg:text-2xl font-medium rounded-2xl border-4 lg:border-10 -mt-10 sm:-mt-0 border-[#FA6602] text-black flex flex-col p-5 space-y-4">
             <SplitText
               text={dataKepalaSekolah.salamPembuka}
               className="text-2xl font-semibold"
