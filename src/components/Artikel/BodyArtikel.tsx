@@ -29,7 +29,7 @@ const categoriArtikel = [
 
 export default function BodyArtikel() {
   return (
-    <div className="w-full p-10 flex flex-col lg:flex-row">
+    <div className="w-full p-2 flex flex-col lg:flex-row">
       <div className="max-w-xl p-5 ">
         <div className="w-full max-w-lg">
           <Image

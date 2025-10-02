@@ -15,7 +15,7 @@ const dataKepalaSekolah = {
 
 export default function BodyKepalaSekolah() {
   return (
-    <div className="relative w-full min-h-screen flex items-center py-12 lg:h-280 lg:-rotate-3 lg:mt-16">
+    <div className="relative w-full min-h-screen flex items-center lg:py-12 py-5 lg:h-280 lg:-rotate-3 lg:mt-16">
       <div className="hidden lg:block absolute w-[2300px] -left-40 h-screen ">
         <Image
           src={dataKepalaSekolah.dekorasiUrl}
@@ -41,7 +41,7 @@ export default function BodyKepalaSekolah() {
           <div className="bg-white w-full  text-base lg:text-2xl font-medium rounded-2xl border-4 lg:border-10 -mt-10 sm:-mt-0 border-[#FA6602] text-black flex flex-col p-5 space-y-4">
             <SplitText
               text={dataKepalaSekolah.salamPembuka}
-              className="text-2xl font-semibold"
+              className="text-xl font-semibold"
               delay={100}
               duration={0.6}
               ease="power3.out"
@@ -80,7 +80,7 @@ export default function BodyKepalaSekolah() {
             />
             <SplitText
               text={dataKepalaSekolah.salamPenutup}
-              className="text-2xl font-semibold"
+              className="text-xl font-semibold"
               delay={10}
               duration={0.6}
               ease="power3.out"
@@ -93,7 +93,7 @@ export default function BodyKepalaSekolah() {
             />
             <SplitText
               text={`– ${dataKepalaSekolah.nama}`}
-              className="text-2xl font-bold text-right"
+              className="text-md font-bold text-right"
               delay={7}
               duration={0.6}
               ease="power3.out"

@@ -4,36 +4,61 @@ import CarouselHero from "../CarouselHero";
 export default function HeroSection() {
   return (
     <section className="relative w-full min-h-screen bg-image overflow-hidden">
-      <div className="absolute -top-78 -left-60 z-10 w-[1000px] h-[700px] -rotate-16 lg:w-[2000px] lg:h-[2000px] md:w-[2000px] md:h-[1500px] md:rotate-10 lg:rotate-0 md:-top-240 md:-left-210">
+      <div className="absolute -top-180 -left-180 z-0 w-450 h-400 ">
         <Image
           src="/kotak1.png"
           alt="Kotak Dekorasi"
           fill
-          className="object-contain"
+          className="object-contain "
           priority
         />
       </div>
-      <section className="relative z-20 p-10 md:p-10 flex flex-col lg:flex-row">
-        <div className="w-full h-100">
-          <div className=" mx-auto absolute top-32 md:top-44 lg:top-52 justify-center items-center w-[90vw] max-w-xl left-1/2 -translate-x-1/2 lg:left-10 lg:w-auto lg:max-w-none lg:translate-x-0">
-            <Image
-              src="/Header.png"
-              alt="sambutan"
-              width={1000}
-              height={400}
-              className="w-full h-auto ml-5 md:ml-10 lg:ml-0"
-            />
-            <div className="relative bg-[#F96701] p-2 w-[95%] mx-auto -mt-9  md:-mt-16 lg:-mt-28 rounded-xl lg:absolute lg:w-[600px] lg:left-3 lg:mx-0">
-              <p className="flex text-sm lg:text-xl font-semibold  text-[#F9DDCD] justify-center items-center text-center">
+      <div className="absolute w-full flex flex-col lg:flex-row mt-45 lg:mt-0 justify-between items-center">
+        <div className="w-full max-w-5xl px-5 flex flex-col ">
+          <Image
+            src="/Header.png"
+            alt="sambutan"
+            width={4000}
+            height={300}
+            className="w-full max-w-6xl"
+          />
+          <div className="w-full max-w-6xl">
+            <div className=" bg-[#F96701] p-2 w-full max-w-xl rounded-xl bottom-5 shadow-2xl">
+              <p className="flex text-sm lg:text-lg font-semibold  text-[#F9DDCD] justify-center items-center text-center">
                 silahkan lihat semua informasi tentang sekolah ini
               </p>
             </div>
           </div>
         </div>
-        <div className="w-full h-auto -mt-55 sm:-mt-40 md:-mt-40 lg:-mt-0">
+
+        <div className="relative w-full h-auto">
           <CarouselHero />
         </div>
-      </section>
+      </div>
+
+      {/* <section className="relative z-20  flex flex-col ">
+        <div className="absolute w-full flex justify-between items-center">
+          <div className="w-full max-w-5xl bg-amber-400 px-5">
+            <Image
+              src="/Header.png"
+              alt="sambutan"
+              width={4000}
+              height={300}
+              className="w-full max-w-6xl"
+            />
+            <div className=" bg-[#F96701] p-2 w-full max-w-xl rounded-xl bottom-5">
+              <p className="flex text-sm lg:text-xl font-semibold  text-[#F9DDCD] justify-center items-center text-center">
+                silahkan lihat semua informasi tentang sekolah ini
+              </p>
+            </div>
+          </div>
+
+
+        <div className="relative w-full h-auto">
+        <CarouselHero />
+        </div>
+        </div>
+      </section> */}
     </section>
   );
 }

@@ -1,82 +1,130 @@
+import Image from "next/image";
 import EsktraKulikuler from "./Kesiswaan/Ekstrakulikuler";
 
 export default function KataPengantarKesiswaan() {
- const Ekstrakurikuler = [
-  {
-    image: "/ekstrakulikuler/paskibra.png",
-    title: "Paskibra",
-    deks: "Membentuk siswa yang disiplin, berjiwa pemimpin, dan cinta tanah air melalui latihan baris-berbaris serta tata upacara bendera.",
-    link: "https://www.instagram.com/lassawena?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-  },
-  {
-    image: "/ekstrakulikuler/pramuka.png",
-    title: "Pramuka",
-    deks: "Mengembangkan kemandirian, keterampilan di alam bebas, dan kerja sama tim melalui berbagai kegiatan kepanduan yang seru dan menantang.",
-    link: "https://www.instagram.com/barisansatriabatara_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-  },
-  {
-    image: "/ekstrakulikuler/futsal.png",
-    title: "Futsal",
-    deks: "Mengasah bakat dalam olahraga futsal, membangun kerja sama tim yang solid, dan menjunjung tinggi sportivitas di lapangan.",
-    link: "https://www.instagram.com/futsal_dukat?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-  },
-  {
-    image: "/ekstrakulikuler/pmr.png",
-    title: "Palang Merah Remaja",
-    deks: "Mendidik siswa untuk peduli sesama, menguasai keterampilan pertolongan pertama, dan aktif dalam berbagai kegiatan kemanusiaan.",
-    link: "https://www.instagram.com/pmr2katapang?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-  },
-  {
-    image: "/ekstrakulikuler/rohis.png",
-    title: "Rohis",
-    deks: "Wadah untuk memperdalam ilmu agama Islam, mempererat tali persaudaraan, serta membentuk karakter siswa yang berakhlak mulia.",
-    link: "https://www.instagram.com/rohisirsyadukat?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-  },
-  {
-    image: "/ekstrakulikuler/uks.png",
-    title: "Usaha Kesehatan Sekolah",
-    deks: "Meningkatkan kesadaran akan pentingnya kesehatan dan pola hidup sehat di lingkungan sekolah serta memberikan pertolongan dasar.",
-    link: "https://www.instagram.com/uksdukat__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-  },
-  {
-    image: "/ekstrakulikuler/padus.png",
-    title: "Paduan Suara",
-    deks: "Mengembangkan bakat di bidang tarik suara, melatih kekompakan, dan harmoni untuk menampilkan persembahan musik yang indah.",
-    link: "/kesiswaan"
-  },
-  {
-    image: "/ekstrakulikuler/volly.png",
-    title: "Volly",
-    deks: "Sarana untuk menyalurkan minat pada olahraga bola voli, meningkatkan kebugaran fisik, serta melatih kerja sama dan strategi tim.",
-    link: "/kesiswaan"
-  },
-  {
-    image: "/ekstrakulikuler/silat.png",
-    title: "Pencak Silat",
-    deks: "Mempelajari seni bela diri warisan budaya bangsa, membangun mental yang kuat, disiplin, dan kepercayaan diri.",
-    link: "/kesiswaan"
-  },
-  {
-    image: "/ekstrakulikuler/literasi.png",
-    title: "Literasi",
-    deks: "Meningkatkan minat baca dan tulis, mengasah kemampuan berpikir kritis, serta menjadi wadah untuk berkarya melalui tulisan dan diskusi.",
-    link: "/kesiswaan"
-  },
-  {
-    image: "/ekstrakulikuler/karawitan.png",
-    title: "Karawitan",
-    deks: "Melestarikan dan mempelajari seni musik tradisional Sunda, melatih keharmonisan dalam bermain alat musik gamelan secara bersama-sama.",
-    link: "/kesiswaan"
-  },
-];
+  const Ekstrakurikuler = [
+    {
+      image: "/ekstrakulikuler/paskibra.png",
+      title: "Paskibra",
+      deks: "Membentuk siswa yang disiplin, berjiwa pemimpin, dan cinta tanah air melalui latihan baris-berbaris serta tata upacara bendera.",
+      link: "https://www.instagram.com/lassawena?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
+      image: "/ekstrakulikuler/pramuka.png",
+      title: "Pramuka",
+      deks: "Mengembangkan kemandirian, keterampilan di alam bebas, dan kerja sama tim melalui berbagai kegiatan kepanduan yang seru dan menantang.",
+      link: "https://www.instagram.com/barisansatriabatara_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
+      image: "/ekstrakulikuler/futsal.png",
+      title: "Futsal",
+      deks: "Mengasah bakat dalam olahraga futsal, membangun kerja sama tim yang solid, dan menjunjung tinggi sportivitas di lapangan.",
+      link: "https://www.instagram.com/futsal_dukat?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
+      image: "/ekstrakulikuler/pmr.png",
+      title: "Palang Merah Remaja",
+      deks: "Mendidik siswa untuk peduli sesama, menguasai keterampilan pertolongan pertama, dan aktif dalam berbagai kegiatan kemanusiaan.",
+      link: "https://www.instagram.com/pmr2katapang?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
+      image: "/ekstrakulikuler/rohis.png",
+      title: "Rohis",
+      deks: "Wadah untuk memperdalam ilmu agama Islam, mempererat tali persaudaraan, serta membentuk karakter siswa yang berakhlak mulia.",
+      link: "https://www.instagram.com/rohisirsyadukat?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
+      image: "/ekstrakulikuler/uks.png",
+      title: "Usaha Kesehatan Sekolah",
+      deks: "Meningkatkan kesadaran akan pentingnya kesehatan dan pola hidup sehat di lingkungan sekolah serta memberikan pertolongan dasar.",
+      link: "https://www.instagram.com/uksdukat__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
+      image: "/ekstrakulikuler/padus.png",
+      title: "Paduan Suara",
+      deks: "Mengembangkan bakat di bidang tarik suara, melatih kekompakan, dan harmoni untuk menampilkan persembahan musik yang indah.",
+      link: "",
+    },
+    {
+      image: "/ekstrakulikuler/volly.png",
+      title: "Volly",
+      deks: "Sarana untuk menyalurkan minat pada olahraga bola voli, meningkatkan kebugaran fisik, serta melatih kerja sama dan strategi tim.",
+      link: "",
+    },
+    {
+      image: "/ekstrakulikuler/silat.png",
+      title: "Pencak Silat",
+      deks: "Mempelajari seni bela diri warisan budaya bangsa, membangun mental yang kuat, disiplin, dan kepercayaan diri.",
+      link: "",
+    },
+    {
+      image: "/ekstrakulikuler/literasi.png",
+      title: "Literasi",
+      deks: "Meningkatkan minat baca dan tulis, mengasah kemampuan berpikir kritis, serta menjadi wadah untuk berkarya melalui tulisan dan diskusi.",
+      link: "",
+    },
+    {
+      image: "/ekstrakulikuler/karawitan.png",
+      title: "Karawitan",
+      deks: "Melestarikan dan mempelajari seni musik tradisional Sunda, melatih keharmonisan dalam bermain alat musik gamelan secara bersama-sama.",
+      link: "",
+    },
+  ];
   return (
-    <div className="w-full min-h-screen bg-white/80 border-4 border-gray-300/80 rounded-2xl mt-5 shadow-lg">
-      <div className="px-6 md:px-8 py-8">
-        <h1 className="text-3xl md:text-4xl text-center font-bold text-[#5E8964] pb-6 border-b border-gray-300">
-          KATA PENGANTAR
-        </h1>
+    <div className="relative w-full min-h-screen bg-[#5E8964]/80 border-4 border-gray-300/80 rounded-2xl mt-5 shadow-lg" >
+      <div className="z-0 ">
+        <Image
+          src={"/batikmegamendung.png"}
+          alt="Latar belakang lingkaran"
+          width={300}
+          height={300}
+          className="absolute -mt-10 -right-34  rotate-13"
+        />
+        <Image
+          src={"/batikmegamendung.png"}
+          alt="Latar belakang lingkaran"
+          width={300}
+          height={300}
+          className="absolute mt-230 -right-34  rotate-13"
+        />
 
-        <div className="text-lg md:text-xl text-black mt-6 space-y-5 text-justify">
+        <Image
+          src={"/batik/batik3.png"}
+          alt="Latar belakang lingkaran"
+          width={300}
+          height={300}
+          className="absolute bottom-0 -left-20"
+        />
+      </div>
+      <div
+        className="w-full h-5 z-0"
+        style={{
+          backgroundImage: "url('/garisFooter.png')",
+          backgroundRepeat: "repeat-x",
+          backgroundSize: "auto 100%",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="w-full h-5 absolute z-0 bottom-0"
+        style={{
+          backgroundImage: "url('/garisFooter.png')",
+          backgroundRepeat: "repeat-x",
+          backgroundSize: "auto 100%",
+        }}
+        aria-hidden="true"
+      />
+      <div className="px-6 md:px-8 py-8">
+        <div className="z-10 relative w-full pb-6 border-b flex justify-center items-center">
+          <Image
+            src={"/katapengantar.png"}
+            alt="Kata Pengantar"
+            width={1000}
+            height={1000}
+            className="w-full max-w-sm hover:scale-105 transition-all duration-300 ease-in-out"
+          />
+        </div>
+        <div className="text-lg md:text-xl text-white mt-6 space-y-5 text-justify relative z-10">
           <p>Assalamualaikum Warahmatullahi Wabarakatuh,</p>
           <p>
             Selamat datang kembali di sekolah buat siswa-siswi SMP Negeri 2
@@ -132,12 +180,17 @@ export default function KataPengantarKesiswaan() {
         </div>
 
         <div className="text-center py-8 px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#5E8964] pb-4 border-b border-gray-300">
-            Motto Kesiswaan
-          </h1>
-
+          <div className="border-b-2 flex justify-center pb-4 items-center w-full">
+            <Image
+              src="/mottokesiswaan.png"
+              alt="Logo Sekolah"
+              width={1000}
+              height={1000}
+              className="w-full max-w-sm hover:scale-105 transition-all duration-300 ease-in-out"
+            />
+          </div>
           <div className="mt-8">
-            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold italic text-[#5E8964] leading-tight">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold italic text-white  leading-tight">
               &quot;Kami bimbing disiplinmu, kami bina karaktermu, untuk masa
               depan gemilangmu.&quot;
             </p>
@@ -148,13 +201,13 @@ export default function KataPengantarKesiswaan() {
           </div>
         </div>
 
-         <div className="py-8 px-4">
+        <div className="py-8 px-4" id="ekstrakurikuler">
           <h1 className="text-3xl md:text-4xl font-bold text-[#FB9B64] pb-4 border-b max-w-sm border-gray-300">
-            Ektrakurikuler 
+            Ektrakurikuler
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {Ekstrakurikuler .map((item, index) => (
+            {Ekstrakurikuler.map((item, index) => (
               <EsktraKulikuler
                 key={index}
                 image={item.image}

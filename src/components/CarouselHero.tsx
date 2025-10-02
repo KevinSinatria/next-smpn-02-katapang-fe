@@ -9,7 +9,7 @@ import CountUp from "./CountUp";
 
 export default function CarouselHero() {
   return (
-    <div className="relative z-20 flex justify-center items-center mt-15">
+    <div className="relative z-20 flex justify-center items-center lg:mt-15">
       <Carousel className=" relative z-20 lg:w-120 md:w-90 sm:w-80 w-80 sm:ml-5">
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (

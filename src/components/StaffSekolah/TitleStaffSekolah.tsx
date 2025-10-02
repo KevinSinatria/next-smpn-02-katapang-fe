@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function TitleStaffSekolah() {
   return (
-    <div className="relative flex justify-center sm:-top-30 -top-10  items-center w-full p-5">
+    <div className="relative flex justify-center sm:-top-30  items-center w-full p-5">
       <div className="absolute z-0 right-120 hidden lg:block rotate-180">
         <Image
           src={"/circle.png"}
