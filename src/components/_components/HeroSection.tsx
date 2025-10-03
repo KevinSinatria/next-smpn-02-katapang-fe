@@ -3,8 +3,8 @@ import CarouselHero from "../CarouselHero";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-screen bg-image overflow-hidden">
-      <div className="absolute -top-180 -left-180 z-0 w-450 h-400 ">
+    <section className="relative w-full sm:min-h-screen h-170 bg-image overflow-hidden">
+      <div className="absolute -top-200 -left-180 z-0 w-390 h-400 ">
         <Image
           src="/kotak1.png"
           alt="Kotak Dekorasi"
@@ -13,14 +13,14 @@ export default function HeroSection() {
           priority
         />
       </div>
-      <div className="absolute w-full flex flex-col lg:flex-row mt-45 lg:mt-0 justify-between items-center">
-        <div className="w-full max-w-5xl px-5 flex flex-col ">
+      <div className="absolute w-full flex flex-col lg:flex-row mt-41 lg:-mt-10 justify-between items-center">
+        <div className="w-full max-w-xl px-5 flex flex-col md:ml-10">
           <Image
             src="/Header.png"
             alt="sambutan"
             width={4000}
             height={300}
-            className="w-full max-w-6xl"
+            className="w-full max-w-4xl"
           />
           <div className="w-full max-w-6xl">
             <div className=" bg-[#F96701] p-2 w-full max-w-xl rounded-xl bottom-5 shadow-2xl">

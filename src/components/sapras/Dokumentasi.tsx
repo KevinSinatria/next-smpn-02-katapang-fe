@@ -38,7 +38,7 @@ export default function DokumentasiSapras() {
         alt="denah"
         width={1000}
         height={1000}
-        className="w-full max-w-lg md:rotate-90 rotate-0 hover:scale-150 transition-all duration-300 ease-in-out"
+        className="w-full max-w-md md:rotate-90 rotate-0 hover:scale-106 md:-my-20 transition-all duration-300 ease-in-out"
       />
         <Image
           src="/dokumentasi/dokumentasi.png"

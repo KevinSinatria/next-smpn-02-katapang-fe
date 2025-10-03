@@ -30,22 +30,20 @@ const ProgramCard = ({ title, items }: { title: string; items: string[] }) => {
   };
 
   return (
-    <div className="w-full lg:w-1/2 bg-white p-6 md:p-8 rounded-xl shadow-2xl transition-all duration-300">
+    <div className="w-full lg:w-1/2 bg-white p-6 md:p-3 rounded-xl shadow-2xl transition-all duration-300">
       <button
         onClick={handleToggle}
         className="flex w-full items-center justify-between text-left"
         aria-expanded={isOpen}
       >
-        <h2 className="text-2xl font-bold text-gray-800">
+        <h2 className="text-md font-bold text-gray-800">
           {title}
         </h2>
         <ChevronDownIcon
-          // 3. Rotasi ikon bergantung pada state 'isOpen'
           className={`w-6 h-6 text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
         />
       </button>
       <div
-        // 4. Animasi buka-tutup yang halus menggunakan max-height
         className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[1000px] mt-6' : 'max-h-0'}`}
       >
         <ol className="space-y-4 list-decimal list-inside text-gray-700 leading-relaxed border-t-2 border-gray-200 pt-6">
@@ -58,8 +56,6 @@ const ProgramCard = ({ title, items }: { title: string; items: string[] }) => {
   );
 };
 
-
-// 2. KOMPONEN UTAMA MENJADI LEBIH BERSIH
 export default function ProgramSapras() {
   const programUmumItems = [
     "Membantu tugas kepala sekolah di dalam penyelenggaraan kegiatan sekolah sehari-harinya terutama menyangkut urusan penyediaan dan pemeliharaan sarana dan prasarana.",
@@ -85,7 +81,7 @@ export default function ProgramSapras() {
   return (
     <div className="w-full font-sans p-4 sm:p-6 md:p-10 relative z-10">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-10 drop-shadow-lg">
+        <h1 className="text-xl md:text-3xl font-bold text-white text-center mb-10 drop-shadow-lg">
           Program Kerja Sarana & Prasarana
         </h1>
         <div className="flex flex-col lg:flex-row gap-8 items-start">

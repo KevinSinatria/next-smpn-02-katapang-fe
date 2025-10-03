@@ -74,7 +74,7 @@ export default function BodySapras() {
           />
         </div>
         
-        <div className="text-lg md:text-xl relative z-10 text-white mt-6 space-y-5 text-justify">
+        <div className="text-sm relative z-10 text-white mt-6 space-y-5 text-justify">
           <p>
             Selamat datang di Web SMP Negeri 2 Katapang bagian{" "}
             <strong>Sarana Prasarana</strong> untuk mendapatkan informasi Sarana

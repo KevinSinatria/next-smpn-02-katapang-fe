@@ -15,7 +15,7 @@ export default function CardArtikelBeranda({ title, tanggal, image }: Props) {
 
   return (
   
-    <div className="group relative w-full max-w-xl cursor-pointer overflow-hidden rounded-2xl shadow-lg aspect-[5/3]">
+    <div className="group relative w-full max-w-sm cursor-pointer overflow-hidden rounded-2xl shadow-lg aspect-[5/3]">
       <Image
         src={image}
         alt={title}
@@ -24,7 +24,7 @@ export default function CardArtikelBeranda({ title, tanggal, image }: Props) {
       />
 
       <div className="absolute inset-0 z-10 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-5 text-white">
-        <h1 className="text-xl font-bold leading-tight">
+        <h1 className="text-sm font-bold leading-tight">
           {title}
         </h1>
         <p className="mt-1 text-xs text-gray-200">

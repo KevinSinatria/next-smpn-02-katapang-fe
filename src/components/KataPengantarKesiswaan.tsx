@@ -61,7 +61,7 @@ export default function KataPengantarKesiswaan() {
       image: "/ekstrakulikuler/literasi.png",
       title: "Literasi",
       deks: "Meningkatkan minat baca dan tulis, mengasah kemampuan berpikir kritis, serta menjadi wadah untuk berkarya melalui tulisan dan diskusi.",
-      link: "",
+      link: "https://www.instagram.com/literasihebat_dukat?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     },
     {
       image: "/ekstrakulikuler/karawitan.png",
@@ -124,7 +124,7 @@ export default function KataPengantarKesiswaan() {
             className="w-full max-w-sm hover:scale-105 transition-all duration-300 ease-in-out"
           />
         </div>
-        <div className="text-lg md:text-xl text-white mt-6 space-y-5 text-justify relative z-10">
+        <div className="text-sm text-white mt-6 space-y-5 text-justify relative z-10">
           <p>Assalamualaikum Warahmatullahi Wabarakatuh,</p>
           <p>
             Selamat datang kembali di sekolah buat siswa-siswi SMP Negeri 2
@@ -190,7 +190,7 @@ export default function KataPengantarKesiswaan() {
             />
           </div>
           <div className="mt-8">
-            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold italic text-white  leading-tight">
+            <p className="text-lg md:text-2xl lg:text-3xl font-semibold italic text-white  leading-tight">
               &quot;Kami bimbing disiplinmu, kami bina karaktermu, untuk masa
               depan gemilangmu.&quot;
             </p>
@@ -202,11 +202,11 @@ export default function KataPengantarKesiswaan() {
         </div>
 
         <div className="py-8 px-4" id="ekstrakurikuler">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#FB9B64] pb-4 border-b max-w-sm border-gray-300">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#FB9B64] pb-2 border-b-2 max-w-sm border-gray-300">
             Ektrakurikuler
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             {Ekstrakurikuler.map((item, index) => (
               <EsktraKulikuler
                 key={index}

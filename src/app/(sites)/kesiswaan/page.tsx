@@ -9,8 +9,6 @@ export default function Kesiswaan() {
         <JudulBidang bidang="Kesiswaan" tahunAwal={2025} tahunAkhir={2026} />
         
         <KataPengantarKesiswaan />
-        Selamat datang  di Web SMP Negeri 2 Katapang bagian Sarana Prasarana untuk mendapatkan informasi Sarana dan Prasarana di sekolah kami. Di sini akan kami informasikan segala hal yang berkaitan dengan sarana prasarana yang ada di SMP Negeri 2 Katapang seperti fasilitas dan asset. Semua data tersimpan dan bisa diakses kapan saja. Kita wujudkan pengelolaan dan penataan sekolah yang optimal dan berkualitas.
-
 
       </div>
     </main>

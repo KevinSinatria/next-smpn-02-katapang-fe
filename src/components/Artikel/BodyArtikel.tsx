@@ -6,22 +6,36 @@ import ListCardArtikel from "./ListCardArtikel";
 const categoriArtikel = [
   {
     id: 0,
-    category: "Kesiswaan",
-    link:"/artikel/kesiswaan",
+    category: "Informasi Umum",
+    link:"/artikel",
     created_at: "2019-08-24T14:15:22Z",
     updated_at: "2019-08-24T14:15:22Z",
   },
   {
     id: 2,
-    category: "Hubungan Masyarakat",
-    link:"/artikel/hubungan-masyarakat",
+    category: "Prestasi",
+    link:"/artikel",
     created_at: "2019-08-24T14:15:22Z",
     updated_at: "2019-08-24T14:15:22Z",
   },
   {
-    id: 0,
-    category: "Kurikulum",
-    link:"/artikel/kurikulum",
+    id: 1,
+    category: "Agenda Sekolah",
+    link:"/artikel",
+    created_at: "2019-08-24T14:15:22Z",
+    updated_at: "2019-08-24T14:15:22Z",
+  },
+  {
+    id: 3,
+    category: "Pengunguman Siswa",
+    link:"/artikel",
+    created_at: "2019-08-24T14:15:22Z",
+    updated_at: "2019-08-24T14:15:22Z",
+  },
+  {
+    id: 4,
+    category: "Karya Siswa",
+    link:"/artikel",
     created_at: "2019-08-24T14:15:22Z",
     updated_at: "2019-08-24T14:15:22Z",
   },
@@ -47,7 +61,7 @@ export default function BodyArtikel() {
               key={index}
               className="group my-5 flex cursor-pointer items-center transition-transform duration-300 ease-in-out hover:-translate-y-1"
             >
-              <h1 className="text-2xl text-[#5E8964] font-semibold transition-colors duration-300 group-hover:text-[#F96701]">
+              <h1 className="text-lg text-[#5E8964] font-semibold transition-colors duration-300 group-hover:text-[#F96701]">
                 {item.category}
               </h1>
               <span className="ml-4 text-3xl text-[#F96701] opacity-0 transition-opacity duration-300 group-hover:opacity-100">

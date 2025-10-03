@@ -50,7 +50,7 @@ export default function Footer() {
         aria-hidden="true" 
       />
 
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto px-6 py-12 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-49 gap-5">
           <div className="flex flex-col">
 

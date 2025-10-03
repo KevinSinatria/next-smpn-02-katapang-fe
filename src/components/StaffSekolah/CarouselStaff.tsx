@@ -49,7 +49,7 @@ export function CarouselStaff() {
       opts={{
         align: "start",
       }}
-      className="w-full"
+      className="w-full max-w-6xl m-5"
     >
       <CarouselContent className="-ml-4 py-10">
         {DataGuru.map((item, index) => (
@@ -57,7 +57,7 @@ export function CarouselStaff() {
             key={index}
             className="pl-4 md:basis-1/3 lg:basis-1/5  "
           >
-            <div className="group relative h-[370px] w-full cursor-pointer">
+            <div className="group relative h-[300px] w-full cursor-pointer">
               <Card className="absolute inset-0 z-10 h-full w-full transform transition-all duration-500 ease-in-out group-hover:-translate-y-15 border-0">
                 <CardContent className="flex h-full items-center justify-center p-0">
                   <Image
@@ -71,17 +71,16 @@ export function CarouselStaff() {
               </Card>
 
               <div className="absolute inset-0 z-0 flex h-full w-full flex-col items-center justify-end rounded-lg text-center pb-8 ">
-                <h3 className="text-md font-bold text-gray-800">{item.name}</h3>
+                <h3 className="text-sm font-bold text-gray-800">{item.name}</h3>
                 <p className="text-sm text-gray-600">{item.jabatan}</p>
               </div>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="hidden md:block">
-        <CarouselPrevious />
-        <CarouselNext />
-      </div>
+
+      <CarouselPrevious className="ml-3" />
+      <CarouselNext  className="mr-3" />
     </Carousel>
   );
 }

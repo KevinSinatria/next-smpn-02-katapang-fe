@@ -15,33 +15,34 @@ const dataKepalaSekolah = {
 
 export default function BodyKepalaSekolah() {
   return (
-    <div className="relative w-full min-h-screen flex items-center lg:py-12 py-5 lg:h-280 lg:-rotate-3 lg:mt-16">
-      <div className="hidden lg:block absolute w-[2300px] -left-40 h-screen ">
+    <div className="w-full min-h-screen flex items-center md:mt-25 mt-0 md:pt-15 pt-5 p-5">
+      <div className=" absolute w-[2000px] -left-55 h-screen ">
         <Image
           src={dataKepalaSekolah.dekorasiUrl}
           alt="Kotak dekorasi"
           fill
-          className="-right-20 m-0"
+          className="-right-20 m-0 -rotate-5"
           priority
         />
       </div>
 
-      <div className="container mx-auto px-4 lg:relative lg:w-full lg:h-226 flex flex-col lg:flex-row gap-8 items-center">
-        <div className="w-full max-w-3xl lg:absolute lg:top-0 lg:left-0 lg:w-[1200px] lg:h-226 lg:rotate-2 flex justify-center items-center ">
+      <div className="min-h-screen w-full flex flex-col lg:flex-row justify-center items-center p-4 sm:p-8 gap-8 z-10">
+
+        <div className="w-full max-w-md lg:w-1/2 flex justify-center items-center">
           <Image
             src={dataKepalaSekolah.fotoUrl}
             alt={`Foto ${dataKepalaSekolah.nama}`}
             width={1200}
             height={1200}
-            className="w-full h-auto object-contain"
+            className="w-full h-auto object-contain rounded-lg" 
           />
         </div>
 
-        <div className="w-full lg:absolute max-w-2xl lg:top-0 lg:-right-10 md:-right-5 right-0 lg:w-[1000px] lg:h-226 lg:rotate-2 flex justify-center items-center">
-          <div className="bg-white w-full  text-base lg:text-2xl font-medium rounded-2xl border-4 lg:border-10 -mt-10 sm:-mt-0 border-[#FA6602] text-black flex flex-col p-5 space-y-4">
+        <div className="w-full max-w-xl lg:w-1/2">
+          <div className="bg-white w-full h-auto text-sm font-medium rounded-2xl border-4  border-[#FA6602] text-black flex flex-col p-5 space-y-2">
             <SplitText
               text={dataKepalaSekolah.salamPembuka}
-              className="text-xl font-semibold"
+              className="text-md font-semibold"
               delay={100}
               duration={0.6}
               ease="power3.out"
@@ -80,7 +81,7 @@ export default function BodyKepalaSekolah() {
             />
             <SplitText
               text={dataKepalaSekolah.salamPenutup}
-              className="text-xl font-semibold"
+              className="text-md font-semibold"
               delay={10}
               duration={0.6}
               ease="power3.out"
@@ -104,11 +105,6 @@ export default function BodyKepalaSekolah() {
               rootMargin="-100px"
               textAlign="start"
             />
-            {/* <p className="font-semibold">{dataKepalaSekolah.salamPembuka}</p>
-            <p>{dataKepalaSekolah.paragraf1}</p>
-            <p>{dataKepalaSekolah.paragraf2}</p>
-            <p className="font-semibold">{dataKepalaSekolah.salamPenutup}</p>
-            <p className="font-bold text-right">– {dataKepalaSekolah.nama}</p> */}
           </div>
         </div>
       </div>
