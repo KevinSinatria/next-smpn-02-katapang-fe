@@ -1,6 +1,6 @@
 import * as React from "react";
-import Image from "next/image"; // Menggunakan Image dari Next.js untuk optimisasi, atau gunakan <img> biasa
-
+import Image from "next/image";
+import { guruData } from "../../app/lib/guru-data"; 
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -9,39 +9,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-const DataGuru = [
-  {
-    image: "/kevin.png",
-    name: "Kevin Sinatria Budiman S.Pd",
-    jabatan: "Guru Matematika",
-  },
-  {
-    image: "/nazmi.png",
-    name: "Nazmi Ramadhani S.Pd",
-    jabatan: "Wakasek Kesiswaan",
-  },
-  {
-    image: "/daffa.png",
-    name: "Daffa Al-Sabri S.Pd",
-    jabatan: "Guru PJOK",
-  },
-  {
-    image: "/rian.png",
-    name: "M. Rian Fauzan S.Pd",
-    jabatan: "Wakasek Kurikulum",
-  },
-  {
-    image: "/waqqir.png",
-    name: "Waqqir Humaid Al Qais S.Pd",
-    jabatan: "Wakasek sarana prasarana",
-  },
-  {
-    image: "/rijal.png",
-    name: "Rijal Kurniawan s.Pd",
-    jabatan: "Guru Sejarah",
-  },
-];
+type Guru = {
+  image: string;
+  name: string;
+  jabatan: string;
+};
 
 export function CarouselStaff() {
   return (
@@ -52,7 +24,7 @@ export function CarouselStaff() {
       className="w-full max-w-6xl m-5"
     >
       <CarouselContent className="-ml-4 py-10">
-        {DataGuru.map((item, index) => (
+        {guruData.map((item: Guru, index: number) => (
           <CarouselItem
             key={index}
             className="pl-4 md:basis-1/3 lg:basis-1/5  "
@@ -80,7 +52,7 @@ export function CarouselStaff() {
       </CarouselContent>
 
       <CarouselPrevious className="ml-3" />
-      <CarouselNext  className="mr-3" />
+      <CarouselNext className="mr-3" />
     </Carousel>
   );
 }

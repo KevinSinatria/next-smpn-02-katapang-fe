@@ -10,23 +10,23 @@ export default function CarouselHero() {
 
   const cardHero = [
     {
-      image: "/rijal.png",
+      image: "/cardHero/rijal.png",
       alt: "Rijal",
     },
     {
-      image: "/rasioHeroCard.png",
+      image: "/cardHero/rasioHeroCard.png",
       alt : "Rasio Hero Card",
     },
     {
-      image: "/rasioHeroCard.png",
+      image: "/cardHero/rasioHeroCard.png",
       alt : "Rasio Hero Card",
     },
     {
-      image: "/rasioHeroCard.png",
+      image: "/cardHero/rasioHeroCard.png",
       alt : "Rasio Hero Card",
     },
     {
-      image: "/rasioHeroCard.png",
+      image: "/cardHero/rasioHeroCard.png",
       alt : "Rasio Hero Card",
     }
 ]
