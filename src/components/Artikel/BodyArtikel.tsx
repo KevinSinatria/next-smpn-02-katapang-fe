@@ -1,45 +1,7 @@
-import { MoveRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import ListCardArtikel from "./ListCardArtikel";
 
-const categoriArtikel = [
-  {
-    id: 0,
-    category: "Informasi Umum",
-    link:"/artikel",
-    created_at: "2019-08-24T14:15:22Z",
-    updated_at: "2019-08-24T14:15:22Z",
-  },
-  {
-    id: 2,
-    category: "Prestasi",
-    link:"/artikel",
-    created_at: "2019-08-24T14:15:22Z",
-    updated_at: "2019-08-24T14:15:22Z",
-  },
-  {
-    id: 1,
-    category: "Agenda Sekolah",
-    link:"/artikel",
-    created_at: "2019-08-24T14:15:22Z",
-    updated_at: "2019-08-24T14:15:22Z",
-  },
-  {
-    id: 3,
-    category: "Pengunguman Siswa",
-    link:"/artikel",
-    created_at: "2019-08-24T14:15:22Z",
-    updated_at: "2019-08-24T14:15:22Z",
-  },
-  {
-    id: 4,
-    category: "Karya Siswa",
-    link:"/artikel",
-    created_at: "2019-08-24T14:15:22Z",
-    updated_at: "2019-08-24T14:15:22Z",
-  },
-];
+import Image from "next/image";
+import ListCardArtikel from "./ListCardArtikel";
+import ListCategori from "./ListCategori";
 
 export default function BodyArtikel() {
   return (
@@ -54,22 +16,7 @@ export default function BodyArtikel() {
             className="h-auto w-full transition duration-300 ease-in-out hover:scale-105"
           />
         </div>
-        <div className="mt-5">
-          {categoriArtikel.map((item, index) => (
-            <Link
-              href={item.link}
-              key={index}
-              className="group my-5 flex cursor-pointer items-center transition-transform duration-300 ease-in-out hover:-translate-y-1"
-            >
-              <h1 className="text-lg text-[#5E8964] font-semibold transition-colors duration-300 group-hover:text-[#F96701]">
-                {item.category}
-              </h1>
-              <span className="ml-4 text-3xl text-[#F96701] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <MoveRight />
-              </span>
-            </Link>
-          ))}
-        </div>
+       <ListCategori/>
       </div>
       <ListCardArtikel />
     </div>

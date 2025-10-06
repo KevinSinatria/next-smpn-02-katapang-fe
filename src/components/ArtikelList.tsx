@@ -6,100 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { MoveLeftIcon, MoveRightIcon } from "lucide-react";
+import { ArtikelData, authors, categories } from "@/app/lib/artikel-data";
 
-export type Author = {
-  id: number;
-  name: string;
-};
-
-export type Artikel = {
-  id: number;
-  title: string;
-  slug: string;
-  content: string;
-  thumbnail_url: string;
-  category_id: number;
-  author_id: number;
-  published: boolean;
-  published_at: string;
-};
-
-export const authors: Author[] = [
-  { id: 1, name: "Tim Kesiswaan" },
-  { id: 2, name: "Redaksi Sekolah" },
-  { id: 3, name: "OSIS SMPN 2 Katapang" },
-  { id: 4, name: "Guru TIK" },
-  { id: 5, name: "Kepala Perpustakaan" },
-];
-
-export const ArtikelData: Artikel[] = [
-  {
-    id: 1,
-    slug: "pelaksanaan-program-makan-bergizi-gratis",
-    title: "Pelaksanaan Program Makan Bergizi Gratis",
-    content: "Isi lengkap dari artikel tentang pelaksanaan program makan bergizi gratis. Program ini bertujuan untuk meningkatkan gizi anak-anak sekolah dasar...",
-    thumbnail_url: "/galeriBeranda/gambar1.png",
-    category_id: 1,
-    author_id: 1,
-    published: true,
-    published_at: "2025-09-15T10:00:00Z",
-  },
-  {
-    id: 2,
-    slug: "program-sekolah-sehat-dan-hijau",
-    title: "Menciptakan Lingkungan Belajar Melalui Program Sekolah Sehat",
-    content: "Program Sekolah Sehat tidak hanya tentang makanan. Artikel ini membahas berbagai pilar utama program, termasuk pengelolaan sampah...",
-    thumbnail_url: "/galeriBeranda/gambar3.png",
-    category_id: 1,
-    author_id: 2,
-    published: true,
-    published_at: "2025-08-22T11:30:00Z",
-  },
-  {
-    id: 3,
-    slug: "festival-budaya-lokal-di-sekolah",
-    title: "Merayakan Keragaman: Suksesnya Festival Budaya Lokal",
-    content: "Festival budaya tahun ini berlangsung sangat meriah. Acara ini menjadi ajang bagi siswa untuk mengenal dan melestarikan budaya lokal...",
-    thumbnail_url: "/galeriBeranda/gambar2.png",
-    category_id: 3,
-    author_id: 3,
-    published: true,
-    published_at: "2025-07-30T14:00:00Z",
-  },
-  {
-    id: 4,
-    slug: "juara-lomba-sains-tingkat-kabupaten",
-    title: "Selamat! Tim Sains Sekolah Meraih Juara 1 Tingkat Kabupaten",
-    content: "Sebuah prestasi membanggakan kembali diraih oleh sekolah kita. Tim sains yang terdiri dari tiga siswa berbakat berhasil menjadi juara pertama...",
-    thumbnail_url: "/galeriBeranda/gambar4.png",
-    category_id: 2,
-    author_id: 2,
-    published: true,
-    published_at: "2025-06-05T09:15:00Z",
-  },
-  {
-    id: 5,
-    slug: "workshop-coding-untuk-pemula",
-    title: "Membuka Gerbang Teknologi: Workshop Coding untuk Pemula",
-    content: "Di era digital ini, kemampuan coding menjadi salah satu skill penting. Oleh karena itu, sekolah mengadakan workshop untuk siswa...",
-    thumbnail_url: "/galeriBeranda/gambar1.png",
-    category_id: 1,
-    author_id: 4,
-    published: true,
-    published_at: "2025-05-20T13:00:00Z",
-  },
-  {
-    id: 6,
-    slug: "pojok-baca-digital-perpustakaan",
-    title: "Perpustakaan Kini Dilengkapi Pojok Baca Digital",
-    content: "Mengikuti perkembangan zaman, perpustakaan sekolah kini meluncurkan Pojok Baca Digital untuk memudahkan siswa mengakses ribuan e-book...",
-    thumbnail_url: "/galeriBeranda/gambar3.png",
-    category_id: 1,
-    author_id: 5,
-    published: false, // Contoh artikel yang tidak akan tampil
-    published_at: "2025-09-02T15:00:00Z",
-  },
-];
 
 export default function ArtikelList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -167,10 +75,9 @@ export default function ArtikelList() {
                     })}
                   </p>
                   <span>•</span>
-                  <p>{authorName}</p> {/* Tampilkan nama penulis */}
+                  <p>{authorName}</p> 
                 </div>
                 <p className="mt-3 text-gray-600 line-clamp-3">
-                  {/* Buat excerpt dari 150 karakter pertama `content` */}
                   {item.content.substring(0, 150)}...
                 </p>
                 <Link

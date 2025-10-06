@@ -1,8 +1,8 @@
 import { ArtikelData, authors, categories } from "@/app/lib/artikel-data";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Calendar, UserCircle, Tag, MoveRight } from "lucide-react";
-import Link from "next/link";
+import { Calendar, UserCircle, Tag } from "lucide-react";
+import ListCategori from "@/components/Artikel/ListCategori";
 
 // Tipe untuk props 'params'
 type PageProps = {
@@ -11,13 +11,6 @@ type PageProps = {
   };
 };
 
-const categoriArtikel = [
-  { id: 0, category: "Informasi Umum", link: "/artikel" },
-  { id: 2, category: "Prestasi", link: "/artikel" },
-  { id: 1, category: "Agenda Sekolah", link: "/artikel" },
-  { id: 3, category: "Pengunguman Siswa", link: "/artikel" },
-  { id: 4, category: "Karya Siswa", link: "/artikel" },
-];
 export default function ArtikelDetail({ params }: PageProps) {
   const artikel = ArtikelData.find((item) => item.slug === params.slug);
 
@@ -35,7 +28,7 @@ export default function ArtikelDetail({ params }: PageProps) {
   const publishedDate = new Date(artikel.published_at);
 
   return (
-    <div className="container mx-auto px-4 lg:px-8 mt-20 flex">
+    <div className="container mx-auto px-4 lg:px-8 mt-20 flex flex-col lg:flex-row">
       <div className="w-full max-w-3xl mx-auto bg-white/90 rounded-2xl overflow-hidden p-5 md:p-8 shadow-lg">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
           {artikel.title}
@@ -84,22 +77,7 @@ export default function ArtikelDetail({ params }: PageProps) {
               className="h-auto w-full transition duration-300 ease-in-out hover:scale-105"
             />
           </div>
-          <div className="mt-5">
-            {categoriArtikel.map((item) => (
-              <Link
-                href={item.link}
-                key={item.id}
-                className="group my-5 flex cursor-pointer items-center justify-between transition-transform duration-300 ease-in-out hover:-translate-y-1"
-              >
-                <h1 className="text-lg text-[#5E8964] font-semibold transition-colors duration-300 group-hover:text-[#F96701]">
-                  {item.category}
-                </h1>
-                <span className="text-3xl text-[#F96701] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <MoveRight />
-                </span>
-              </Link>
-            ))}
-          </div>
+         <ListCategori/>
         </div>
       </div>
     </div>

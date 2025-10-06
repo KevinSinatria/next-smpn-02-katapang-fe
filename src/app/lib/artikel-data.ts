@@ -1,7 +1,4 @@
-// Lokasi file: app/lib/artikel-data.ts
-
-// 1. Definisikan tipe untuk Author dan Category
-export type Author = {
+  export type Author = {
   id: number;
   name: string;
 };
@@ -9,6 +6,7 @@ export type Author = {
 export type Category = {
   id: number;
   name: string;
+  slug: string;
 };
 
 export type Artikel = {
@@ -17,16 +15,15 @@ export type Artikel = {
   slug: string;
   content: string;
   thumbnail_url: string;
-  youtube_url?: string; 
+  youtube_url?: string;
   category_id: number;
   author_id: number;
   published: boolean;
-  published_at: string; 
+  published_at: string;
   created_at: string;
   updated_at: string;
 };
 
-// 3. Buat data dummy untuk Author dan Category
 export const authors: Author[] = [
   { id: 1, name: "Tim Kesiswaan" },
   { id: 2, name: "Tim Hubungan Masyarakat" },
@@ -34,12 +31,16 @@ export const authors: Author[] = [
 ];
 
 export const categories: Category[] = [
-  { id: 1, name: "Informasi Umum" },
-  { id: 2, name: "Prestasi" },
-  { id: 3, name: "Agenda Sekolah" },
+  { id: 1, name: "Informasi Umum", slug: "informasi-umum" },
+  { id: 2, name: "Prestasi", slug: "prestasi" },
+  { id: 3, name: "Agenda Sekolah", slug: "agenda-sekolah" },
+  { id: 4, name: "Pengunguman Siswa", slug: "pengumuman-siswa" },
+  { id: 5, name: "Karya Siswa", slug: "karya-siswa" },
+  { id: 6, name: "Kurikulum", slug: "kurikulum" },
+  { id: 7, name: "Kesiswaan", slug: "kesiswaan" },
+  { id: 8, name: "Hubungan Masyarakat", slug: "hubungan-masyarakat" },
 ];
 
-// 4. Perbarui data ArtikelData
 export const ArtikelData: Artikel[] = [
   {
     id: 1,
@@ -81,5 +82,4 @@ export const ArtikelData: Artikel[] = [
     created_at: "2025-06-05T09:15:00Z",
     updated_at: "2025-06-05T09:15:00Z",
   },
-  // ...tambahkan artikel lainnya dengan format yang sama
 ];

@@ -1,16 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import { MoveRight } from "lucide-react";
 import ArtikelList from "@/components/ArtikelList";
-
-const categoriArtikel = [
-  { id: 0, category: "Informasi Umum", link: "/artikel" },
-  { id: 2, category: "Prestasi", link: "/artikel" },
-  { id: 1, category: "Agenda Sekolah", link: "/artikel" },
-  { id: 3, category: "Pengunguman Siswa", link: "/artikel" },
-  { id: 4, category: "Karya Siswa", link: "/artikel" },
-];
-
+import ListCategori from "@/components/Artikel/ListCategori";
 export default function Page() {
   return (
     <>
@@ -44,22 +34,7 @@ export default function Page() {
                 className="h-auto w-full transition duration-300 ease-in-out hover:scale-105"
               />
             </div>
-            <div className="mt-5">
-              {categoriArtikel.map((item) => (
-                <Link
-                  href={item.link}
-                  key={item.id}
-                  className="group my-5 flex cursor-pointer items-center justify-between transition-transform duration-300 ease-in-out hover:-translate-y-1"
-                >
-                  <h1 className="text-lg text-[#5E8964] font-semibold transition-colors duration-300 group-hover:text-[#F96701]">
-                    {item.category}
-                  </h1>
-                  <span className="text-3xl text-[#F96701] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <MoveRight />
-                  </span>
-                </Link>
-              ))}
-            </div>
+           <ListCategori/>
           </div>
         </div>
       </div>
