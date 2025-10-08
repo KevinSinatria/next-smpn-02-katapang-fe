@@ -9,19 +9,19 @@ const menuItems = [
   {
     name: "Profil Sekolah",
     subItems: [
-      { name: "Sejarah", href: "/profile#sejarah" },
-      { name: "identitas", href: "/profile#identitas" },
-      { name: "Sambutan kepala sekolah", href: "/profile#kepsek" },
-      { name: "Struktur Organisasi", href: "/profile#struktur" },
-      { name: "Visi Misi", href: "/profile#visimisi" },
+      { name: "Sambutan kepala sekolah", href: "/profile", idlink: "sambutan" },
+      { name: "Sejarah", href: "/profile", idlink: "sejarah" },
+      { name: "identitas", href: "/profile", idlink: "identitas" },
+      { name: "Visi Misi", href: "/profile", idlink: "visimisi" },
+      { name: "Struktur Organisasi", href: "/profile", idlink: "struktur" },
     ],
   },
   {
     name: "Bidang Wakasek",
     subItems: [
-      { name: "Kesiswaan", href: "/kesiswaan" },
-      { name: "Sarana Prasarana", href: "/sapras" },
-      { name: "Hubungan Masyarakat", href: "/humas" },
+      { name: "Kesiswaan", href: "/kesiswaan", idlink: "" },
+      { name: "Sarana Prasarana", href: "/sapras", idlink: "" },
+      { name: "Hubungan Masyarakat", href: "/humas", idlink: "" },
     ],
   },
   { name: "Artikel", href: "/artikel" },
@@ -47,7 +47,7 @@ const ChevronDownIcon = ({ className }: { className: string }) => (
 type MenuItem = {
   name: string;
   href?: string;
-  subItems?: { name: string; href: string }[];
+  subItems?: { name: string; href: string; idlink?: string }[];
 };
 type DropdownMenuItem = Required<Pick<MenuItem, "subItems">> &
   Omit<MenuItem, "href">;
@@ -107,9 +107,13 @@ const DesktopDropdown = ({ item }: { item: DropdownMenuItem }) => {
           return (
             <Link
               key={subItem.name}
-              href={subItem.href}
+              href={
+                subItem.idlink
+                  ? `${subItem.href}#${subItem.idlink}`
+                  : subItem.href
+              }
               className={`block w-full text-left px-4 py-2 rounded-md text-base transition-colors duration-300 ${
-                isActive
+                isActive && !subItem.idlink 
                   ? "text-white bg-[#4D6450]"
                   : "text-gray-700 hover:bg-gray-100 hover:text-[#4D6450]"
               }`}
@@ -143,7 +147,7 @@ export default function Navbar() {
         scrolled || isMenuOpen ? "shadow-lg bg-white" : "shadow-sm bg-white"
       }`}
     >
-      <div className="w-full flex justify-between items-center px-4 md:px-10 py-2">
+      <div className="w-full flex justify-between items-center px-4 md:px-15 py-2">
         {/* Logo */}
         <Link
           href={"/"}

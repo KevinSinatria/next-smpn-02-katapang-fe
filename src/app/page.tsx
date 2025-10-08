@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="overflow-hidden bg-image" >
       <HeroSection />
-      <VisiMisiSection />
+      {/* <VisiMisiSection /> */}
       <KepalaSekollah/>
       <StaffSekolahSection/>
       <GaleriSection/>

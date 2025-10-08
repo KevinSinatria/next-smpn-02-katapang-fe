@@ -10,7 +10,6 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Beranda - SMPN 2 Katapang",
   description: "SMPN 2 Katapang - Sekolah Menengah Pertama Negeri 2 Katapang",
@@ -22,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={` ${poppins.className}  antialiased`}>
         <Navbar />
         <div className="font-poppins">{children}</div>

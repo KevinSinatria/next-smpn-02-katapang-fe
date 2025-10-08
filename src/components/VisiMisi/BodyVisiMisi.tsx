@@ -4,29 +4,57 @@ import SplitText from "../SplitText";
 
 export default function BodyVisiMisi() {
   const VISI =
-    "Menjadi pusat informasi, komunikasi, dan kolaborasi yang profesional, transparan, serta mendukung terciptanya sekolah yang unggul, berkarakter, dan berdaya saing.";
+    "Terwujudnya Lulusan SMPN 2 Katapang yang Berbudaya,Agamis,Nasionalis,Gotong Royong, Kreatif,Inspiratif, Tangguh, danBerprestasi ";
   const MISI = [
-    {
-      id: 1,
-      body: "Mengelola informasi sekolah secara cepat, tepat, dan akurat melalui berbagai media komunikasi.",
-    },
-    {
-      id: 2,
-      body: "Membangun hubungan harmonis dengan orang tua, masyarakat, serta mitra kerja sama eksternal.",
-    },
-    {
-      id: 3,
-      body: "Mendukung kegiatan sekolah dalam bidang akademik, kesiswaan, dan pengembangan prestasi.",
-    },
-    {
-      id: 4,
-      body: "Menjalin kerja sama dengan berbagai instansi untuk memperluas jejaring dan peluang kolaborasi.",
-    },
-    {
-      id: 5,
-      body: "Menjadi garda depan dalam publikasi kegiatan dan pencapaian sekolah.",
-    },
-  ];
+  {
+    id: 1,
+    body: "Mewujudkan lingkungan pembelajaran yang menyenangkan dengan kearifan budaya lokal yang menjadi khazanah budaya nasional.",
+  },
+  {
+    id: 2,
+    body: "Mewujudkan pembelajaran dan bimbingan sesuai dengan nilai-nilai dan tatanan yang berlaku.",
+  },
+  {
+    id: 3,
+    body: "Mewujudkan lingkungan sekolah yang asri, bersih, indah, hijau, sehat, nyaman, dan berwawasan adiwiyata.",
+  },
+  {
+    id: 4,
+    body: "Membudayakan nilai-nilai keagamaan dalam beribadah sesuai dengan agama dan kepercayaannya.",
+  },
+  {
+    id: 5,
+    body: "Membentuk warga sekolah yang sehat jasmani dan rohani sesuai dengan profil pelajar pancasila.",
+  },
+  {
+    id: 6,
+    body: "Mewujudkan warga sekolah yang berjiwa nasionalis dalam menerapkan tata tertib sekolah.",
+  },
+  {
+    id: 7,
+    body: "Mewujudkan warga sekolah yang memiliki sikap toleransi dan berkarakter gotong royong.",
+  },
+  {
+    id: 8,
+    body: "Mewujudkan warga sekolah yang inspiratif dan berjiwa enterpreneur.",
+  },
+  {
+    id: 9,
+    body: "Mendorong dan mengembangkan potensi warga sekolah yang kreatif dan inovatif dalam bidang ilmu dan teknologi, seni, olahraga serta bidang lainnya.",
+  },
+  {
+    id: 10,
+    body: "Mewujudkan prestasi warga sekolah yang unggul sesuai dengan potensi yang dimiliki dalam bidang akademik dan nonakademik.",
+  },
+  {
+    id: 11,
+    body: "Mewujudkan warga sekolah yang literat dan tangguh menghadapi tantangan zaman di era digitalisasi.",
+  },
+  {
+    id: 12,
+    body: "Mewujudkan warga sekolah yang berprestasi di segala bidang sehingga dapat bersaing secara global.",
+  },
+];  
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-5 bg-image">
@@ -40,7 +68,7 @@ export default function BodyVisiMisi() {
               objectFit="cover"
             />
           </div>
-          <div className="relative z-10 flex flex-col flex-grow justify-center items-center p-8 text-center text-[#EDEDED]">
+          <div className="relative z-10 flex flex-col flex-grow justify-center items-center p-15 text-center text-[#EDEDED]">
             <Image
               src={"/visilogo.png"}
               alt="Visi Logo"
@@ -48,7 +76,7 @@ export default function BodyVisiMisi() {
               height={120}
               className="w-24 md:w-32"
             />
-            <div className="text-lg md:text-2xl mt-4">
+            <div className="text-lg mt-4">
               <SplitText
                 text={VISI}
                 delay={10}
@@ -59,7 +87,7 @@ export default function BodyVisiMisi() {
                 to={{ opacity: 1, y: 0 }}
                 threshold={0.1}
                 rootMargin="-100px"
-                textAlign="start"
+                textAlign="center"
               />
             </div>
           </div>
@@ -74,7 +102,7 @@ export default function BodyVisiMisi() {
               quality={80}
             />
           </div>
-          <div className="relative z-10 flex flex-col flex-grow justify-center p-8 text-[#EDEDED]">
+          <div className="relative z-10 flex flex-col flex-grow justify-center p-15 text-[#EDEDED]">
             <div className="flex justify-center mb-4">
               <Image
                 src={"/misilogo.png"}

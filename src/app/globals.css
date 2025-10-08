@@ -42,7 +42,7 @@ body {
    background-repeat: no-repeat;
    background-attachment: scroll;
    /* min-height: 100vh; */
-   min-width: 100vw;
+   min-width: 10vw;
 }
 
 body {
