@@ -12,13 +12,6 @@ export default function SejarahSection() {
           height={300}
           className="absolute -mt-10 -right-34  rotate-13"
         />
-        <Image
-          src={"/batikmegamendung.png"}
-          alt="Latar belakang lingkaran"
-          width={300}
-          height={300}
-          className="absolute mt-230 -right-34  rotate-13"
-        />
       </div>
       <div
         className="w-full h-5 z-0"
@@ -29,15 +22,7 @@ export default function SejarahSection() {
         }}
         aria-hidden="true"
       />
-      <div
-        className="w-full h-5 absolute z-0 bottom-0"
-        style={{
-          backgroundImage: "url('/garisFooter.png')",
-          backgroundRepeat: "repeat-x",
-          backgroundSize: "auto 100%",
-        }}
-        aria-hidden="true"
-      />
+
       <div className="px-6 md:px-8 py-8">
         <div className="z-10 relative w-full pb-6 border-b flex justify-center items-center">
           <h2 className="text-4xl font-bold text-white">

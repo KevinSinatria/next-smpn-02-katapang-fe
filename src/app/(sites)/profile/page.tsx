@@ -1,5 +1,6 @@
 
 import KepalaSekolahSection from "@/components/_components/KepalaSekolahSection";
+import VisiMisiSection from "@/components/_components/VisiMisiSection";
 import IdentitasSection from "@/components/profile/IdentitasSection";
 import SejarahSection from "@/components/profile/SejarahSection";
 import Image from "next/image";
@@ -28,6 +29,9 @@ export default function Profile() {
           </div>
           <div id="sejarah">
             <SejarahSection />
+          </div>
+          <div id="visimisi">
+            <VisiMisiSection/>
           </div>
           <div id="identitas">
             <IdentitasSection />

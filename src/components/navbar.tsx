@@ -11,9 +11,8 @@ const menuItems = [
     subItems: [
       { name: "Sambutan kepala sekolah", href: "/profile", idlink: "sambutan" },
       { name: "Sejarah", href: "/profile", idlink: "sejarah" },
-      { name: "identitas", href: "/profile", idlink: "identitas" },
       { name: "Visi Misi", href: "/profile", idlink: "visimisi" },
-      { name: "Struktur Organisasi", href: "/profile", idlink: "struktur" },
+      { name: "identitas", href: "/profile", idlink: "identitas" },
     ],
   },
   {

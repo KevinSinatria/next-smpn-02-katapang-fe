@@ -22,7 +22,6 @@ export default function BodyGaleri() {
   const featchData = async () => {
     try{
       const response = await axios.get('https://api.smpn2katapang.sch.id/gallery-albums');
-      console.log(response.data.data);
       setDataAlbum(response.data.data);
     }catch (error){
       console.error('Error fetching data:', error);

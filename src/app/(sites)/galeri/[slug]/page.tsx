@@ -1,70 +1,82 @@
 // Jangan lupa import galeriData
 "use client";
-import { albumData, galeriData } from "@/app/lib/galeri-data";
+import axios from "axios";
 import Image from "next/image";
-import Link from "next/link"; // Tambahkan untuk tombol kembali
-import { use, useState } from "react";
+import Link from "next/link";
+import { use, useEffect, useState } from "react";
+type Photo = {
+  id: number;
+  name: string;
+  photos: string;
+  photo_url: string;
+  description: string;
+};
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-export default function GaleriSlug({ params }: Props) {
-  const { slug } = use(params);
-  const album = albumData.find((alb) => alb.slug === slug);
-
+export default function GaleriSlug({
+  params: paramsPromise,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const params = use(paramsPromise);
+  const { slug } = params;
   const [selectedImage, setSelectedImage] = useState("");
+  const [photos, setPhotos] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    const feacthAlbum = async () => {
+      try {
+        const res = await axios.get(
+          `https://api.smpn2katapang.sch.id/gallery-albums/${slug}`
+        );
+        setTitle(res.data.data.name);
+        setPhotos(res.data.data.photos);
+        setDescription(res.data.data.description);
+      } catch (error) {
+        console.error("Gagal mengambil data album:", error);
+      }
+    };
+    feacthAlbum();
+  }, [slug]);
+
   const handleImageClick = (src: string) => {
     setSelectedImage(src);
   };
   const closeImage = () => setSelectedImage("");
 
-  if (!album) {
-    return (
-      <div className="text-center mt-40">
-        <h1 className="text-2xl font-bold">Album Tidak Ditemukan</h1>
-        <Link
-          href="/galeri"
-          className="text-blue-500 hover:underline mt-4 inline-block"
-        >
-          Kembali ke Galeri
-        </Link>
-      </div>
-    );
-  }
-  const photosInAlbum = galeriData.filter(
-    (photo) => photo.album_id === album.id
-  );
-
   return (
     <>
-      <div className="relative h-28 flex items-center justify-center text-white text-4xl font-bold mt-30">
+      <div className="relative h-20 flex items-center justify-center text-white text-4xl font-bold mt-30">
         <Image
           src="/bgFooter.png"
-          alt="Dekorasi Latar Belakang"
-          fill
-          className="object-cover absolute z-0"
+          alt="Kotak Dekorasi"
+          width={900}
+          height={400}
+          className="h-auto w-full absolute z-0 md:-mt-32"
           priority
         />
         <div className="flex flex-col items-center">
-          <h1 className="z-10 w-full max-w-4xl text-center truncate px-4">
-            Album: {album.name}
+          <h1 className="z-10 w-full md:text-3xl text-xl text-center truncate px-4">
+            Album {title}
           </h1>
-          <Link
-            href="/galeri"
-            className="z-10 text-[#FA6602] text-xl hover:scale-105 transition-all duration-300 mt-4 inline-block"
-          >
-            Kembali ke Beranda Galeri
-          </Link>
+          <p className="z-10 md:w-full w-100 text-sm text-center  px-4">
+            {description}
+          </p>
         </div>
       </div>
-
-      <div className="container mx-auto p-4 md:p-8 mt-12">
-        {photosInAlbum.length > 0 ? (
+      <div className="flex justify-end mr-4 rounded-2xl ">
+        <Link
+          href="/galeri"
+          className="z-40 text-orange-100 font-bold bg-orange-500/90 hover:bg-orange-600  rounded-xl p-1 px-4  mt-10 text-xl hover:scale-105 transition-all duration-300"
+        >
+          Kembali
+        </Link>
+      </div>
+      <div className="container mx-auto p-4 md:p-8 ">
+        {photos.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {photosInAlbum.map((photo) => (
+            {photos.map((photo: Photo) => (
               <div
                 key={photo.id}
                 onClick={() => handleImageClick(photo.photo_url)}
@@ -72,7 +84,7 @@ export default function GaleriSlug({ params }: Props) {
               >
                 <Image
                   src={photo.photo_url}
-                  alt={photo.alt}
+                  alt={photo.id.toString()}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-110"

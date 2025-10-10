@@ -21,7 +21,7 @@ export default function BodyKepalaSekolahSection() {
           src={dataKepalaSekolah.dekorasiUrl}
           alt="Kotak dekorasi"
           fill
-          className="-right-20 m-0 -rotate-5"
+          className="-right-20 m-0 -rotate-2"
           priority
         />
       </div>

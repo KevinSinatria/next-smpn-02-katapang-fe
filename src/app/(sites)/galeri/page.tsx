@@ -1,6 +1,5 @@
 // app/galeri/page.jsx
 "use client";
-import { albumData } from "@/app/lib/galeri-data";
 import AlbumCard from "@/components/AlbumCard";
 import axios from "axios";
 import Image from "next/image";
@@ -19,8 +18,7 @@ export default function GaleriPage() {
 
   const featchData = async () => {
     try{
-      const response = await axios.get('https://api.smpn2katapang.sch.id/gallery-albums');
-      console.log(response.data.data);
+      const response = await axios.get('https://api.smpn2katapang.sch.id/gallery-albums');;
       setDataAlbum(response.data.data);
     }catch (error){
       console.error('Error fetching data:', error);
@@ -44,7 +42,7 @@ export default function GaleriPage() {
           priority
         />
         <Image
-          className="z-10 md:mt-5 w-full max-w-sm hover:scale-105 transition-all duration-300"
+          className="z-10 md:mt-5 w-full max-w-[300px] hover:scale-105 transition-all duration-300"
           src={"/galerikami.png"}
           alt="Icon Galeri"
           width={1000}

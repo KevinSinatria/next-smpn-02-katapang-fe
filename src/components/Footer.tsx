@@ -1,10 +1,31 @@
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+"use client";
+import axios from "axios";
+import { InstagramIcon, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [address, setAddress] = useState("");
+  const [Instagram, setInstagram] = useState("");
+  const [InstagramLink, setInstagramLink] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    const feacthData = async () => {
+      const res = await axios.get(
+        "https://api.smpn2katapang.sch.id/school-informations"
+      );
+      setInstagram(res.data.data.instagram);
+      setAddress(res.data.data.address);
+      setInstagramLink(res.data.data.instagram_url);
+      setEmail(res.data.data.email);
+      setPhone(res.data.data.phone);
+    };
+    feacthData();
+  }, []);
 
   const pages = [
     { name: "Kesiswaan", link: "/kesiswaan" },
@@ -17,29 +38,24 @@ export default function Footer() {
   const contacts = [
     {
       icon: <MapPin size={20} />,
-      text: "Komplek Gading Junti Asri, Sangkanhurip, Kec. Katapang, Kabupaten Bandung, Jawa Barat 40921",
-      href: "https://maps.app.goo.gl/PzSfY8F4R7gAnpXv7",
+      text: address,
     },
     {
-      icon: <Instagram size={20} />,
-      text: "smpn2katapangoffcial",
-      href: "https://www.instagram.com/smpn2katapangoffcial",
+      icon: <Instagram />,
+      link: InstagramLink,
     },
     {
       icon: <Mail size={20} />,
-      text: "smpn02katapang@gmail.com",
-      href: "mailto:smpn02katapang@gmail.com",
+      text: email,
     },
     {
       icon: <Phone size={20} />,
-      text: "(022) 85871015",
-      href: "tel:02285871015",
+      text: phone,
     },
   ];
 
   return (
     <footer className="bg-[#5E8964] text-white w-full">
-      
       <div
         className="w-full h-5"
         style={{
@@ -47,13 +63,12 @@ export default function Footer() {
           backgroundRepeat: "repeat-x",
           backgroundSize: "auto 100%",
         }}
-        aria-hidden="true" 
+        aria-hidden="true"
       />
 
       <div className="container mx-auto px-6 py-12 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-49 gap-5">
           <div className="flex flex-col">
-
             <div className="flex items-center gap-4 mb-4">
               <Image
                 src="/logo_smp2.png"
@@ -66,9 +81,7 @@ export default function Footer() {
                 <h2 className="font-bold text-lg leading-tight">
                   SMPN 2 KATAPANG
                 </h2>
-                <p className="text-sm opacity-90">
-                  Bangkit Berprestasi
-                </p>
+                <p className="text-sm opacity-90">Bangkit Berprestasi</p>
               </div>
             </div>
           </div>
@@ -78,7 +91,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {pages.map((page) => (
                 <li key={page.name}>
-                  <Link href={page.link} className="hover:text-gray-300 transition-colors">
+                  <Link
+                    href={page.link}
+                    className="hover:text-gray-300 transition-colors"
+                  >
                     {page.name}
                   </Link>
                 </li>
@@ -86,20 +102,63 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div >
+          <div className="md:w-130 w-100">
             <p className="font-bold ">Hubungi Kami</p>
             <ul className="space-y-3 ">
-              {contacts.map((contact) => (
-                <li key={contact.text} className="flex items-start gap-3">
-                  <span className="mt-1 flex-shrink-0">{contact.icon}</span>
-                  <a href={contact.href} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
-                    {contact.text}
-                  </a>
-                </li>
-              ))}
+              <li className="flex items-start gap-3">
+                <span className="mt-1 flex-shrink-0">
+                  <MapPin size={20} />
+                </span>
+                <Link
+                  href={"https://maps.app.goo.gl/sGJHw1SGpMgBmoJU7"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  {address}
+                </Link>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 flex-shrink-0">
+                  <InstagramIcon size={20} />
+                </span>
+                <Link
+                  href={InstagramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  {Instagram}
+                </Link>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 flex-shrink-0">
+                  <Mail size={20} />
+                </span>
+                <Link
+                  href={`mailto:${email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  {email}
+                </Link>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 flex-shrink-0">
+                   <Phone size={20} />
+                </span>
+                <Link
+                  href={`tel:${phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  {phone}
+                </Link>
+              </li>
             </ul>
           </div>
-
         </div>
       </div>
 
