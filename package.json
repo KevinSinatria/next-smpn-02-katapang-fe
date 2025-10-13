@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_EXTRA_CA_CERTS=\"C:/Users/lenovo/AppData/Local/mkcert/rootCA.pem\" next dev --turbopack --experimental-https",
     "build": "next build --turbopack",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "eslint"
   },
   "dependencies": {
