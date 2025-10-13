@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -8,28 +7,37 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useEffect, useState } from "react";
-import axios from "axios";
 type Guru = {
   image_url: string;
   name: string;
   position: string;
 };
 
-export function CarouselStaff() {
-  const [dataStaff , setDataStaff] = useState<Guru[]>([]);
 
-  const featchData = async () => {
-    try {
-      const response = await axios.get('https://api.smpn2katapang.sch.id/personnel/staffs');
-      setDataStaff(response.data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
+// 1. Buat fungsi terpisah untuk mengambil data
+async function getStaffData(): Promise<Guru[]> {
+  try {
+    const response = await fetch('https://api.smpn2katapang.sch.id/personnel/staffs', {
+      next: { revalidate: 3600 } // Ini kuncinya! Data akan di-cache selama 1 jam (3600 detik)
+    });
+
+    if (!response.ok) {
+      // Jika request gagal, log error dan kembalikan array kosong
+      console.error('Failed to fetch staff data:', response.statusText);
+      return [];
     }
-  };
-  useEffect(() => {
-    featchData();
-  }, []);
+
+    const result = await response.json();
+    return result.data || []; // Kembalikan data atau array kosong jika tidak ada
+
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return []; // Jika terjadi error lain, kembalikan array kosong
+  }
+}
+
+export async function CarouselStaff() {
+ const dataStaff = await getStaffData();
   return (
     <Carousel
       opts={{
@@ -70,3 +78,5 @@ export function CarouselStaff() {
     </Carousel>
   );
 }
+
+export default CarouselStaff;

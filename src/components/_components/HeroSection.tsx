@@ -35,30 +35,6 @@ export default function HeroSection() {
           <CarouselHero />
         </div>
       </div>
-
-      {/* <section className="relative z-20  flex flex-col ">
-        <div className="absolute w-full flex justify-between items-center">
-          <div className="w-full max-w-5xl bg-amber-400 px-5">
-            <Image
-              src="/Header.png"
-              alt="sambutan"
-              width={4000}
-              height={300}
-              className="w-full max-w-6xl"
-            />
-            <div className=" bg-[#F96701] p-2 w-full max-w-xl rounded-xl bottom-5">
-              <p className="flex text-sm lg:text-xl font-semibold  text-[#F9DDCD] justify-center items-center text-center">
-                silahkan lihat semua informasi tentang sekolah ini
-              </p>
-            </div>
-          </div>
-
-
-        <div className="relative w-full h-auto">
-        <CarouselHero />
-        </div>
-        </div>
-      </section> */}
     </section>
   );
 }

@@ -1,12 +1,9 @@
 // components/BodyGaleri.tsx
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+
+import GalleryClient from "./GalleryClient";
 
 
-
+// Definisikan tipe data di sini (atau di file terpusat seperti /types.ts)
 type Album = {
   id: number;
   thumbnail_url: string;
@@ -14,82 +11,32 @@ type Album = {
   description: string;
   slug: string;
 };
-export default function BodyGaleri() {
-  const [dataAlbum, setDataAlbum] = useState<Album[]>([]);
-  const [selectedImage, setSelectedImage] = useState("");
 
-  const featchData = async () => {
-    try{
-      const response = await axios.get('https://api.smpn2katapang.sch.id/gallery-albums');
-      setDataAlbum(response.data.data);
-    }catch (error){
-      console.error('Error fetching data:', error);
+// Fungsi untuk mengambil data album di server menggunakan fetch
+async function getAlbumData(): Promise<Album[]> {
+  try {
+    const response = await fetch('https://api.smpn2katapang.sch.id/gallery-albums', {
+      next: { revalidate: 3600 } // INI KUNCINYA: Cache data selama 1 jam
+    });
+
+    if (!response.ok) {
+      console.error('Failed to fetch album data:', response.statusText);
+      return [];
     }
-  }
 
-  useEffect(() => {
-    featchData();
-  }, []);
-
-  const handleImageClick = (src:string) => {
-    setSelectedImage(src);
+    const result = await response.json();
+    return result.data || [];
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
   }
-  const closeImage = () => setSelectedImage("");
-  
-  return (
-    <section className="w-full px-3 py-12 md:px-50">
-      <div className="mx-auto max-w-8xl">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {dataAlbum.map((image, index) => (
-            <div
-              key={index}
-              className="group relative aspect-square overflow-hidden rounded-lg shadow-md"
-              onClick={() => handleImageClick(image.thumbnail_url)}
-            >
-              <Image
-                src={image.thumbnail_url}
-                alt={image.name}
-                fill
-                className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="flex w-full justify-end items-center">
-          <Link
-            href={"/galeri"}
-            className="bg-[#F96701] hover:bg-[#F94700] text-white px-4 py-2 rounded-md mt-8"
-          >
-            Lebih lanjut galeri
-          </Link>
-        </div>
-      </div>
-      
-            {selectedImage && (
-              <div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 transition-opacity duration-300"
-                onClick={closeImage}
-              >
-                <button
-                  onClick={closeImage}
-                  className="absolute top-4 right-6 text-white text-5xl font-bold hover:text-gray-300 z-50"
-                >
-                  &times;
-                </button>
-      
-               
-                <div
-                  className="relative w-11/12 md:w-4/5 lg:w-3/4 h-5/6"
-                  onClick={(e) => e.stopPropagation()} >
-                  <Image
-                    src={selectedImage}
-                    alt="Gambar Penuh"
-                    layout="fill"
-                    objectFit="contain" 
-                  />
-                </div>
-              </div>
-            )}
-    </section>
-  );
+}
+
+// Komponen utama yang berjalan di server
+export default async function BodyGaleri() {
+  // Ambil data saat halaman dibuat di server
+  const dataAlbum = await getAlbumData();
+
+  // Kirim data yang sudah siap ke komponen client melalui props
+  return <GalleryClient initialData={dataAlbum} />;
 }

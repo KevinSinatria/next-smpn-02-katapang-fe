@@ -1,10 +1,9 @@
 // app/galeri/page.jsx
-"use client";
-import AlbumCard from "@/components/AlbumCard";
-import axios from "axios";
-import Image from "next/image";
-import { useEffect, useState } from "react";
 
+import AlbumCard from "@/components/AlbumCard";
+import Image from "next/image";
+
+// Definisikan tipe data di sini (atau impor dari file terpusat)
 type Album = {
   id: number;
   thumbnail_url: string;
@@ -13,22 +12,33 @@ type Album = {
   slug: string;
 };
 
-export default function GaleriPage() {
-  const [dataAlbum, setDataAlbum] = useState<Album[]>([]);
+// 1. Buat fungsi terpisah untuk mengambil data di server
+async function getAlbumData(): Promise<Album[]> {
+  try {
+    const response = await fetch(
+      "https://api.smpn2katapang.sch.id/gallery-albums",
+      {
+        next: { revalidate: 3600 }, // INI KUNCINYA: Cache data selama 1 jam
+      }
+    );
 
-  const featchData = async () => {
-    try{
-      const response = await axios.get('https://api.smpn2katapang.sch.id/gallery-albums');;
-      setDataAlbum(response.data.data);
-    }catch (error){
-      console.error('Error fetching data:', error);
+    if (!response.ok) {
+      console.error("Failed to fetch album data:", response.statusText);
+      return [];
     }
+
+    const result = await response.json();
+    return result.data || [];
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
   }
+}
 
-  useEffect(() => {
-    featchData();
-  }, []);
-
+// 2. Ubah komponen utama menjadi 'async'
+export default async function GaleriPage() {
+  // 3. Panggil fungsi dan dapatkan data langsung di server
+  const dataAlbum = await getAlbumData();
 
   return (
     <>
@@ -52,6 +62,7 @@ export default function GaleriPage() {
       <div className="relative container mx-auto px-4 lg:px-8 mt-20 flex">
         <div className="container mx-auto p-4 md:p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {/* 4. Render data yang sudah siap */}
             {dataAlbum.map((album: Album, index) => (
               <AlbumCard
                 key={index}
