@@ -1,30 +1,44 @@
-"use client";
-import axios from "axios";
+// Footer.tsx
+
 import { InstagramIcon, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-export default function Footer() {
-  const [address, setAddress] = useState("");
-  const [Instagram, setInstagram] = useState("");
-  const [InstagramLink, setInstagramLink] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+// 1. Definisikan tipe data yang diharapkan dari API
+type SchoolInfo = {
+  address: string;
+  instagram: string;
+  instagram_url: string;
+  email: string;
+  phone: string;
+};
 
-  useEffect(() => {
-    const feacthData = async () => {
-      const res = await axios.get(
-        "https://api.smpn2katapang.sch.id/school-informations"
-      );
-      setInstagram(res.data.data.instagram);
-      setAddress(res.data.data.address);
-      setInstagramLink(res.data.data.instagram_url);
-      setEmail(res.data.data.email);
-      setPhone(res.data.data.phone);
-    };
-    feacthData();
-  }, []);
+// 2. Buat fungsi terpisah untuk mengambil data di server
+async function getSchoolInfo(): Promise<SchoolInfo> {
+  try {
+    const response = await fetch("https://api.smpn2katapang.sch.id/school-informations", {
+      next: { revalidate: 3600 } // INI KUNCINYA: Cache data selama 1 jam
+    });
+
+    if (!response.ok) {
+      console.error('Failed to fetch footer data:', response.statusText);
+      // Kembalikan data default jika API error
+      return { address: '', instagram: '', instagram_url: '', email: '', phone: '' };
+    }
+
+    const result = await response.json();
+    return result.data;
+  } catch (error) {
+    console.error('Error fetching footer data:', error);
+    // Kembalikan data default jika ada error jaringan
+    return { address: '', instagram: '', instagram_url: '', email: '', phone: '' };
+  }
+}
+
+// 3. Ubah komponen utama menjadi 'async'
+export default async function Footer() {
+  // 4. Panggil fungsi dan dapatkan data langsung di server
+  const schoolInfo = await getSchoolInfo();
 
   const pages = [
     { name: "Kesiswaan", link: "/kesiswaan" },
@@ -67,14 +81,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-bold ">Halaman</p>
+            <p className="font-bold">Halaman</p>
             <ul className="space-y-2">
               {pages.map((page) => (
                 <li key={page.name}>
-                  <Link
-                    href={page.link}
-                    className="hover:text-gray-300 transition-colors"
-                  >
+                  <Link href={page.link} className="hover:text-gray-300 transition-colors">
                     {page.name}
                   </Link>
                 </li>
@@ -83,58 +94,30 @@ export default function Footer() {
           </div>
 
           <div className="md:w-130 w-100">
-            <p className="font-bold ">Hubungi Kami</p>
-            <ul className="space-y-3 ">
+            <p className="font-bold">Hubungi Kami</p>
+            <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0">
-                  <MapPin size={20} />
-                </span>
-                <Link
-                  href={"https://maps.app.goo.gl/sGJHw1SGpMgBmoJU7"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  {address}
+                <span className="mt-1 flex-shrink-0"><MapPin size={20} /></span>
+                <Link href={"https://maps.app.goo.gl/sGJHw1SGpMgBmoJU7"} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                  {schoolInfo.address}
                 </Link>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0">
-                  <InstagramIcon size={20} />
-                </span>
-                <Link
-                  href={InstagramLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  {Instagram}
+                <span className="mt-1 flex-shrink-0"><InstagramIcon size={20} /></span>
+                <Link href={schoolInfo.instagram_url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                  {schoolInfo.instagram}
                 </Link>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0">
-                  <Mail size={20} />
-                </span>
-                <Link
-                  href={`mailto:${email}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  {email}
+                <span className="mt-1 flex-shrink-0"><Mail size={20} /></span>
+                <Link href={`mailto:${schoolInfo.email}`} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                  {schoolInfo.email}
                 </Link>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0">
-                   <Phone size={20} />
-                </span>
-                <Link
-                  href={`tel:${phone}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  {phone}
+                <span className="mt-1 flex-shrink-0"><Phone size={20} /></span>
+                <Link href={`tel:${schoolInfo.phone}`} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                  {schoolInfo.phone}
                 </Link>
               </li>
             </ul>
@@ -142,15 +125,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className=" bg-opacity-20 py-4">
+      <div className="bg-opacity-20 py-4">
         <p className="text-sm text-center text-gray-300">
           Developed by{" "}
-          <Link
-            href="https://nexvibe.biz.id/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-white hover:underline"
-          >
+          <Link href="https://nexvibe.biz.id/" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:underline">
             ©Nexvibe
           </Link>
         </p>

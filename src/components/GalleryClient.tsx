@@ -17,7 +17,7 @@ type Album = {
 // Terima data awal dari server melalui props
 export default function GalleryClient({ initialData }: { initialData: Album[] }) {
   // Gunakan data awal untuk state, tidak perlu lagi useEffect & axios
-  const [dataAlbum, setDataAlbum] = useState<Album[]>(initialData);
+  const dataAlbum = initialData;
   const [selectedImage, setSelectedImage] = useState("");
 
   const handleImageClick = (src: string) => {
