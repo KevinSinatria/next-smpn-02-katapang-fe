@@ -3,11 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
-type VisiMisi = {
-  id: number;
-  vision: string;
-missions: string[];
-}
+
 export default function VisiMisiSection() {
   const [visi, setVisi] = useState("");
   const [misi, setMisi] = useState("");

@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { guruData } from "../../app/lib/guru-data"; 
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
