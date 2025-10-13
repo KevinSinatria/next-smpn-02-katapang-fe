@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { MoveLeftIcon, MoveRightIcon } from "lucide-react";
-import { ArtikelData, authors, categories } from "@/app/lib/artikel-data";
+import { ArtikelData, authors } from "@/app/lib/artikel-data";
 
 
 export default function ArtikelList() {

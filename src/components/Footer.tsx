@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const [address, setAddress] = useState("");
   const [Instagram, setInstagram] = useState("");
   const [InstagramLink, setInstagramLink] = useState("");
@@ -33,25 +32,6 @@ export default function Footer() {
     { name: "Hubungan Masyarakat", link: "/humas" },
     { name: "Artikel", link: "/artikel" },
     { name: "Galeri", link: "/galeri" },
-  ];
-
-  const contacts = [
-    {
-      icon: <MapPin size={20} />,
-      text: address,
-    },
-    {
-      icon: <Instagram />,
-      link: InstagramLink,
-    },
-    {
-      icon: <Mail size={20} />,
-      text: email,
-    },
-    {
-      icon: <Phone size={20} />,
-      text: phone,
-    },
   ];
 
   return (
@@ -171,7 +151,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="font-semibold text-white hover:underline"
           >
-            © {currentYear} Nexvibe
+            ©Nexvibe
           </Link>
         </p>
       </div>

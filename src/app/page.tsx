@@ -5,13 +5,11 @@ import HeroSection from "@/components/_components/HeroSection";
 import KepalaSekollah from "@/components/_components/KepalaSekolah";
 import LokasiSection from "@/components/_components/LokasiSection";
 import StaffSekolahSection from "@/components/_components/StaffSekolah";
-import VisiMisiSection from "@/components/_components/VisiMisiSection";
 
 export default function Home() {
   return (
     <main className="overflow-hidden bg-image" >
       <HeroSection />
-      {/* <VisiMisiSection /> */}
       <KepalaSekollah/>
       <StaffSekolahSection/>
       <GaleriSection/>
