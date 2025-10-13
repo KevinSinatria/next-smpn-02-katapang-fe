@@ -9,7 +9,7 @@ const MISI_ITEMS = [
   { id: 3, body: "Menciptakan lingkungan belajar yang aman, nyaman, dan inspiratif." },
 ];
 
-const InfoCard = ({ logoSrc, logoAlt, title, children }: { logoSrc: string; logoAlt: string; title: string; children: React.ReactNode }) => {
+const InfoCard = ({ logoSrc, logoAlt, children }: { logoSrc: string; logoAlt: string; title: string; children: React.ReactNode }) => {
   return (
     <div className="relative flex flex-col w-full rounded-2xl overflow-hidden shadow-2xl min-h-[450px] md:min-h-[500px]">
       <Image
