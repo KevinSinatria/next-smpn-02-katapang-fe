@@ -1,31 +1,60 @@
-import { ArtikelData, authors, categories } from "@/app/lib/artikel-data";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Calendar, UserCircle, Tag } from "lucide-react";
 import ListCategori from "@/components/Artikel/ListCategori";
 
-// Tipe untuk props 'params'
+// Tipe untuk artikel yang diterima dari API
+type Artikel = {
+  id: number;
+  title: string;
+  slug: string;
+  thumbnail_url: string;
+  content: string; // Konten artikel, kemungkinan besar dalam format HTML
+  author: string; // API langsung memberikan nama, bukan ID
+  category: string; // API langsung memberikan nama, bukan ID
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
 type PageProps = {
   params: {
     slug: string;
   };
 };
 
-export default function ArtikelDetail({ params }: PageProps) {
-  const artikel = ArtikelData.find((item) => item.slug === params.slug);
+// Fungsi untuk mengambil satu artikel dari API berdasarkan slug
+async function getArtikelBySlug(slug: string): Promise<Artikel | null> {
+  try {
+    const res = await fetch(`https://api.smpn2katapang.sch.id/articles/${slug}`, {
+      cache: "no-store",
+    });
 
+    // Jika artikel tidak ditemukan (API mengembalikan 404), res.ok akan false
+    if (!res.ok) {
+      return null;
+    }
+
+    const responseJson = await res.json();
+    return responseJson.data;
+  } catch (error) {
+    console.error("Gagal mengambil detail artikel:", error);
+    return null;
+  }
+}
+
+
+export default async function ArtikelDetail({ params }: PageProps) {
+  // Panggil fungsi untuk mengambil data artikel secara dinamis
+  const artikel = await getArtikelBySlug(params.slug);
+
+  // Jika fungsi mengembalikan null (artikel tidak ditemukan atau error), tampilkan halaman 404
   if (!artikel) {
     notFound();
   }
-  const authorName =
-    authors.find((author) => author.id === artikel.author_id)?.name ||
-    "Redaksi Sekolah";
 
-  const categoryName =
-    categories.find((cat) => cat.id === artikel.category_id)?.name ||
-    "Tanpa Kategori";
-
-  const publishedDate = new Date(artikel.published_at);
+  // Menggunakan created_at sebagai fallback jika published_at tidak ada
+  const displayDate = new Date(artikel.published_at || artikel.created_at);
 
   return (
     <div className="container mx-auto px-4 lg:px-8 mt-20 flex flex-col lg:flex-row">
@@ -37,16 +66,18 @@ export default function ArtikelDetail({ params }: PageProps) {
         <div className="flex flex-wrap items-center text-gray-500 mt-4 text-sm gap-x-4 gap-y-2">
           <div className="flex items-center gap-2">
             <Tag size={16} />
-            <span>{categoryName}</span>
+            {/* Langsung gunakan data dari API */}
+            <span>{artikel.category}</span>
           </div>
           <div className="flex items-center gap-2">
             <UserCircle size={16} />
-            <span>Oleh: {authorName}</span>
+            {/* Langsung gunakan data dari API */}
+            <span>Oleh: {artikel.author}</span>
           </div>
           <div className="flex items-center gap-2">
             <Calendar size={16} />
-            <time dateTime={artikel.published_at}>
-              {publishedDate.toLocaleDateString("id-ID", {
+            <time dateTime={displayDate.toISOString()}>
+              {displayDate.toLocaleDateString("id-ID", {
                 dateStyle: "long",
               })}
             </time>
@@ -56,15 +87,16 @@ export default function ArtikelDetail({ params }: PageProps) {
           <Image
             src={artikel.thumbnail_url}
             alt={artikel.title}
-            layout="fill"
-            objectFit="cover"
+            fill // 'fill' lebih modern daripada layout="fill"
+            className="object-cover" // Gunakan className untuk objectFit
             priority
           />
         </div>
 
-        <div className="prose lg:prose-lg max-w-none text-gray-700">
-          <p>{artikel.content}</p>
-        </div>
+        <div
+          className="prose lg:prose-lg max-w-none text-gray-700"
+          dangerouslySetInnerHTML={{ __html: artikel.content }}
+        />
       </div>
       <div className="w-full lg:w-1/3 lg:max-w-sm mt-12 lg:mt-0">
         <div className="w-full p-5 border-t-4 lg:border-t-0 lg:border-l-4 border-gray-500/70">
@@ -77,7 +109,7 @@ export default function ArtikelDetail({ params }: PageProps) {
               className="h-auto w-full transition duration-300 ease-in-out hover:scale-105"
             />
           </div>
-         <ListCategori/>
+          <ListCategori />
         </div>
       </div>
     </div>
