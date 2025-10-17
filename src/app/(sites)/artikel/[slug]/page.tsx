@@ -2,6 +2,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Calendar, UserCircle, Tag } from "lucide-react";
 import ListCategori from "@/components/Artikel/ListCategori";
+import EditorJsRenderer from '../../../../components/EditorJsRenderer';
+import { parse } from "path";
 
 // Tipe untuk artikel yang diterima dari API
 type Artikel = {
@@ -45,15 +47,11 @@ async function getArtikelBySlug(slug: string): Promise<Artikel | null> {
 
 
 export default async function ArtikelDetail({ params }: PageProps) {
-  // Panggil fungsi untuk mengambil data artikel secara dinamis
-  const artikel = await getArtikelBySlug(params.slug);
-
-  // Jika fungsi mengembalikan null (artikel tidak ditemukan atau error), tampilkan halaman 404
+  const { slug } = await params;
+  const artikel = await getArtikelBySlug(slug);
   if (!artikel) {
     notFound();
   }
-
-  // Menggunakan created_at sebagai fallback jika published_at tidak ada
   const displayDate = new Date(artikel.published_at || artikel.created_at);
 
   return (
@@ -66,12 +64,10 @@ export default async function ArtikelDetail({ params }: PageProps) {
         <div className="flex flex-wrap items-center text-gray-500 mt-4 text-sm gap-x-4 gap-y-2">
           <div className="flex items-center gap-2">
             <Tag size={16} />
-            {/* Langsung gunakan data dari API */}
             <span>{artikel.category}</span>
           </div>
           <div className="flex items-center gap-2">
             <UserCircle size={16} />
-            {/* Langsung gunakan data dari API */}
             <span>Oleh: {artikel.author}</span>
           </div>
           <div className="flex items-center gap-2">
@@ -87,16 +83,15 @@ export default async function ArtikelDetail({ params }: PageProps) {
           <Image
             src={artikel.thumbnail_url}
             alt={artikel.title}
-            fill // 'fill' lebih modern daripada layout="fill"
-            className="object-cover" // Gunakan className untuk objectFit
+            fill 
+            className="object-cover" 
             priority
           />
         </div>
 
-        <div
-          className="prose lg:prose-lg max-w-none text-gray-700"
-          dangerouslySetInnerHTML={{ __html: artikel.content }}
-        />
+      <article>
+        <EditorJsRenderer data={JSON.parse(artikel.content)} />
+      </article>
       </div>
       <div className="w-full lg:w-1/3 lg:max-w-sm mt-12 lg:mt-0">
         <div className="w-full p-5 border-t-4 lg:border-t-0 lg:border-l-4 border-gray-500/70">

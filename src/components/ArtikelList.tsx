@@ -1,45 +1,83 @@
-
-
-"use client"; 
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { MoveLeftIcon, MoveRightIcon } from "lucide-react";
-import { ArtikelData, authors } from "@/app/lib/artikel-data";
+import { useState, useEffect } from "react"; 
+import { CircleAlert, MoveLeftIcon, MoveRightIcon } from "lucide-react";
+type Article = {
+  id: number;
+  title: string;
+  slug: string;
+  thumbnail_url: string;
+  author: string; 
+  category: string;
+  published: boolean;
+  published_at: string | null;
+  created_at: string;
+};
 
+type Meta = {
+  page: number;
+  limit: number;
+  totalItems: number;
+  totalPage: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+};
 
 export default function ArtikelList() {
+  
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [meta, setMeta] = useState<Meta | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 3;
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // 1. Saring hanya artikel yang properti `published`-nya `true`
-  const publishedArticles = ArtikelData.filter((artikel) => artikel.published);
+  
+  useEffect(() => {
+    const fetchArticles = async () => {
+      setIsLoading(true);
+      setError(null);
 
-  // 2. Logika paginasi
-  const indexOfLastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = publishedArticles.slice(
-    indexOfFirstArticle,
-    indexOfLastArticle
-  );
-  const totalPages = Math.ceil(publishedArticles.length / articlesPerPage);
+      try {
+        // API URL dengan parameter paginasi
+        const response = await fetch(
+          `https://api.smpn2katapang.sch.id/articles/?page=${currentPage}&limit=3`
+        );
 
-  const paginate = (pageNumber: number) => {
-    if (pageNumber > 0 && pageNumber <= totalPages) {
-      setCurrentPage(pageNumber);
-    }
-  };
+        if (!response.ok) {
+          throw new Error("Gagal mengambil data artikel");
+        }
+
+        const result = await response.json();
+        setArticles(result.data);
+        setMeta(result.meta);
+      } catch (err) {
+        setError("Terjadi kesalahan saat memuat artikel.");
+        console.error(err);
+      } finally {
+        setIsLoading(false); 
+      }
+    };
+
+    fetchArticles();
+  }, [currentPage]);
+
+  if (isLoading) {
+    return <div className="text-center p-10 text-black font-bold">Memuat artikel...</div>;
+  }
+
+  // Tampilkan error state
+  if (error) {
+    return <div className="text-center p-10 text-red-500">{error}</div>;
+  }
 
   return (
     <div className="w-full">
       <div className="flex flex-col items-center gap-10">
-        {currentArticles.map((item) => {
-          const authorName =
-            authors.find((author) => author.id === item.author_id)?.name ||
-            "Redaksi";
-
-          const publishedDate = new Date(item.published_at);
+        {articles.map((item) => {
+          // Gunakan created_at sebagai fallback jika published_at null
+          const displayDate = new Date(item.published_at || item.created_at);
 
           return (
             <div
@@ -48,37 +86,38 @@ export default function ArtikelList() {
             >
               <div className="relative">
                 <Image
-                  src={item.thumbnail_url} 
+                  src={item.thumbnail_url}
                   alt={item.title}
                   width={860}
                   height={400}
                   className="w-full h-auto object-cover rounded-lg"
+                  priority={articles.indexOf(item) === 0} 
                 />
                 <div className="absolute top-4 left-4 flex flex-col justify-center items-center md:w-20 md:h-20 w-16 h-16 text-center p-2 border-[#5E8964] border-4 font-bold bg-[#FA6602] text-white rounded-xl">
                   <span className="text-2xl leading-tight">
-                    {publishedDate.getDate()} {}
+                    {displayDate.getDate()}
                   </span>
                   <span className="text-sm uppercase">
-                    {publishedDate.toLocaleString("id-ID", { month: "short" })}
+                    {displayDate.toLocaleString("id-ID", { month: "short" })}
                   </span>
                 </div>
               </div>
 
               <div className="pt-6">
                 <h1 className="text-2xl font-bold text-gray-800 hover:text-[#FA6602] transition-colors duration-300">
-                  {item.title}
+                  <Link href={`/artikel/${item.slug}`}>{item.title}</Link>
                 </h1>
                 <div className="flex items-center text-gray-500 text-sm mt-2 space-x-2">
                   <p>
-                    {publishedDate.toLocaleDateString("id-ID", {
+                    {displayDate.toLocaleDateString("id-ID", {
                       dateStyle: "long",
                     })}
                   </p>
                   <span>•</span>
-                  <p>{authorName}</p> 
+                  <p>{item.author}</p>
                 </div>
                 <p className="mt-3 text-gray-600 line-clamp-3">
-                  {item.content.substring(0, 150)}...
+                  Baca selengkapnya untuk mengetahui informasi detail mengenai artikel ini.
                 </p>
                 <Link
                   href={`/artikel/${item.slug}`}
@@ -92,26 +131,27 @@ export default function ArtikelList() {
         })}
       </div>
 
-      {/* Komponen Paginasi */}
-      <div className="flex justify-center items-center mt-12 space-x-4">
-        <button
-          onClick={() => paginate(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="p-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <MoveLeftIcon className="text-gray-700" />
-        </button>
-        <span className="text-gray-700 font-medium">
-          Halaman {currentPage} dari {totalPages}
-        </span>
-        <button
-          onClick={() => paginate(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="p-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <MoveRightIcon className="text-gray-700" />
-        </button>
-      </div>
+      {meta && meta.totalItems > 0 && (
+        <div className="flex justify-center items-center mt-12 space-x-4">
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={!meta.hasPrevPage}
+            className="p-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <MoveLeftIcon className="text-gray-700" />
+          </button>
+          <span className="text-gray-700 font-medium">
+            Halaman {meta.page} dari {meta.totalPage}
+          </span>
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={!meta.hasNextPage}
+            className="p-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <MoveRightIcon className="text-gray-700" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
