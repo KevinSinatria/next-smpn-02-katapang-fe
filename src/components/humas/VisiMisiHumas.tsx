@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SplitText from "../SplitText";
 
 // Data Visi dan Misi tetap sama
 const VISI_TEXT =

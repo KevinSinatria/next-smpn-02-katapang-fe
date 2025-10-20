@@ -1,6 +1,7 @@
 import React from 'react';
 import DOMPurify from 'isomorphic-dompurify';
 import styles from './EditorJsRenderer.module.css';
+import Image from 'next/image';
 // Hapus 'import Image from "next/image"' jika tidak digunakan di renderer ini,
 // atau pastikan Anda punya renderer yang menggunakannya.
 
@@ -58,7 +59,7 @@ const blockRenderers = {
     return (
       <figure className={classNames}>
         {/* Jika Anda ingin menggunakan next/image, pastikan domain gambar sudah dikonfigurasi di next.config.js */}
-        <img src={url} alt={caption || 'Gambar dari konten'} />
+        <Image src={url} width={1000} height={1000} alt={caption || 'Gambar dari konten'} />
         {caption && (
           <figcaption dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(caption) }} />
         )}

@@ -7,7 +7,6 @@ import {
   CarouselItem,
 } from "./ui/carousel";
 import CountUp from "./CountUp";
-import { constants } from "buffer";
 import { useEffect, useState } from "react";
 type State = {
   students: number;

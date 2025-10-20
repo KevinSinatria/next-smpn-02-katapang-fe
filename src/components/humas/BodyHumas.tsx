@@ -1,6 +1,5 @@
 import Image from "next/image";
 import VisiMisiHumas from "./VisiMisiHumas";
-import SplitText from "../SplitText";
 
 export default function BodyHumas() {
   const MISI_ITEMS = [

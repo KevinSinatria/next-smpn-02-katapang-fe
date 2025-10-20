@@ -1,5 +1,4 @@
 import Image from "next/image";
-import CalendarApp from "./Calender";
 import Link from "next/link";
 import SplitText from "./SplitText";
 type ApiEvent = {

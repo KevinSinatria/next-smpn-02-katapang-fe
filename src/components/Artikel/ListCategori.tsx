@@ -8,13 +8,6 @@ type Category = {
   slug: string;
 };
 
-// Tipe untuk Artikel, sesuai dengan respons JSON Anda
-type Article = {
-  id: number;
-  title: string;
-  category: string; 
-  slug: string;
-};
 
 // Fungsi ini mengambil artikel, lalu mengekstrak kategori unik
 async function getUniqueCategoriesFromArticles(): Promise<Category[] | null> {

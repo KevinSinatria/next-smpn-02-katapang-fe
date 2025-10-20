@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react"; 
-import { CircleAlert, MoveLeftIcon, MoveRightIcon } from "lucide-react";
+import { MoveLeftIcon, MoveRightIcon } from "lucide-react";
 type Article = {
   id: number;
   title: string;

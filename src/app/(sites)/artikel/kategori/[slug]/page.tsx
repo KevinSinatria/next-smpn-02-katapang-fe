@@ -1,17 +1,15 @@
 "use client";
 import { useState, useEffect, use } from "react";
-import { ArtikelData, authors, categories } from "@/app/lib/artikel-data";
+import {  authors, categories } from "@/app/lib/artikel-data";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  Calendar,
-  UserCircle,
   MoveRight,
-  MoveLeftIcon,
+
   MoveRightIcon,
 } from "lucide-react";
-import EditorJsRenderer from "@/components/EditorJsRenderer";
+
 
 type PageProps = {
   params: Promise<{ slug: string }>;

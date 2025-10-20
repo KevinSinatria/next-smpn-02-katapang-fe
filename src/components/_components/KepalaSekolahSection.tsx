@@ -1,5 +1,4 @@
 import BodyKepalaSekolah from "../KepalaSekolah/BodyKepalaSekolah";
-import BodyKepalaSekolahSection from "../KepalaSekolah/BodyKepalaSekolahSection";
 import TitleSambutanSection from "../KepalaSekolah/TitleSambutanSection";
 export default function KepalaSekolahSection(){
   return(
