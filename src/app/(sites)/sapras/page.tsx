@@ -1,5 +1,12 @@
 import JudulBidang from "@/components/JudulBidang";
 import BodySapras from "@/components/sapras/BodySapras";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Sarana dan Prasarana - SMPN 2 Katapang",
+  description: "SMPN 2 Katapang - Sekolah Menengah Pertama Negeri 2 Katapang",
+};
 
 export default function Sapras() {
   return (

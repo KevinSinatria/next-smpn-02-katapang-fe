@@ -108,36 +108,12 @@ export default function BodyHumas() {
 
       <div className="mb-15">
         <h1 className="lg:text-3xl md:text-2xl text-xl font-bold text-white flex justify-center items-center text-center ">
-          <SplitText
-            text={"Jenis Kegiatan Humas SMPN 2 Katapang"}
-            delay={100}
-            duration={0.6}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="start"
-          />
+          Jenis Kegiatan Humas SMPN 2 Katapang
         </h1>
         <div className="text-base md:text-lg space-y-3 text-center w-full justify-center items-center mt-5">
           {MISI_ITEMS.map((item) => (
             <div key={item.id} className="flex justify-center items-center">
-              <div className="flex-1">
-                <SplitText
-                  text={item.body}
-                  delay={item.id * 10}
-                  duration={0.6}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 40 }}
-                  to={{ opacity: 1, y: 0 }}
-                  threshold={0.1}
-                  rootMargin="-100px"
-                  textAlign="start"
-                />
-              </div>
+              <div className="flex-1">{item.body}</div>
             </div>
           ))}
         </div>

@@ -1,5 +1,12 @@
 import BodyHumas from "@/components/humas/BodyHumas";
 import JudulBidang from "@/components/JudulBidang";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Hubungan Masyarakat - SMPN 2 Katapang",
+  description: "SMPN 2 Katapang - Sekolah Menengah Pertama Negeri 2 Katapang",
+};
 
 export default function Humas() {
   return (

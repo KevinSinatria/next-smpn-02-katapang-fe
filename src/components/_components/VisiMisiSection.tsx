@@ -54,8 +54,8 @@ export default async function VisiMisiSection() {
           className="md:max-w-xl max-w-sm bg-[#5E8964] border-[#EB9B64] border-4 rounded-2xl shadow-lg p-4"
         />
       </div>
-      <div className="bg-white-50 md:bg-white-50/0">
-        <div className="absolute w-500 -left-90 md:-left-30 h-123 rotate-2 z-10 hidden md:block mt-10">
+      <div className="bg-white-50 md:bg-white-50/0 ">
+        <div className="absolute w-500 -left-90 md:-left-30 h-123 rotate-2 z-10 hidden md:block ">
           <Image src="/visimisi.png" alt="Kotak Dekorasi" fill priority />
         </div>  
         <div className="relative w-full h-auto z-20 P-5 md:p-10 mt-10">

@@ -3,7 +3,14 @@ import KepalaSekolahSection from "@/components/_components/KepalaSekolahSection"
 import VisiMisiSection from "@/components/_components/VisiMisiSection";
 import IdentitasSection from "@/components/profile/IdentitasSection";
 import SejarahSection from "@/components/profile/SejarahSection";
+import { Metadata } from "next";
 import Image from "next/image";
+
+
+export const metadata: Metadata = {
+  title: "Profile - SMPN 2 Katapang",
+  description: "SMPN 2 Katapang - Sekolah Menengah Pertama Negeri 2 Katapang",
+};
 
 export default function Profile() {
   return (
