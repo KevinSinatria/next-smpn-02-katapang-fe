@@ -9,12 +9,7 @@ type HeadMasters = {
 
 async function GetHeadmasters(): Promise<HeadMasters | null> {
   try {
-    const res = await fetch(
-      "https://api.smpn2katapang.sch.id/headmasters/current",
-      {
-        cache: "no-store",
-      }
-    );
+    const res = await fetch("https://api.smpn2katapang.sch.id/headmasters/current");
 
     if (!res.ok) {
       console.error("Gagal mengambil data headmaster:", res.statusText);

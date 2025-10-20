@@ -5,7 +5,6 @@ import IdentitasSection from "@/components/profile/IdentitasSection";
 import SejarahSection from "@/components/profile/SejarahSection";
 import { Metadata } from "next";
 import Image from "next/image";
-export const dynamic = 'force-dynamic';
 
 
 export const metadata: Metadata = {
