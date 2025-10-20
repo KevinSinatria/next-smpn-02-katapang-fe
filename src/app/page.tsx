@@ -5,7 +5,7 @@ import HeroSection from "@/components/_components/HeroSection";
 import KepalaSekollah from "@/components/_components/KepalaSekolah";
 import LokasiSection from "@/components/_components/LokasiSection";
 import StaffSekolahSection from "@/components/_components/StaffSekolah";
-
+export const dynamic = 'force-dynamic'
 export default function Home() {
   return (
     <main className="overflow-hidden bg-image" >
