@@ -11,7 +11,7 @@ type Guru = {
   image_url: string;
   name: string;
   position: string;
-};
+};  
 
 
 // 1. Buat fungsi terpisah untuk mengambil data

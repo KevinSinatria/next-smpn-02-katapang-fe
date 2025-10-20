@@ -40,6 +40,12 @@ export default function KataPengantarKesiswaan() {
       link: "https://www.instagram.com/uksdukat__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     },
     {
+      image: "/ekstrakulikuler/literasi.png",
+      title: "Literasi",
+      deks: "Meningkatkan minat baca dan tulis, mengasah kemampuan berpikir kritis, serta menjadi wadah untuk berkarya melalui tulisan dan diskusi.",
+      link: "https://www.instagram.com/literasihebat_dukat?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    },
+    {
       image: "/ekstrakulikuler/padus.png",
       title: "Paduan Suara",
       deks: "Mengembangkan bakat di bidang tarik suara, melatih kekompakan, dan harmoni untuk menampilkan persembahan musik yang indah.",
@@ -56,12 +62,6 @@ export default function KataPengantarKesiswaan() {
       title: "Pencak Silat",
       deks: "Mempelajari seni bela diri warisan budaya bangsa, membangun mental yang kuat, disiplin, dan kepercayaan diri.",
       link: "",
-    },
-    {
-      image: "/ekstrakulikuler/literasi.png",
-      title: "Literasi",
-      deks: "Meningkatkan minat baca dan tulis, mengasah kemampuan berpikir kritis, serta menjadi wadah untuk berkarya melalui tulisan dan diskusi.",
-      link: "https://www.instagram.com/literasihebat_dukat?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     },
     {
       image: "/ekstrakulikuler/karawitan.png",

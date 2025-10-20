@@ -21,8 +21,6 @@ type Artikel = {
 async function getArtikel(): Promise<Artikel[]> {
   try {
     const res = await fetch("https://api.smpn2katapang.sch.id/articles/", {
-      // Menambahkan cache: 'no-store' agar data selalu terbaru saat development.
-      // Untuk produksi, Anda bisa mengatur revalidate, misal: next: { revalidate: 3600 }
       cache: "no-store", 
     });
 

@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 import { Calendar, UserCircle, Tag } from "lucide-react";
 import ListCategori from "@/components/Artikel/ListCategori";
 import EditorJsRenderer from '../../../../components/EditorJsRenderer';
-import { parse } from "path";
 
-// Tipe untuk artikel yang diterima dari API
 type Artikel = {
   id: number;
   title: string;
@@ -25,14 +23,12 @@ type PageProps = {
   };
 };
 
-// Fungsi untuk mengambil satu artikel dari API berdasarkan slug
 async function getArtikelBySlug(slug: string): Promise<Artikel | null> {
   try {
     const res = await fetch(`https://api.smpn2katapang.sch.id/articles/${slug}`, {
       cache: "no-store",
     });
 
-    // Jika artikel tidak ditemukan (API mengembalikan 404), res.ok akan false
     if (!res.ok) {
       return null;
     }
@@ -56,7 +52,7 @@ export default async function ArtikelDetail({ params }: PageProps) {
 
   return (
     <div className="container mx-auto px-4 lg:px-8 mt-20 flex flex-col lg:flex-row">
-      <div className="w-full max-w-3xl mx-auto bg-white/90 rounded-2xl overflow-hidden p-5 md:p-8 shadow-lg">
+      <div className="w-full max-w-3xl mx-auto bg-white/90 rounded-2xl overflow-hidden p-5 md:p-8 shadow-lg border-2 border-gray-500/20">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
           {artikel.title}
         </h1>

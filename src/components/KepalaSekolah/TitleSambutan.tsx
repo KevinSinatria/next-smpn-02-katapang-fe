@@ -2,7 +2,7 @@ import Image from "next/image";
 import CurvedLoop from "../CurvedLoop";
 export default function TitleSambutan() {
   return (
-    <div className="relative flex justify-center items-center w-full p-4 -mt-13 md:-mt-11 pt-12">
+    <div className="relative flex justify-center items-center w-full p-4 -mt-13 md:-mt-11 pt-12 mb-40 ">
       <div className="absolute z-0 left-10 w-400  hidden lg:block lg:-mt-70  -ml-10">
         <CurvedLoop
           marqueeText="Religius ✦ Edukatif ✦ Sukses ✦ Inovatif ✦ Kreatif ✦"

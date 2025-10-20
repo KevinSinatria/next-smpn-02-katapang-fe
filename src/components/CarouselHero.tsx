@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import {
@@ -6,7 +7,56 @@ import {
   CarouselItem,
 } from "./ui/carousel";
 import CountUp from "./CountUp";
+import { constants } from "buffer";
+import { useEffect, useState } from "react";
+type State = {
+  students: number;
+  teachers: number;
+  classes: number;
+};
+
+// Fungsi fetch data sudah benar
+async function getDataState(): Promise<State[]> {
+  try {
+    const res = await fetch("https://api.smpn2katapang.sch.id/school-stats", {
+      next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) {
+      console.error("Gagal mengambil data statistik:", res.statusText);
+      return [];
+    }
+
+    const result = await res.json();
+    return result.data || [];
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+}
+
 export default function CarouselHero() {
+  // 3. State untuk menampung data dari API
+  const [students, setStudents] = useState(0);
+  const [teachers, setTeachers] = useState(0);
+  const [classes, setClasses] = useState(0);
+
+  // 4. Gunakan useEffect untuk mengambil data saat komponen dimuat (client-side)
+  useEffect(() => {
+    const fetchStats = async () => {
+      const dataArray = await getDataState();
+      // 5. Cek jika data ada dan ambil item pertama [0]
+      if (dataArray && dataArray.length > 0) {
+        const stats = dataArray[0];
+        setStudents(stats.students);
+        setTeachers(stats.teachers);
+        setClasses(stats.classes);
+      }
+    };
+
+    fetchStats();
+  }, []); // [] berarti useEffect hanya berjalan sekali saat mount
+
 
   const cardHero = [
     {
@@ -57,7 +107,7 @@ export default function CarouselHero() {
           <h1 className="text-[#4D6450] font-bold text-sm lg:text-3xl">
             <CountUp
               from={0}
-              to={1419}
+              to={students}
               separator=","
               direction="up"
               duration={2}
@@ -71,7 +121,7 @@ export default function CarouselHero() {
           <h1 className="text-[#4D6450] font-bold text-sm lg:text-3xl">
             <CountUp
               from={0}
-              to={56}
+              to={teachers}
               separator=","
               direction="up"
               duration={2}
@@ -85,7 +135,7 @@ export default function CarouselHero() {
           <h1 className="text-[#4D6450] font-bold text-sm lg:text-3xl">
             <CountUp
               from={0}
-              to={65}
+              to={classes}
               separator=","
               direction="up"
               duration={2}

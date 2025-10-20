@@ -12,20 +12,29 @@ type SchoolInfo = {
 // 2. Buat fungsi terpisah untuk mengambil data di server
 async function getSchoolInfo(): Promise<SchoolInfo> {
   try {
-    const response = await fetch('https://api.smpn2katapang.sch.id/school-informations', {
-      next: { revalidate: 3600 } // INI KUNCINYA: Cache data selama 1 jam
-    });
+    const response = await fetch(
+      "https://api.smpn2katapang.sch.id/school-informations",
+      {
+        next: { revalidate: 3600 }, // INI KUNCINYA: Cache data selama 1 jam
+      }
+    );
 
     if (!response.ok) {
-      console.error('Failed to fetch school info:', response.statusText);
-      return { vision: "Visi tidak dapat dimuat.", missions: "Misi tidak dapat dimuat." };
+      console.error("Failed to fetch school info:", response.statusText);
+      return {
+        vision: "Visi tidak dapat dimuat.",
+        missions: "Misi tidak dapat dimuat.",
+      };
     }
 
     const result = await response.json();
     return result.data;
   } catch (error) {
-    console.error('Error fetching data:', error);
-    return { vision: "Visi tidak dapat dimuat.", missions: "Misi tidak dapat dimuat." };
+    console.error("Error fetching data:", error);
+    return {
+      vision: "Visi tidak dapat dimuat.",
+      missions: "Misi tidak dapat dimuat.",
+    };
   }
 }
 
@@ -36,35 +45,43 @@ export default async function VisiMisiSection() {
 
   return (
     <section className="relative w-full min-h-screen mt-15">
-      <div className="absolute w-500 -left-90 md:-left-30 h-123 rotate-2 z-10">
-        <Image src="/visimisi.png" alt="Kotak Dekorasi" fill priority />
-      </div>
-      <div className="relative w-full h-auto z-20 P-5 md:p-10">
+      <div className="flex justify-center items-center ">
         <Image
-          src={"/visilogo.png"}
-          alt="logo visi misi"
+          src={"/visimisisekolah.png"}
+          alt="Visi misi"
           width={1000}
           height={1000}
-          className="max-w-[70px] left-10 md:left-20"
+          className="md:max-w-xl max-w-sm bg-[#5E8964] border-[#EB9B64] border-4 rounded-2xl shadow-lg p-4"
         />
-        {/* Gunakan data yang sudah siap */}
-        <h2 className="text-sm font-bold text-white">
-          {schoolInfo.vision}
-        </h2>
       </div>
-      <div className="relative w-full h-auto z-20 P-5 md:p-10">
-        <Image
-          src={"/misilogo.png"}
-          alt="logo visi misi"
-          width={1000}
-          height={1000}
-          className="max-w-[70px] left-10 md:-mt-16 md:left-20"
-        />
-        <div className="text-sm font-bold text-white">
-          {/* Komponen Markdown tetap bisa digunakan di server */}
-          <Markdown>{schoolInfo.missions}</Markdown>
+      <div className="bg-white-50 md:bg-white-50/0">
+        <div className="absolute w-500 -left-90 md:-left-30 h-123 rotate-2 z-10 hidden md:block mt-10">
+          <Image src="/visimisi.png" alt="Kotak Dekorasi" fill priority />
+        </div>  
+        <div className="relative w-full h-auto z-20 P-5 md:p-10 mt-10">
+          <Image
+            src={"/visilogo.png"}
+            alt="logo visi misi"
+            width={1000}
+            height={1000}
+            className="max-w-[70px] left-10 md:left-20"
+          />
+          <p className="text-sm font-bold md:text-white text-gray-800">{schoolInfo.vision}</p>
+        </div>
+        <div className="relative w-full h-auto z-20 P-5 md:p-10 mt-5">
+          <Image
+            src={"/misilogo.png"}
+            alt="logo visi misi"
+            width={1000}
+            height={1000}
+            className="max-w-[70px] left-10 md:-mt-16 md:left-20"
+          />
+          <div className="text-sm font-bold md:text-white text-gray-800 gap-3 prose">
+            <Markdown>{schoolInfo.missions}</Markdown>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+ 

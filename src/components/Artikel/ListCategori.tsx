@@ -19,8 +19,8 @@ type Article = {
 // Fungsi ini mengambil artikel, lalu mengekstrak kategori unik
 async function getUniqueCategoriesFromArticles(): Promise<Category[] | null> {
   try {
-    const res = await fetch(`https://api.smpn2katapang.sch.id/articles/`, {
-      next: { revalidate: 3600 }, // Cache selama 1 jam
+    const res = await fetch(`https://api.smpn2katapang.sch.id/article-categories`, {
+      next: { revalidate: 3600 }, 
     });
 
     if (!res.ok) {
@@ -29,24 +29,15 @@ async function getUniqueCategoriesFromArticles(): Promise<Category[] | null> {
     }
 
     const result = await res.json();
-    const articles: Article[] = result.data;
+    const category: Category[] = result.data;
 
-    // Gunakan Map untuk memastikan setiap kategori hanya muncul sekali
     const categoryMap = new Map<string, Category>();
 
-    articles.forEach((article, index) => {
-      // Cek jika kategori dari artikel ini belum ada di Map kita
-      if (article.category && !categoryMap.has(article.category)) {
-        // Jika belum ada, tambahkan ke Map
-        categoryMap.set(article.category, {
-          id: index, 
-          name: article.category,
-          slug: article.slug,
-        });
+    category.forEach((item) => {
+      if (!categoryMap.has(item.name)) {
+        categoryMap.set(item.name, item);
       }
     });
-
-    // Ubah Map kembali menjadi sebuah array untuk di-render
     return Array.from(categoryMap.values());
 
   } catch (error) {
@@ -66,7 +57,7 @@ export default async function ListCategori() {
     <div className="mt-5 flex flex-col gap-2 -space-y-7">
       {categories.map((item) => (
         <Link
-          href={`/artikel/${item.slug}`}
+          href={`/artikel/kategori/${item.slug }`}
           key={item.id}
           className="group p-3 rounded-lg flex justify-start items-center cursor-pointer transition-colors duration-200"
         >
