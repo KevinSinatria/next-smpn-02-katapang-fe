@@ -162,7 +162,7 @@ export default function Navbar() {
             height={50}
             className="w-[50px] h-auto"
           />
-          <p className="text-xl md:text-2xl font-bold font-inter text-black">
+          <p className="text-md md:text-2xl font-bold font-inter text-black">
             SMPN 2 KATAPANG
           </p>
         </Link>
