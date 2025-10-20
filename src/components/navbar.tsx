@@ -112,7 +112,7 @@ const DesktopDropdown = ({ item }: { item: DropdownMenuItem }) => {
                   : subItem.href
               }
               className={`block w-full text-left px-4 py-2 rounded-md text-base transition-colors duration-300 ${
-                isActive && !subItem.idlink 
+                isActive && !subItem.idlink
                   ? "text-white bg-[#4D6450]"
                   : "text-gray-700 hover:bg-gray-100 hover:text-[#4D6450]"
               }`}
@@ -143,7 +143,9 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 font-poppins h-17 transition-all duration-300 ${
-        scrolled || isMenuOpen ? "shadow-lg bg-white" : "shadow-sm bg-white"
+        scrolled || isMenuOpen
+          ? "shadow-lg bg-white mx-5 rounded-2xl border-2 border-gray-400/50 mt-2"
+          : "shadow-sm bg-white"
       }`}
     >
       <div className="w-full flex justify-between items-center px-4 md:px-15 py-2">
@@ -224,8 +226,8 @@ function MobileMenuPanel({
 
   return (
     <div
-      className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white ${
-        isOpen ? "max-h-screen py-4 shadow-md" : "max-h-0"
+      className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white  ${
+        isOpen ? "max-h-screen py-4 shadow-md rounded-2xl mt-2" : "max-h-0"
       }`}
     >
       <div className="flex flex-col items-center gap-4">
@@ -233,7 +235,7 @@ function MobileMenuPanel({
           if (item.subItems) {
             const isAccordionOpen = openAccordion === item.name;
             return (
-              <div key={item.name} className="w-full text-center">
+              <div key={item.name} className="w-full text-center"> 
                 <button
                   onClick={() =>
                     setOpenAccordion(isAccordionOpen ? null : item.name)

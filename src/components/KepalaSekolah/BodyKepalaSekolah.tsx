@@ -22,7 +22,6 @@ async function GetHeadmasters(): Promise<HeadMasters | null> {
     }
 
     const responseJson = await res.json();
-    console.log(responseJson.data);
     return responseJson.data || null;
   } catch (error) {
     console.error("Terjadi error di GetHeadmasters:", error);
