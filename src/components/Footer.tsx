@@ -16,22 +16,37 @@ type SchoolInfo = {
 // 2. Buat fungsi terpisah untuk mengambil data di server
 async function getSchoolInfo(): Promise<SchoolInfo> {
   try {
-    const response = await fetch("https://api.smpn2katapang.sch.id/school-informations", {
-      next: { revalidate: 3600 } // INI KUNCINYA: Cache data selama 1 jam
-    });
+    const response = await fetch(
+      "https://api.smpn2katapang.sch.id/school-informations",
+      {
+        next: { revalidate: 3600 }, // Cache data selama 1 jam
+      }
+    );
 
     if (!response.ok) {
-      console.error('Failed to fetch footer data:', response.statusText);
+      console.error("Failed to fetch footer data:", response.statusText);
       // Kembalikan data default jika API error
-      return { address: '', instagram: '', instagram_url: '', email: '', phone: '' };
+      return {
+        address: "",
+        instagram: "",
+        instagram_url: "",
+        email: "",
+        phone: "",
+      };
     }
 
     const result = await response.json();
     return result.data;
   } catch (error) {
-    console.error('Error fetching footer data:', error);
+    console.error("Error fetching footer data:", error);
     // Kembalikan data default jika ada error jaringan
-    return { address: '', instagram: '', instagram_url: '', email: '', phone: '' };
+    return {
+      address: "",
+      instagram: "",
+      instagram_url: "",
+      email: "",
+      phone: "",
+    };
   }
 }
 
@@ -61,7 +76,13 @@ export default async function Footer() {
       />
 
       <div className="container mx-auto px-6 py-12 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-49 gap-5">
+        {/*
+         * PERBAIKAN GRID:
+         * 1. Mengganti grid-cols-4 -> grid-cols-3 di layar besar (lg)
+         * 2. Mengganti gap-49 (typo) -> lg:gap-8
+         */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {/* Kolom 1: Logo */}
           <div className="flex flex-col">
             <div className="flex items-center gap-4 mb-4">
               <Image
@@ -80,12 +101,16 @@ export default async function Footer() {
             </div>
           </div>
 
+          {/* Kolom 2: Halaman */}
           <div>
             <p className="font-bold">Halaman</p>
             <ul className="space-y-2">
               {pages.map((page) => (
                 <li key={page.name}>
-                  <Link href={page.link} className="hover:text-gray-300 transition-colors">
+                  <Link
+                    href={page.link}
+                    className="hover:text-gray-300 transition-colors"
+                  >
                     {page.name}
                   </Link>
                 </li>
@@ -93,30 +118,69 @@ export default async function Footer() {
             </ul>
           </div>
 
-          <div className="md:w-130 w-100">
+          {/* Kolom 3: Hubungi Kami */}
+          <div className="">
             <p className="font-bold">Hubungi Kami</p>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0"><MapPin size={20} /></span>
-                <Link href={"https://maps.app.goo.gl/sGJHw1SGpMgBmoJU7"} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+              <li className="flex items-start gap-3 w-full">
+                <span className="mt-1 flex-shrink-0">
+                  <MapPin size={20} />
+                </span>
+                <Link
+                  href={"https://maps.app.goo.gl/sGJHw1SGpMgBmoJU7"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors"
+                >
                   {schoolInfo.address}
                 </Link>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0"><InstagramIcon size={20} /></span>
-                <Link href={schoolInfo.instagram_url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                <span className="mt-1 flex-shrink-0">
+                  <InstagramIcon size={20} />
+                </span>
+                <Link
+                  href={schoolInfo.instagram_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors"
+                >
                   {schoolInfo.instagram}
                 </Link>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0"><Mail size={20} /></span>
-                <Link href={`mailto:${schoolInfo.email}`} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+
+              {/*
+               * ======================================
+               * INI PERBAIKAN UTAMANYA
+               * 1. Hapus 'max-w-10' dari <li>
+               * 2. Tambah 'break-all' ke <Link>
+               * ======================================
+               */}
+              <li className="flex items-start gap-3"> {/* 1. Hapus max-w-10 */}
+                <span className="mt-1 flex-shrink-0">
+                  <Mail size={20} />
+                </span>
+                <Link
+                  href={`mailto:${schoolInfo.email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors break-all" // 2. Tambah break-all
+                >
                   {schoolInfo.email}
                 </Link>
               </li>
+              {/* ====================================== */}
+
               <li className="flex items-start gap-3">
-                <span className="mt-1 flex-shrink-0"><Phone size={20} /></span>
-                <Link href={`tel:${schoolInfo.phone}`} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                <span className="mt-1 flex-shrink-0">
+                  <Phone size={20} />
+                </span>
+                <Link
+                  href={`tel:${schoolInfo.phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors"
+                >
                   {schoolInfo.phone}
                 </Link>
               </li>
@@ -128,7 +192,12 @@ export default async function Footer() {
       <div className="bg-opacity-20 py-4">
         <p className="text-sm text-center text-gray-300">
           Developed by{" "}
-          <Link href="https://nexvibe.biz.id/" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:underline">
+          <Link
+            href="https://nexvibe.biz.id/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-white hover:underline"
+          >
             ©Nexvibe
           </Link>
         </p>
