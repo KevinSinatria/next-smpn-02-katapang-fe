@@ -1,5 +1,12 @@
 import Image from "next/image";
 import CalendarApp from "@/components/Calender";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Agenda - SMPN 2 Katapang",
+  description: "SMPN 2 Katapang - Sekolah Menengah Pertama Negeri 2 Katapang",
+};
+;
 
 // 1. Tentukan Tipe Data dari API
 type ApiEvent = {
