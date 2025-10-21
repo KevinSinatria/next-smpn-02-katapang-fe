@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="relative w-full sm:min-h-screen h-170 bg-image overflow-hidden">
       <div className="absolute -top-200 -left-180 z-0 w-390 h-400 ">
         <Image
-          src="/kotak1.png"
+          src="/kotak1.webp"
           alt="Kotak Dekorasi"
           fill
           className="object-contain "

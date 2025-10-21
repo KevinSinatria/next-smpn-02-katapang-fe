@@ -59,7 +59,7 @@ export default function CarouselHero() {
 
   const cardHero = [
     {
-      image: "/BuAiCarousell.png",
+      image: "/kepalaSekolah.webp",
       alt: "Rijal",
     },
     {

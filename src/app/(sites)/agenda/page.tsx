@@ -71,7 +71,7 @@ export default async function AgendaPage() {
       </div>
 
       {/* --- Bagian Kalender (Sudah Benar) --- */}
-      <div className="container mx-auto px-4 lg:px-8 mt-20 flex flex-col lg:flex-row lg:gap-12">
+      <div className="container mx-auto px-4 lg:px-8 mt-20 flex flex-col lg:flex-row lg:gap-12 overflow-x-scroll">
         <CalendarApp />
       </div>
 
