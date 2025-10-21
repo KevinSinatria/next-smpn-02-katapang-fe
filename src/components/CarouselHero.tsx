@@ -34,7 +34,7 @@ async function getDataState(): Promise<State[]> {
   }
 }
 
-export default function CarouselHero() {
+export default function  CarouselHero() {
   // 3. State untuk menampung data dari API
   const [students, setStudents] = useState(0);
   const [teachers, setTeachers] = useState(0);
@@ -59,15 +59,15 @@ export default function CarouselHero() {
 
   const cardHero = [
     {
+      image: "/BuAiCarousell.webp",
+      alt : "Rasio Hero Card",
+    },
+    {
       image: "/kepalaSekolah.webp",
       alt: "Rijal",
     },
     {
       image: "/cardHero/rijal.png",
-      alt : "Rasio Hero Card",
-    },
-    {
-      image: "/cardHero/rasioHeroCard.png",
       alt : "Rasio Hero Card",
     },
     {
@@ -109,7 +109,7 @@ export default function CarouselHero() {
               to={students}
               separator=","
               direction="up"
-              duration={2}
+              duration={0.4}
               className="count-up-text"
             />
           </h1>
@@ -123,7 +123,7 @@ export default function CarouselHero() {
               to={teachers}
               separator=","
               direction="up"
-              duration={2}
+              duration={1}
               className="count-up-text"
             />
           </h1>
@@ -137,7 +137,7 @@ export default function CarouselHero() {
               to={classes}
               separator=","
               direction="up"
-              duration={2}
+              duration={1}
               className="count-up-text"
             />
           </h1>

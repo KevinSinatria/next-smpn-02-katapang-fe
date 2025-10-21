@@ -14,9 +14,11 @@ type Album = {
   slug: string;
 };
 
-// Terima data awal dari server melalui props
-export default function GalleryClient({ initialData }: { initialData: Album[] }) {
-  // Gunakan data awal untuk state, tidak perlu lagi useEffect & axios
+export default function GalleryClient({
+  initialData,
+}: {
+  initialData: Album[];
+}) {
   const dataAlbum = initialData;
   const [selectedImage, setSelectedImage] = useState("");
 
@@ -35,12 +37,20 @@ export default function GalleryClient({ initialData }: { initialData: Album[] })
               className="group relative aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer"
               onClick={() => handleImageClick(image.thumbnail_url)}
             >
-              <Image
-                src={image.thumbnail_url}
-                alt={image.name}
-                fill
-                className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-              />
+              {image.thumbnail_url ? (
+                <Image
+                  src={image.thumbnail_url}
+                  alt={image.name}
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                />
+              ) : (
+                // Ini adalah placeholder jika gambar tidak ada
+                <div className="flex h-full w-full items-center justify-center bg-gray-200">
+                  <span className="text-sm text-gray-500">No Image</span>
+                </div>
+              )}
             </div>
           ))}
         </div>

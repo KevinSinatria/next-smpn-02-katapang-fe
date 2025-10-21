@@ -41,7 +41,7 @@ async function getUpcomingEvents(): Promise<ApiEvent[]> {
       .sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
 
     // Kembalikan 3 acara terdekat
-    return upcoming.slice(0, 3);
+    return upcoming;
   } catch (error) {
     console.error("Error di getUpcomingEvents:", error);
     return [];
@@ -66,12 +66,12 @@ export default async function AgendaPage() {
           priority
         />
         <p className="z-10 text-3xl md:text-4xl font-bold text-white md:mt-5">
-          Agenda Terdekat
+          Agenda Kami
         </p>
       </div>
 
       {/* --- Bagian Kalender (Sudah Benar) --- */}
-      <div className="container mx-auto px-4 lg:px-8 mt-20 flex flex-col lg:flex-row lg:gap-12 overflow-x-scroll">
+      <div className="container mx-auto justify-center items-center w-full mt-20 flex flex-col lg:flex-row lg:gap-12 overflow-x-scroll">
         <CalendarApp />
       </div>
 

@@ -56,7 +56,7 @@ export default async function   BodyAgenda() {
       />
       <div className="relative z-10  flex flex-col justify-center items-center w-full h-full">
         <div className="w-full max-w-2xl mx-auto mt-[3.75rem] px-4">
-          <div className="bg-[#5E8964] border-5 border-green-100/50 p-3 rounded-2xl shadow-lg text-white hover:bg-[#427048] transform hover:scale-105 transition-all duration-300 flex flex-col justify-center items-center">
+          <div className="bg-[#5E8964] border-5 border-green-100/50 p-3 rounded-2xl shadow-lg text-white hover:bg-[#427048] transform hover:scale-101 transition-all duration-300 flex flex-col justify-center items-center">
             <p className=" md:text-2xl text-xl font-bold ">
               Agenda Terdekat Kami
             </p>
@@ -137,7 +137,7 @@ export default async function   BodyAgenda() {
           <div className="mt-6 flex justify-end items-end">
             <Link
               href={"/agenda"}
-              className="bg-[#5E8964] font-bold px-4 py-2 rounded-lg hover:-translate-y-2 transition-transform duration-300 ease-in-out "
+              className="bg-[#5E8964] hover:bg-[#427048] text-white border-2 border-[#5E8964] font-bold px-4 py-2 rounded-lg hover:-translate-y-2 transition-transform duration-300 ease-in-out "
             >
               Agenda Kegiatan
             </Link>

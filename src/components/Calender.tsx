@@ -3,6 +3,7 @@
 import { useNextCalendarApp, ScheduleXCalendar } from "@schedule-x/react";
 import { createViewMonthGrid } from "@schedule-x/calendar";
 import { createEventsServicePlugin } from "@schedule-x/events-service";
+import { createEventModalPlugin } from '@schedule-x/event-modal';
 import "temporal-polyfill/global";
 import "@schedule-x/theme-default/dist/index.css";
 import { useEffect, useState } from "react";
@@ -18,6 +19,7 @@ type ApiEvent = {
 function CalendarApp() {
   // 1. Inisialisasi plugin
   const eventsService = useState(() => createEventsServicePlugin())[0];
+  const eventModal = createEventModalPlugin();
 
   // 2. Gunakan useEffect untuk mengambil data saat komponen dimuat
   useEffect(() => {
@@ -54,11 +56,12 @@ function CalendarApp() {
     fetchEvents();
   }, [eventsService]); // Tambahkan dependency agar effect tahu tentang eventsService
 
+  
   const calendar = useNextCalendarApp({
     views: [createViewMonthGrid()],
     // 5. Hapus data event statis dari sini
     // events: [ ... ],
-    plugins: [eventsService],
+    plugins: [eventsService, eventModal],
     callbacks: {},
   });
 

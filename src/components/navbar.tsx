@@ -23,8 +23,14 @@ const menuItems = [
       { name: "Hubungan Masyarakat", href: "/humas", idlink: "" },
     ],
   },
-  { name: "Artikel", href: "/artikel" },
-  { name: "Galeri", href: "/galeri" },
+  {
+    name: "Lainya",
+    subItems: [
+      { name: "Artikel", href: "/artikel", idlink: "" },
+      { name: "Galeri", href: "/galeri", idlink: "" },
+      { name: "Agenda", href: "/agenda", idlink: "" },
+    ],
+  },
 ];
 
 const ChevronDownIcon = ({ className }: { className: string }) => (

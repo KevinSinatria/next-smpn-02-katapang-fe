@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function Profile() {
   return (
-    <main className="relative min-h-screen bg-image h-auto pb-10 overflow-hidden">
+    <main className="bg-image h-auto pb-10 overflow-hidden">
       <header className="relative h-28 flex items-center justify-center text-black text-4xl font-bold mt-30">
         <Image
           src="/bgFooter.png"
@@ -30,7 +30,7 @@ export default function Profile() {
       </header>
 
       <div className="relative w-full h-auto mt-12">
-        <div className=" w-full h-auto p-5 z-0 ">
+        <div className=" w-full h-auto z-0 space-y-5">
           <div id="sambutan">
             <KepalaSekolahSection />
           </div>

@@ -1,24 +1,24 @@
-import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
 import CurvedLoop from "../CurvedLoop";
 export default function TitleSambutan() {
+   const [scrolled, setScrolled] = useState(0);
+  
+    useEffect(() => {
+      const handleScroll = () => setScrolled(window.scrollY );
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+  
   return (
-    <div className="relative flex justify-center items-center w-full p-4 -mt-13 md:-mt-11 pt-12 mb-40 ">
-      <div className="absolute z-0 left-10 w-400  hidden lg:block lg:-mt-70  -ml-10">
+    <div className="relative flex justify-center items-center w-full z-0 p-4">
+      <div className="absolute z-0 left-10 w-screen hidden lg:block  font-bold">
         <CurvedLoop
           marqueeText="Religius ✦ Edukatif ✦ Sukses ✦ Inovatif ✦ Kreatif ✦"
           speed={3}
-          curveAmount={600}
+          curveAmount={0}
+          className="font-bold"
           interactive={false}
-        />
-      </div>
-
-      <div className="relative w-full max-w-xl p-3 h-auto flex justify-center items-center z-10 bg-[#5E8964] border-[#EB9B64] border-4 rounded-2xl shadow-lg">
-        <Image
-          src={"/sambutankepalasekolah.png"}
-          alt="Sambutan Kepala Sekolah"
-          width={500}
-          height={100}
-          className="rounded-lg w-full"
         />
       </div>
     </div>
