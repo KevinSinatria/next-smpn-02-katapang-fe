@@ -1,18 +1,13 @@
 "use client";
-import { useState, useEffect, use } from "react";
-import {  authors, categories } from "@/app/lib/artikel-data";
+import { useState, useEffect } from "react";
+import { authors, categories } from "@/app/lib/artikel-data";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  MoveRight,
-
-  MoveRightIcon,
-} from "lucide-react";
-
+import { MoveLeft, MoveRight, MoveRightIcon } from "lucide-react";
 
 type PageProps = {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 };
 type Artikel = {
   id: string | number;
@@ -27,7 +22,7 @@ type Artikel = {
 };
 
 export default function ArtikelCategoryPage({ params }: PageProps) {
-  const { slug } = use(params);
+  const { slug } = params;
 
   const currentCategory = categories.find((cat) => cat.slug === slug); // 3. State untuk menampung data dari API dan status loading
 
@@ -190,29 +185,26 @@ export default function ArtikelCategoryPage({ params }: PageProps) {
           )}
           {totalPages > 1 && (
             <div className="flex justify-center items-center mt-12 space-x-4">
-                           {" "}
               <button
                 onClick={() => paginate(currentPage - 1)}
                 disabled={currentPage === 1}
                 className="p-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {" "}
+                <MoveLeft className="text-gray-700" size={20} />{" "}
+                {/* <-- Ganti isinya */}
               </button>
               <span className="text-gray-700 font-medium">
-                                Halaman {currentPage} dari {totalPages}         
+                Halaman {currentPage} dari {totalPages}
               </span>
               <button
                 onClick={() => paginate(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className="p-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                                <MoveRightIcon className="text-gray-700" />     
-                    _  {" "}
+                <MoveRight className="text-gray-700" size={20} />
               </button>
-                         {" "}
             </div>
           )}
-                 {" "}
         </div>
         <div className="w-full lg:w-1/3 lg:max-w-sm mt-12 lg:mt-0">
           <div className="w-full p-5 border-t-4 lg:border-t-0 lg:border-l-4 border-gray-500/70 sticky top-24">
