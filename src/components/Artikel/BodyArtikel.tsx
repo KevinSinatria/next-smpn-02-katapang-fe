@@ -5,7 +5,7 @@ import ListCategori from "./ListCategori";
 
 export default function BodyArtikel() {
   return (
-    <div className="w-full mx-w-sm p-5 flex flex-col lg:flex-row">
+    <div className="w-full max-w-[1300px] p-5 flex justify-center flex-col lg:flex-row">
       <div className="max-w-xl p-5 ">
         <div className="w-full max-w-lg">
           <Image

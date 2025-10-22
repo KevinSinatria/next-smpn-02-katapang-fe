@@ -1,11 +1,11 @@
 import Image from "next/image";
-import SplitText from "./SplitText";
 
-export default function TitleGaleri() {
+
+export default function TitleArtikel() {
   return (
     <div className="relative w-full h-56 overflow-hidden">
       <Image
-        src={"/bggaleri.png"}
+        src={"/bgArtikel.svg"}
         alt="Latar belakang galeri aktivitas Dukat"
         fill
         className="object-cover"
@@ -14,12 +14,11 @@ export default function TitleGaleri() {
 
       <div className="absolute inset-0 " />
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white p-4">
-        <h1 className="text-xl md:text-4xl font-bold">
-          Galeri Foto Aktivitas Dukat
-        </h1>
-        <div className="text-sm md:text-base mb-2">
-          Yuk, lihat lebih dalam tentang Dukat
-        </div>
+        <h2 className="text-xl md:text-4xl font-bold">Artikel Kami</h2>
+        <p className="text-sm md:text-base font-bold">
+          Silahkan kunjungi artikel-artikel yang telah kami terbitkan dibawah
+          ini
+        </p>
       </div>
     </div>
   );

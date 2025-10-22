@@ -38,7 +38,7 @@ async function getArtikel(): Promise<Artikel[]> {
   }
 }
 
-export default async function HomePage() {
+export default async function  HomePage() {
   const artikelData = await getArtikel();
 
   return (
