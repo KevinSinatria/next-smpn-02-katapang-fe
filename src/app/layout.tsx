@@ -6,7 +6,7 @@ import Footersection from "@/components/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
-  weight: ["400", "700", "900"],
+  weight: ["400", "500", "600", "700", "900"],
   subsets: ["latin"],
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={` ${poppins.className} antialiased bg-image`}>
         <Navbar />
         <div className="font-poppins">{children}</div>
-        <Footersection/>
+        <Footersection />
       </body>
     </html>
   );
