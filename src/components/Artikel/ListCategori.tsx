@@ -10,36 +10,35 @@ type Category = {
 
 
 // Fungsi ini mengambil artikel, lalu mengekstrak kategori unik
-async function getUniqueCategoriesFromArticles(): Promise<Category[] | null> {
-  try {
-    const res = await fetch(`https://api.smpn2katapang.sch.id/article-categories`, {
-      next: { revalidate: 3600 }, 
-    });
 
-    if (!res.ok) {
-      console.error("Gagal mengambil data artikel:", res.statusText);
+export default  async function ListCategori() {
+  async function getUniqueCategoriesFromArticles() {
+    try {
+      const res = await fetch(`https://api.smpn2katapang.sch.id/article-categories`);
+  
+      if (!res.ok) {
+        console.error("Gagal mengambil data artikel:", res.statusText);
+        return null;
+      }
+  
+      const result = await res.json();
+      const category: Category[] = result.data;
+  
+      const categoryMap = new Map<string, Category>();
+  
+      category.forEach((item) => {
+        if (!categoryMap.has(item.name)) {
+          categoryMap.set(item.name, item);
+        }
+      });
+      return Array.from(categoryMap.values());
+  
+    } catch (error) {
+      console.error("Error saat memproses kategori:", error);
       return null;
     }
-
-    const result = await res.json();
-    const category: Category[] = result.data;
-
-    const categoryMap = new Map<string, Category>();
-
-    category.forEach((item) => {
-      if (!categoryMap.has(item.name)) {
-        categoryMap.set(item.name, item);
-      }
-    });
-    return Array.from(categoryMap.values());
-
-  } catch (error) {
-    console.error("Error saat memproses kategori:", error);
-    return null;
   }
-}
 
-export default async function ListCategori() {
   const categories = await getUniqueCategoriesFromArticles();
 
   if (!categories || categories.length === 0) {

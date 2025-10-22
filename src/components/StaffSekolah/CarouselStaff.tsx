@@ -17,9 +17,7 @@ type Guru = {
 // 1. Buat fungsi terpisah untuk mengambil data
 async function getStaffData(): Promise<Guru[]> {
   try {
-    const response = await fetch('https://api.smpn2katapang.sch.id/personnel/staffs', {
-      next: { revalidate: 3600 } // Ini kuncinya! Data akan di-cache selama 1 jam (3600 detik)
-    });
+    const response = await fetch('https://api.smpn2katapang.sch.id/personnel/staffs');
 
     if (!response.ok) {
       // Jika request gagal, log error dan kembalikan array kosong

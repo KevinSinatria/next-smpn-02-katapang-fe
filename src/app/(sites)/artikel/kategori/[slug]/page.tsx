@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, use } from "react"; // <-- 1. Tambahkan 'use'
-import { authors, categories } from "@/app/lib/artikel-data";
+import { authors } from "@/app/lib/artikel-data";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,6 +8,7 @@ import {
   MoveRight,
   MoveLeft, // Pastikan MoveLeft juga diimpor
 } from "lucide-react";
+import ListCategori from "@/components/Artikel/ListCategori";
 
 type PageProps = {
   params: Promise<{ slug: string }>; // <-- 2. Kembalikan Promise
@@ -25,11 +26,16 @@ type Artikel = {
   created_at: string;
 };
 
+type Category = {
+  id: string | number;
+  name: string;
+  slug: string;
+}
 export default function ArtikelCategoryPage({ params }: PageProps) {
-  const { slug } = use(params); // <-- 3. Gunakan 'use(params)'
+  const { slug } = use(params);
 
-  const currentCategory = categories.find((cat) => cat.slug === slug);
   const [articles, setArticles] = useState<Artikel[]>([]); // Gunakan tipe Artikel[]
+  const [categories, setCategories] = useState<Category[]>([]); // Gunakan tipe Artikel[]
   const [isLoading, setIsLoading] = useState(true); // Tambah state loading
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 5; // 4. Perbaiki useEffect untuk fetch data, memprosesnya, dan menyimpannya di state
@@ -41,6 +47,9 @@ export default function ArtikelCategoryPage({ params }: PageProps) {
       try {
         const res = await fetch(
           `https://api.smpn2katapang.sch.id/articles/category/${slug}`);
+        const categoryres = await fetch('https://api.smpn2katapang.sch.id/article-categories');
+        const categorydata = await categoryres.json();
+        setCategories(categorydata.data);
         const data = await res.json();
         setArticles(data.data || []);
       } catch (error) {
@@ -56,11 +65,10 @@ export default function ArtikelCategoryPage({ params }: PageProps) {
       fetchArticles();
     }
   }, [slug]);
-
-  if (!currentCategory) {
-    notFound();
-  }
-
+ 
+  
+  const currentCategory = categories.find((cat) => cat.slug === slug);
+  
   const articlesInCategory = articles.filter((item) => item.published);
 
   const indexOfLastArticle = currentPage * articlesPerPage;
@@ -90,7 +98,7 @@ export default function ArtikelCategoryPage({ params }: PageProps) {
           priority
         />
         <p className="z-10 text-3xl md:text-4xl font-bold text-white md:mt-5 text-center">
-          Artikel {currentCategory.name}
+          Artikel {currentCategory?.name ?? ""}
         </p>
       </div>
 
@@ -210,28 +218,7 @@ export default function ArtikelCategoryPage({ params }: PageProps) {
             <h3 className="text-xl font-bold mb-4 text-gray-800">
               Kategori Lainnya
             </h3>
-            <div className="mt-5 flex flex-col -space-y-6">
-              {categories.map((cat) => (
-                <Link
-                  href={`/artikel/kategori/${cat.slug}`}
-                  key={cat.id}
-                  className={`group p-3 rounded-lg flex justify-start items-center ${
-                    currentCategory.id === cat.id ? "text-white font-bold" : ""
-                  } cursor-pointer transition-colors duration-200 `}
-                >
-                  <h1
-                    className={`text-lg text-[#5E8964] font-semibold transition-colors duration-300 ${
-                      currentCategory.id === cat.id ? "text-[#F96701]" : ""
-                    } group-hover:text-[#F96701]`}
-                  >
-                    {cat.name}
-                  </h1>
-                  <span className="text-3xl text-[#F96701] opacity-0 transition-opacity duration-300 ml-3 group-hover:opacity-100">
-                    <MoveRight size={20} />
-                  </span>
-                </Link>
-              ))}
-            </div>
+           <ListCategori/>
           </div>
         </div>
       </div>
