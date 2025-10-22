@@ -6,8 +6,6 @@ export const metadata: Metadata = {
   title: "Agenda - SMPN 2 Katapang",
   description: "SMPN 2 Katapang - Sekolah Menengah Pertama Negeri 2 Katapang",
 };
-;
-
 // 1. Tentukan Tipe Data dari API
 type ApiEvent = {
   id: string | number;
@@ -40,10 +38,8 @@ async function getUpcomingEvents(): Promise<ApiEvent[]> {
         startDate: new Date(event.start),
         endDate: new Date(event.end),
       }))
-      // Filter: Hanya acara yang tanggal berakhirnya hari ini atau di masa depan
-      .filter((event) => event.endDate >= today)
       // Urutkan: Acara yang paling dekat akan muncul di atas
-      .sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+      .sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
 
     // Kembalikan 3 acara terdekat
     return upcoming;
@@ -82,7 +78,7 @@ export default async function AgendaPage() {
 
       <div className="w-full max-w-2xl mx-auto mt-[3.75rem] px-4">
         <h1 className="bg-[#F96701] p-3 rounded-2xl text-white hover:bg-[#cf4c00] transform hover:scale-105 transition-all duration-300 flex justify-center items-center md:text-2xl text-xl font-bold shadow-lg">
-          Agenda Terdekat Kami
+          Seluruh Agenda Kami
         </h1>
 
         <div className="flex flex-col gap-4 mt-6">
@@ -146,4 +142,4 @@ export default async function AgendaPage() {
       </div>
     </main>
   );
-} 
+}
