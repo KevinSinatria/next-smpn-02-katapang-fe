@@ -3,7 +3,6 @@ import { useState, useEffect, use } from "react"; // <-- 1. Tambahkan 'use'
 import { authors } from "@/app/lib/artikel-data";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import {
   MoveRight,
   MoveLeft, // Pastikan MoveLeft juga diimpor

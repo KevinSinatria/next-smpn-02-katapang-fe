@@ -1,5 +1,7 @@
+"use client";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 // Tipe untuk Kategori yang akan kita buat
 type Category = {
@@ -9,9 +11,9 @@ type Category = {
 };
 
 
-// Fungsi ini mengambil artikel, lalu mengekstrak kategori unik
 
-export default  async function ListCategori() {
+export default function ListCategori() {
+  const [category, setCategory] = useState<Category[]>([]);
   async function getUniqueCategoriesFromArticles() {
     try {
       const res = await fetch(`https://api.smpn2katapang.sch.id/article-categories`);
@@ -31,23 +33,25 @@ export default  async function ListCategori() {
           categoryMap.set(item.name, item);
         }
       });
-      return Array.from(categoryMap.values());
   
+      setCategory(Array.from(categoryMap.values()));
     } catch (error) {
       console.error("Error saat memproses kategori:", error);
       return null;
     }
   }
 
-  const categories = await getUniqueCategoriesFromArticles();
+  useEffect(() =>{
+    getUniqueCategoriesFromArticles();
+  },[]);
 
-  if (!categories || categories.length === 0) {
+  if (!category || category.length === 0) {
     return <div className="mt-5 p-3 text-gray-500">Kategori tidak ditemukan.</div>;
   }
 
   return (
     <div className="mt-5 flex flex-col gap-2 -space-y-7">
-      {categories.map((item) => (
+      {category.map((item) => (
         <Link
           href={`/artikel/kategori/${item.slug }`}
           key={item.id}
