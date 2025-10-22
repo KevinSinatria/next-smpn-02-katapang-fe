@@ -1,14 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react"; // <-- 1. Tambahkan 'use'
 import { authors, categories } from "@/app/lib/artikel-data";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MoveLeft, MoveRight, MoveRightIcon } from "lucide-react";
+import {
+  MoveRight,
+  MoveLeft, // Pastikan MoveLeft juga diimpor
+} from "lucide-react";
 
 type PageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // <-- 2. Kembalikan Promise
 };
+
 type Artikel = {
   id: string | number;
   thumbnail_url: string;
@@ -22,10 +26,9 @@ type Artikel = {
 };
 
 export default function ArtikelCategoryPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = use(params); // <-- 3. Gunakan 'use(params)'
 
-  const currentCategory = categories.find((cat) => cat.slug === slug); // 3. State untuk menampung data dari API dan status loading
-
+  const currentCategory = categories.find((cat) => cat.slug === slug);
   const [articles, setArticles] = useState<Artikel[]>([]); // Gunakan tipe Artikel[]
   const [isLoading, setIsLoading] = useState(true); // Tambah state loading
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,11 +40,7 @@ export default function ArtikelCategoryPage({ params }: PageProps) {
       setArticles([]);
       try {
         const res = await fetch(
-          `https://api.smpn2katapang.sch.id/articles/category/${slug}`,
-          {
-            cache: "no-store",
-          }
-        );
+          `https://api.smpn2katapang.sch.id/articles/category/${slug}`);
         const data = await res.json();
         setArticles(data.data || []);
       } catch (error) {
