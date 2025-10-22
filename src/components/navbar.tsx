@@ -21,6 +21,7 @@ const menuItems = [
       { name: "Kesiswaan", href: "/kesiswaan", idlink: "" },
       { name: "Sarana Prasarana", href: "/sapras", idlink: "" },
       { name: "Hubungan Masyarakat", href: "/humas", idlink: "" },
+      { name: "Kurikulum", href: "/kurikulum", idlink: "" },
     ],
   },
   {
