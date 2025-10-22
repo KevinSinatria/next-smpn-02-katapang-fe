@@ -1,10 +1,9 @@
 import Image from "next/image";
-import SplitText from "../SplitText";
 import { IdentitasData } from "@/app/lib/identitas-data";
 
 export default function IdentitasSection() {
   return (
-    <div className="relative w-full min-h-100 bg-[#5E8964] border-4 border-gray-300/80 rounded-2xl mt-15 shadow-lg">
+    <div className="relative w-full min-h-100 bg-[#5E8964] border-4 border-gray-300/80 rounded-2xl shadow-lg">
       <div className="z-0 ">
         <Image
           src={"/batikmegamendung.png"}
@@ -35,19 +34,7 @@ export default function IdentitasSection() {
       <div className="px-6 md:px-8 py-8">
         <div className="z-10 relative w-full pb-6 border-b flex justify-center items-center">
           <h2 className="text-4xl font-bold text-white">
-            <SplitText
-              text={"Identitas SMPN 2 KATAPANG"}
-              className="text-md font-semibold"
-              delay={60}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="start"
-            />
+            Identitas SMPN 2 KATAPANG
           </h2>
         </div>
         <div className="flex md:flex-row flex-col md:space-x-10 mt-5">

@@ -34,13 +34,13 @@ export default function Profile() {
           <div id="sambutan">
             <KepalaSekolahSection />
           </div>
-          <div id="sejarah">
+          <div id="sejarah" className="md:p-5 p-1">
             <SejarahSection />
           </div>
           <div id="visimisi">
             <VisiMisiSection/>
           </div>
-          <div id="identitas">
+          <div id="identitas" className="md:p-5 p-1">
             <IdentitasSection />
           </div>
           <h2 className="text-2xl font-bold text-slate-600 "></h2>

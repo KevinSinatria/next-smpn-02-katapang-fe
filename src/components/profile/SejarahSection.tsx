@@ -3,8 +3,8 @@ import SplitText from "../SplitText";
 
 export default function SejarahSection() {
   return (
-    <div className="w-full min-h-screen bg-[#5E8964] border-4 border-gray-300/80 rounded-2xl mt-15 shadow-lg">
-      <div className="z-0 ">
+    <div className="w-full min-h-screen bg-[#5E8964] border-4 flex flex-col justify-center items-center border-gray-300/80 rounded-2xl mt-20 shadow-lg ">
+      <div className="z-10">
         <Image
           src={"/batikmegamendung.png"}
           alt="Latar belakang lingkaran"
@@ -23,7 +23,7 @@ export default function SejarahSection() {
         aria-hidden="true"
       />
 
-      <div className="px-6 md:px-8 py-8">
+      <div className="px-2 md:px-19 py-8">
         <div className="z-10 relative w-full pb-6 border-b flex justify-center items-center">
           <h2 className="text-4xl font-bold text-white">
             <SplitText
