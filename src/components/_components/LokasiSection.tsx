@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function LokasiSection(){
   return (
-     <div className="bg-image py-12 px-4 sm:px-8 md:px-12 max-h-screen flex flex-col justify-center items-center">
+     <div className="py-12 px-4 sm:px-8 md:px-12 max-h-screen flex flex-col justify-center items-center">
       <Image
         src="/lokasikami.png"
         alt="Lokasi Kami"

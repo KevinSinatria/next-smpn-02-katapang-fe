@@ -12,12 +12,7 @@ type SchoolInfo = {
 // 2. Buat fungsi terpisah untuk mengambil data di server
 async function getSchoolInfo(): Promise<SchoolInfo> {
   try {
-    const response = await fetch(
-      "https://api.smpn2katapang.sch.id/school-informations",
-      {
-        next: { revalidate: 3600 }, // INI KUNCINYA: Cache data selama 1 jam
-      }
-    );
+    const response = await fetch("https://api.smpn2katapang.sch.id/school-informations");
 
     if (!response.ok) {
       console.error("Failed to fetch school info:", response.statusText);
@@ -28,6 +23,7 @@ async function getSchoolInfo(): Promise<SchoolInfo> {
     }
 
     const result = await response.json();
+    console.log(result);
     return result.data;
   } catch (error) {
     console.error("Error fetching data:", error);

@@ -8,7 +8,7 @@ import StaffSekolahSection from "@/components/_components/StaffSekolah";
 export const dynamic = 'force-dynamic'
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-image" >
+    <main className="overflow-hidden" >
       <HeroSection />
       <KepalaSekollah/>
       <StaffSekolahSection/>

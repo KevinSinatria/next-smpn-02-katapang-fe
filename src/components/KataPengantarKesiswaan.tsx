@@ -74,18 +74,18 @@ export default function KataPengantarKesiswaan() {
     <div className="relative w-full min-h-screen bg-[#5E8964]/80 border-4 border-gray-300/80 rounded-2xl mt-5 shadow-lg" >
       <div className="z-0 ">
         <Image
-          src={"/batikmegamendung.png"}
+          src={"/batikMegamendung.svg"}
           alt="Latar belakang lingkaran"
           width={300}
           height={300}
-          className="absolute -mt-10 -right-34  rotate-13"
-        />
+          className="absolute md:-top-36 md:-right-34 -top-25 -right-24 rotate-13 w-full md:max-w-[300px] max-w-[200px]" 
+          />
         <Image
-          src={"/batikmegamendung.png"}
+          src={"/batikMegamendung.svg"}
           alt="Latar belakang lingkaran"
           width={300}
           height={300}
-          className="absolute mt-230 -right-34  rotate-13"
+          className="absolute md:top-165 top-470 -left-34 -rotate-14"
         />
 
         <Image
@@ -114,7 +114,7 @@ export default function KataPengantarKesiswaan() {
         }}
         aria-hidden="true"
       />
-      <div className="px-6 md:px-8 py-8">
+      <div className="px-2 md:px-8 py-8">
         <div className="z-10 relative w-full pb-6 border-b flex justify-center items-center">
           <Image
             src={"/katapengantar.png"}

@@ -3,10 +3,10 @@ import CarouselHero from "../CarouselHero";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full max-w-screen sm:min-h-screen h-170 bg-image overflow-hidden">
+    <section className="relative w-full max-w-screen sm:min-h-screen h-170 overflow-hidden">
       <div className="absolute -top-200 -left-180 z-10 w-390 h-400 ">
         <Image
-          src="/kotak1.webp"
+          src="/kotak1.svg"
           alt="Kotak Dekorasi"
           fill
           className="object-contain "
