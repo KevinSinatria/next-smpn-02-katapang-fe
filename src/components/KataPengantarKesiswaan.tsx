@@ -203,7 +203,7 @@ export default function KataPengantarKesiswaan() {
 
         <div className="py-8 px-4" id="ekstrakurikuler">
           <h1 className="text-3xl md:text-4xl font-bold text-[#FB9B64] pb-2 border-b-2 max-w-sm border-gray-300">
-            Ektrakurikuler
+            Ekstrakulikuler
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">

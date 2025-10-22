@@ -24,7 +24,7 @@ const menuItems = [
     ],
   },
   {
-    name: "Lainya",
+    name: "Lainnya",
     subItems: [
       { name: "Artikel", href: "/artikel", idlink: "" },
       { name: "Galeri", href: "/galeri", idlink: "" },
