@@ -16,11 +16,7 @@ type Album = {
 async function getAlbumData(): Promise<Album[]> {
   try {
     const response = await fetch(
-      "https://api.smpn2katapang.sch.id/gallery-albums",
-      {
-        next: { revalidate: 3600 }, // INI KUNCINYA: Cache data selama 1 jam
-      }
-    );
+      "https://api.smpn2katapang.sch.id/gallery-albums");
 
     if (!response.ok) {
       console.error("Failed to fetch album data:", response.statusText);

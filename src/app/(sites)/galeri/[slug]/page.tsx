@@ -30,9 +30,7 @@ type PageProps = {
 // Fungsi untuk mengambil data detail album di server
 async function getAlbumDetail(slug: string): Promise<AlbumData | null> {
   try {
-    const response = await fetch(`https://api.smpn2katapang.sch.id/gallery-albums/${slug}`, {
-      next: { revalidate: 3600 } // INI KUNCINYA: Cache data selama 1 jam
-    });
+    const response = await fetch(`https://api.smpn2katapang.sch.id/gallery-albums/${slug}`);
 
     if (!response.ok) {
       console.error('Failed to fetch album detail:', response.statusText);

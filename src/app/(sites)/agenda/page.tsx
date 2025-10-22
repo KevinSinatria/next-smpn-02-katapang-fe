@@ -19,9 +19,7 @@ type ApiEvent = {
 // 2. Buat fungsi untuk mengambil & memfilter data di server
 async function getUpcomingEvents(): Promise<ApiEvent[]> {
   try {
-    const res = await fetch("https://api.smpn2katapang.sch.id/school-events", {
-      next: { revalidate: 3600 }, // Cache data selama 1 jam
-    });
+    const res = await fetch("https://api.smpn2katapang.sch.id/school-events");
 
     if (!res.ok) {
       console.error("Gagal mengambil data event.");
