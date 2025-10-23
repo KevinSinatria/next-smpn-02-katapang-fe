@@ -74,7 +74,7 @@ export default function CarouselHero() {
     },
   ];
   return (
-    <div className="relative z-20 flex justify-center items-center lg:mt-15">
+    <div className="relative z-20 flex justify-center items-center lg:mt-15 ">
       <Carousel className=" relative z-20 lg:w-90 md:w-90 sm:w-80 w-80 sm:ml-5">
         <CarouselContent>
           {cardHero.map((item, index) => (
@@ -96,7 +96,7 @@ export default function CarouselHero() {
         </CarouselContent>
         {/* <CarouselPrevious />
       <CarouselNext /> */}
-        <div className="absolute z-30 flex flex-col justify-center items-center lg:w-25 lg:h-25 w-20 h-20 mr-5 bg-white border-3 border-[#67866B] lg:top-20 sm:top-4 top-0 -right-5 rotate-15 rounded-2xl ">
+        <div className="absolute z-30 flex flex-col justify-center items-center lg:w-25 lg:h-25 w-20 h-20 mr-5 bg-white border-3 border-[#67866B] lg:top-20 sm:top-4 top-0 -right-3 rotate-15 rounded-2xl ">
           <h1 className="text-[#4D6450] font-bold text-sm lg:text-3xl">
             <CountUp
               from={0}

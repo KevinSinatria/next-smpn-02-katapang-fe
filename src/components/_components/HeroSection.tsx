@@ -14,7 +14,7 @@ export default function HeroSection() {
         />
       </div>
       <div className="absolute w-full flex flex-col lg:flex-row mt-41 lg:-mt-10 justify-between items-center z-20">
-        <div className="w-full max-w-xl px-5 flex flex-col md:ml-10">
+        <div className="w-full  xl:max-w-2xl px-5 flex flex-col md:ml-10">
           <Image
             src="/Header.webp"
             alt="sambutan"
@@ -31,7 +31,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative w-full h-auto">
+        <div className="relative w-full h-auto p-5">
           <CarouselHero />
         </div>
       </div>
