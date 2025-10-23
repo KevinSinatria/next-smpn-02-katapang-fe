@@ -4,13 +4,13 @@ import ListCategori from "@/components/Artikel/ListCategori";
 export default function Page() {
   return (
     <>
-      <div className="relative h-28 flex items-center justify-center text-black text-4xl font-bold mt-30">
+      <div className="relative h-28 flex items-center justify-center text-black text-4xl font-bold mt-20">
         <Image
           src="/bgFooter.png"
           alt="Kotak Dekorasi"
           width={900}
           height={400}
-          className="h-auto w-full absolute z-0 md:-mt-32"
+          className="h-auto w-full max-w-sm absolute z-0 md:-mt-32"
           priority
         />
         <p className="z-10 text-3xl md:text-4xl font-bold text-white md:mt-5">

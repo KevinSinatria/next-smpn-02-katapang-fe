@@ -242,7 +242,7 @@ function MobileMenuPanel({
           if (item.subItems) {
             const isAccordionOpen = openAccordion === item.name;
             return (
-              <div key={item.name} className="w-full text-center"> 
+              <div key={item.name} className="w-full text-center">
                 <button
                   onClick={() =>
                     setOpenAccordion(isAccordionOpen ? null : item.name)
@@ -262,20 +262,26 @@ function MobileMenuPanel({
                   }`}
                 >
                   <div className="flex flex-col items-center gap-3 pt-2 bg-gray-50/50">
-                    {item.subItems.map((subItem) => (
-                      <Link
-                        href={subItem.href}
-                        key={subItem.name}
-                        onClick={closeMenu}
-                        className={`text-base transition-colors duration-300 ${
-                          pathname.startsWith(subItem.href)
-                            ? "text-[#4D6450] font-semibold"
-                            : "text-gray-600 hover:text-[#4D6450]"
-                        }`}
-                      >
-                        {subItem.name}
-                      </Link>
-                    ))}
+                    {item.subItems.map((subItem) => {
+                      return (
+                        <Link
+                          href={
+                            subItem.idlink
+                              ? `${subItem.href}#${subItem.idlink}`
+                              : subItem.href
+                          }
+                          key={subItem.name}
+                          onClick={closeMenu}
+                          className={`text-base transition-colors duration-300 ${
+                            pathname.startsWith(subItem.href)
+                              ? "text-[#4D6450] font-semibold"
+                              : "text-gray-600 hover:text-[#4D6450]"
+                          }`}
+                        >
+                          {subItem.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
