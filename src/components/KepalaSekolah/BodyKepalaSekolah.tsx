@@ -51,7 +51,7 @@ export default async function BodyKepalaSekolah() {
         </div>
       </div>
       <div className="w-full min-h-screen h-180 flex items-center ">
-        <div className=" absolute w-[2000px] -left-[13.75rem] h-screen z-0">
+        <div className=" absolute size-900 -left-[20.75rem] h-screen mb-30 z-0">
           <Image
             src={"/kotak2.png"}
             alt="Kotak dekorasi"
