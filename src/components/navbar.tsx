@@ -174,7 +174,7 @@ export default function Navbar() {
           </p>
         </Link>
 
-        <div className="hidden md:flex items-center text-sm gap-5">
+        <div className="hidden lg:flex items-center text-sm gap-5">
           {menuItems.map((item) =>
             item.subItems ? (
               <DesktopDropdown key={item.name} item={item} />
@@ -186,7 +186,7 @@ export default function Navbar() {
           )}
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-gray-700 focus:outline-none"
@@ -233,7 +233,7 @@ function MobileMenuPanel({
 
   return (
     <div
-      className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white  ${
+      className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white  ${
         isOpen ? "max-h-screen py-4 shadow-md rounded-2xl mt-2" : "max-h-0"
       }`}
     >

@@ -1,66 +1,60 @@
 "use client";
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import CountUp from "./CountUp";
 import { useEffect, useState } from "react";
 type State = {
-  students: number;
-  teachers: number;
-  classes: number;
+  students: number;
+  teachers: number;
+  classes: number;
 };
 
 // Fungsi fetch data sudah benar
 async function getDataState(): Promise<State[]> {
-  try {
-    const res = await fetch("https://api.smpn2katapang.sch.id/school-stats", {
-      next: { revalidate: 3600 },
-    });
+  try {
+    const res = await fetch("https://api.smpn2katapang.sch.id/school-stats", {
+      next: { revalidate: 3600 },
+    });
 
-    if (!res.ok) {
-      console.error("Gagal mengambil data statistik:", res.statusText);
-      return [];
-    }
+    if (!res.ok) {
+      console.error("Gagal mengambil data statistik:", res.statusText);
+      return [];
+    }
 
-    const result = await res.json();
-    return result.data || [];
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return [];
-  }
+    const result = await res.json();
+    return result.data || [];
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
 }
 
-export default function  CarouselHero() {
-  // 3. State untuk menampung data dari API
-  const [students, setStudents] = useState(0);
-  const [teachers, setTeachers] = useState(0);
-  const [classes, setClasses] = useState(0);
+export default function CarouselHero() {
+  // 3. State untuk menampung data dari API
+  const [students, setStudents] = useState(0);
+  const [teachers, setTeachers] = useState(0);
+  const [classes, setClasses] = useState(0); // 4. Gunakan useEffect untuk mengambil data saat komponen dimuat (client-side)
 
-  // 4. Gunakan useEffect untuk mengambil data saat komponen dimuat (client-side)
-  useEffect(() => {
-    const fetchStats = async () => {
-      const dataArray = await getDataState();
+  useEffect(() => {
+    const fetchStats = async () => {
+      const dataArray = await getDataState();
       // 5. Cek jika data ada dan ambil item pertama [0]
-      if (dataArray && dataArray.length > 0) {
-        const stats = dataArray[0];
-        setStudents(stats.students);
-        setTeachers(stats.teachers);
-        setClasses(stats.classes);
-      }
-    };
+      if (dataArray && dataArray.length > 0) {
+        const stats = dataArray[0];
+        setStudents(stats.students);
+        setTeachers(stats.teachers);
+        setClasses(stats.classes);
+      }
+    };
 
-    fetchStats();
-  }, []); // [] berarti useEffect hanya berjalan sekali saat mount
-
+    fetchStats();
+  }, []); // [] berarti useEffect hanya berjalan sekali saat mount
 
   const cardHero = [
     {
       image: "/BuAiCarousell.webp",
-      alt : "Rasio Hero Card",
+      alt: "Rasio Hero Card",
     },
     {
       image: "/kepalaSekolah.webp",
@@ -68,17 +62,17 @@ export default function  CarouselHero() {
     },
     {
       image: "/cardHero/rijal.png",
-      alt : "Rasio Hero Card",
+      alt: "Rasio Hero Card",
     },
     {
       image: "/cardHero/rasioHeroCard.png",
-      alt : "Rasio Hero Card",
+      alt: "Rasio Hero Card",
     },
     {
       image: "/cardHero/rasioHeroCard.png",
-      alt : "Rasio Hero Card",
-    }
-]
+      alt: "Rasio Hero Card",
+    },
+  ];
   return (
     <div className="relative z-20 flex justify-center items-center lg:mt-15">
       <Carousel className=" relative z-20 lg:w-90 md:w-90 sm:w-80 w-80 sm:ml-5">
@@ -87,7 +81,7 @@ export default function  CarouselHero() {
             <CarouselItem key={index}>
               <div className="p-1 ">
                 <Card>
-                  <CardContent className="flex items-center justify-center w-full lg:h-150 md:h-100 h-auto">
+                  <CardContent className="flex items-center justify-center sm:w-90 lg:h-150 md:h-100 h-auto">
                     <Image
                       src={item.image}
                       width={600}

@@ -68,7 +68,7 @@ export default async function BodyKepalaSekolah() {
               alt={`Foto ${datakepalaSekolahh.name}`}
               width={1200}
               height={1200}
-              className="w-full h-auto object-contain rounded-lg hidden md:block"
+              className="w-full h-auto object-contain rounded-lg hidden lg:block"
             />
           </div>
           <div className="w-full max-w-xl lg:w-1/2">

@@ -3,8 +3,8 @@ import CarouselHero from "../CarouselHero";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full sm:min-h-screen h-170 overflow-hidden">
-      <div className="absolute -top-200 -left-180 z-10 w-390 h-400 ">
+    <section className="relative w-full max-w-screen sm:min-h-screen h-170 overflow-hidden">
+      <div className="absolute -top-200 -left-180 z-10 w-390 2xl:w-440 h-400">
         <Image
           src="/kotak1.svg"
           alt="Kotak Dekorasi"
@@ -24,8 +24,8 @@ export default function HeroSection() {
           />
           <div className="w-full max-w-6xl">
             <div className=" bg-[#F96701] p-2 w-full max-w-xl rounded-xl bottom-5 shadow-2xl">
-              <p className="flex text-sm lg:text-lg font-semibold  text-[#F9DDCD] justify-center items-center text-center">
-                silahkan lihat semua informasi tentang sekolah ini
+              <p className="flex text-sm lg:text-lg font-medium text-[#F9DDCD] justify-center items-center text-center">
+                Silakan lihat semua informasi tentang sekolah ini
               </p>
             </div>
           </div>

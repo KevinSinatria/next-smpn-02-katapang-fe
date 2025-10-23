@@ -14,8 +14,8 @@ export default function TitleSambutan() {
     <div className="relative flex justify-center items-center w-full z-0 p-4">
       <div className="absolute z-0 left-10 w-screen hidden lg:block  font-bold">
         <CurvedLoop
-          marqueeText="Religius ✦ Edukatif ✦ Sukses ✦ Inovatif ✦ Kreatif ✦"
-          speed={3}
+          marqueeText="Berbudaya ✦ Agamis ✦ Nasionalis ✦ Gotong Royong ✦ Kreatif ✦ Inspiratif ✦ Tangguh ✦ Berprestasi"
+          speed={1}
           curveAmount={0}
           className="font-bold"
           interactive={false}

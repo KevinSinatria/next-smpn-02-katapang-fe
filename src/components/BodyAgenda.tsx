@@ -10,9 +10,7 @@ type ApiEvent = {
 
 async function getUpcomingEvents(): Promise<ApiEvent[]> {
   try {
-    const res = await fetch("https://api.smpn2katapang.sch.id/school-events", {
-      next: { revalidate: 3600 }, 
-    });
+    const res = await fetch("https://api.smpn2katapang.sch.id/school-events");
 
     if (!res.ok) {
       console.error("Gagal mengambil data event.");
@@ -34,7 +32,7 @@ async function getUpcomingEvents(): Promise<ApiEvent[]> {
         endDate: new Date(event.end),
       }))
       .filter((event) => event.endDate >= today)
-      .sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+      .sort((a, b) => b.startDate.getTime() -a.startDate.getTime());
 
     return upcoming.slice(0, 3);
   } catch (error) {

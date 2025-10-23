@@ -50,14 +50,14 @@ export async function CarouselStaff() {
             className="pl-4 md:basis-1/3 lg:basis-1/5  "
           >
             <div className="group relative h-[300px] w-full cursor-pointer">
-              <Card className="absolute inset-0 z-10 h-full w-full transform transition-all duration-500 ease-in-out group-hover:-translate-y-15 border-0">
+              <Card className="absolute inset-0 z-10 h-full w-full transform transition-all duration-500 ease-in-out -translate-y-15 md:translate-y-0 md:group-hover:-translate-y-15 border-0">
                 <CardContent className="flex h-full items-center justify-center p-0">
                   <Image
                     src={item.image_url}
                     alt={`Foto ${item.image_url}`}
                     width={300}
                     height={300}
-                    className="w-full h-full object-cover rounded-lg text-2xl text-black font-bold bg-white "
+                    className="w-80 h-60 object-cover rounded-lg text-2xl text-black font-bold bg-white "
                   />
                 </CardContent>
               </Card>

@@ -23,7 +23,7 @@ async function getAlbumData(): Promise<Album[]> {
     }
 
     const result = await response.json();
-    return result.data || [];
+    return result.data.slice(0, 8) || [];
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];
