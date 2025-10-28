@@ -59,6 +59,7 @@ export default async function Footer() {
     { name: "Kesiswaan", link: "/kesiswaan" },
     { name: "Sarana Prasarana", link: "/sapras" },
     { name: "Hubungan Masyarakat", link: "/humas" },
+    { name: "Kurikulum", link: "/kurikulum" },
     { name: "Artikel", link: "/artikel" },
     { name: "Galeri", link: "/galeri" },
   ];

@@ -105,17 +105,39 @@ export default function BodyHumas() {
 
       <VisiMisiHumas />
 
-      <div className="mb-15">
+      <div className="mb-15 m-5">
         <h1 className="lg:text-3xl md:text-2xl text-xl font-bold text-white flex justify-center items-center text-center ">
           Jenis Kegiatan Humas SMPN 2 Katapang
         </h1>
         <div className="text-base md:text-lg space-y-3 text-center w-full justify-center items-center mt-5">
-          {MISI_ITEMS.map((item) => (
-            <div key={item.id} className="flex justify-center items-center">
-              <div className="flex-1">{item.body}</div>
-            </div>
-          ))}
+          {/* Menggunakan list (ul/li) untuk menampilkan setiap item misi */}
+          <ul className="list-disc list-inside text-left mx-auto max-w-xl">
+            {MISI_ITEMS.map((item) => (
+              <li key={item.id} className="mt-2">
+                {item.body}
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
+      <div className="md:mx-15 mx-5 mb-10">
+        <p className="text-[#FFFF] font-semibold">
+          <strong>TIM KURIKULUM SMPN 2 KATAPANG</strong>
+          <br />
+          Nelly Fatma Elsis Yunda, S.Pd., M.M.Pd.
+          <br />
+          Gema Fajar Rifqi, S.Ikom.
+          <br />
+          Syafira Nurulita Utami, S.Pd.
+          <br />
+          Tantya Wulansari, M.Pd.
+          <br />
+          Balqis Amany Hasan, S.Pd
+          <br />
+          Ikrima Fatia Nurazizah, S.Pd
+          <br />
+          Resa Chairunisa, S.Pd
+        </p>
       </div>
     </div>
   );

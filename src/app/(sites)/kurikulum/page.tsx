@@ -1,5 +1,6 @@
 import JudulBidang from "@/components/JudulBidang";
-import KataPengantarKesiswaan from "@/components/KataPengantarKesiswaan";
+
+import KurikulumPage from "@/components/KurikurumPage";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function Kesiswaan() {
       <div className="w-full px-5  lg:px-30">
         <JudulBidang bidang="Kurikulum" tahunAwal={2025} tahunAkhir={2026} />
         
-        <KataPengantarKesiswaan />
+        <KurikulumPage/>
 
       </div>
     </main>
