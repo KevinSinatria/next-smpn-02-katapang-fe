@@ -119,7 +119,6 @@ export default async function Footer() {
             </ul>
           </div>
 
-          {/* Kolom 3: Hubungi Kami */}
           <div className="">
             <p className="font-bold">Hubungi Kami</p>
             <ul className="space-y-3">

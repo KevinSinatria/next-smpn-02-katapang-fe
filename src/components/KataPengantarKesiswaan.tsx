@@ -95,11 +95,11 @@ export default function KataPengantarKesiswaan() {
         />
 
         <Image
-          src={"/batik/batik3.png"}
+          src={"/batik/batik3.svg"}
           alt="Latar belakang lingkaran"
           width={300}
           height={300}
-          className="absolute bottom-0 -left-20"
+          className="absolute bottom-0 -left-20 rotate-180"
         />
       </div>
       <div
