@@ -65,7 +65,7 @@ export default function KataPengantarKesiswaan() {
     },
     {
       image: "/ekstrakulikuler/senitari.png",
-      title: "seni Tari",
+      title: "Seni Tari",
       deks: "Mengembangkan bakat di bidang tari, melatih kekompakan, dan harmoni untuk menampilkan persembahan musik yang indah.",
       link: "",
     },
