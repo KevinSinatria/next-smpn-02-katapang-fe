@@ -39,8 +39,8 @@ export default function KurikulumPage() {
         {/* Isi teks */}
         <div className="prose prose-invert max-w-none text-justify text-sm md:text-base leading-relaxed space-y-4">
           <h2 className="text-2xl md:text-3xl font-bold text-[#FB9B64] mb-4 border-b-2 border-gray-300 inline-block pb-1">
-              Prakata
-            </h2>
+            Prakata
+          </h2>
 
           <p>
             <strong>Mengapa Pendidikan di Sini Berbeda?</strong>
@@ -97,15 +97,13 @@ export default function KurikulumPage() {
             </li>
           </ul>
 
-
-
           <section className="mt-10 text-white">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#FB9B64] mb-4 border-b-2 border-gray-300 inline-block pb-1">kami menargetkan untuk
+            <h2 className="text-2xl md:text-3xl font-bold text-[#FB9B64] mb-4 border-b-2 border-gray-300 inline-block pb-1">
+              Target dan Capaian Kurikulum merdeka tahun ajaran 2025/2026
             </h2>
 
             <p className="text-justify text-base md:text-lg leading-relaxed mb-5">
-              Melalui program ini, kami berupaya
-              untuk:
+              Melalui program ini, kami berupaya untuk:
             </p>
 
             <ul className="list-disc list-inside space-y-3 marker:text-[#FB9B64] text-justify">
